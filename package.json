@@ -1,0 +1,15 @@
+{
+  "name": "codepixel.atom-ui",
+  "theme": "ui",
+  "version": "0.0.0",
+  "description": "this UI is what codecraft looks like",
+  "keywords": [
+    "ui",
+    "theme"
+  ],
+  "repository": "https://github.com/codepixelstudio/codepixel.atom-ui",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}
