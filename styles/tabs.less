@@ -1,57 +1,162 @@
+// stylesheet :: tabs
 
-// Tabs
-// -------------------
+    // settings
+        // @tab-base : darken( @app-canvas, 4% );
+        @tab-base : @toolbar-ui-color;
 
-// Displays selectable tabs above the editor.
-// Overrides: atom/tabs
+    // styles
+        .tab-bar {
 
-.tab-bar {
-  background-color: @tab-bar-background-color;
-  border-bottom: 1px solid @base-border-color;
+            background-color: @tab-base;
 
-  .tab {
-    color: @text-color;
-    height: @tab-height;
-    line-height: @tab-height;
-    font-size: @font-size;
-    border-right: 1px solid @tab-border-color;
-    background-color: @tab-background-color;
-    &.active {
-      color: @text-color-selected;
-      background-color: @tab-background-color-active;
-    }
+            border-bottom: 1px solid @base-border-color;
+            border-bottom: none;
 
+            // tab
+            .tab {
 
-    // Modified Icon (the blue circle) -------------------
-    &.modified:not(:hover) .close-icon {
-      top: 50%;
-      right: @component-padding + 4px; // 4px -> half of icon size
-      margin-top: -3px;
-      border-color: @text-color-info;
-    }
-    &.modified:hover .close-icon {
-      color: currentColor;
-    }
+                position: relative;
 
+                color: @text-color;
 
-    // Close Icon (the X) -------------------
-    .close-icon:hover {
-      color: @text-color-selected;
-    }
-    &.active .close-icon:hover {
-      color: @text-color;
-    }
+                width: @pane-tab-ui-link;
+                // min-width: @pane-tab-ui-link;
+                max-width: @pane-tab-ui-link;
+                height: @tab-height;
+                padding-left: 0.75rem;
 
+                line-height: @tab-height;
 
-    // Dragging -------------------
-    // Styles get applied while dragging a tab
-    &.is-dragging {
-      background: darken(@tab-background-color, 10%);
-      border-color: transparent;
-      opacity: .5;
-      & .close-icon {
-        visibility: hidden;
-      }
-    }
-  }
-}
+                @{type}-family: @indu-font;
+                @{type}-size: 0.625rem;
+                @{type}-weight: 600;
+
+                letter-spacing: 0.035em;
+
+                border-right: 1px solid @tab-border-color;
+                border-right: none;
+
+                color: fade( @text-color, 45% );
+
+                background-color: transparent;
+
+                &:last-child {
+
+                    border-right: none;
+
+                }
+
+                &.active {
+
+                    @{type}-weight: 600;
+
+                    color: @text-color-selected;
+
+                    background-color: lighten( @tab-bar-background-color, 1.5% );
+                    // background-color: lighten( @app-canvas, 1.5% );
+
+                }
+
+                &[data-type='WelcomeView'] {
+
+                    &.active {
+
+                        background-color: @app-canvas;
+
+                    }
+
+                }
+
+                &[data-type='GuideView'] {
+
+                    &.active {
+
+                        background-color: lighten( @app-canvas, 2% );
+
+                    }
+
+                }
+
+                &[data-type='StyleguideView'] {
+
+                    &.active {
+
+                        background-color: lighten( @app-canvas, 1% );
+
+                    }
+
+                }
+
+                &[data-type='SettingsView'] {
+
+                    &.active {
+
+                        background-color: lighten( @app-canvas, 2% );
+
+                    }
+
+                }
+
+                &.texteditor {
+
+                    &.active {
+
+                        color: @text-color-selected;
+
+                        background-color: @syntax-background-color;
+
+                    }
+
+                }
+
+                // modified icon
+                &.modified:not(:hover) .close-icon {
+
+                    top: 50%;
+                    right: @component-padding + 4px; // 4px -> half of icon size
+
+                    margin-top: -3px;
+
+                    border-color: @text-color-info;
+
+                }
+
+                &.modified:hover .close-icon {
+
+                    color: currentColor;
+
+                }
+
+                // close icon
+                .close-icon:hover {
+
+                    color: @text-color-selected;
+
+                }
+
+                &.active .close-icon:hover {
+
+                    color: @text-color;
+
+                }
+
+                // dragging
+                &.is-dragging {
+
+                    background: darken(@tab-background-color, 10%);
+
+                    border-color: transparent;
+
+                    opacity: .5;
+
+                    & .close-icon {
+
+                        visibility: hidden;
+
+                    }
+
+                }
+
+            }
+
+        }

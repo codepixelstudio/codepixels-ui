@@ -1,0 +1,266 @@
+.pio {
+    select.form-control {
+        // .select();
+        line-height: 36px;
+        height: 36px;
+    }
+}
+// stylesheet :: platform IO terminal package styles
+
+    // settings
+        @cursor   : hsla( 188, 75%, 68%, 1.000 );
+
+    // styles
+
+        // top-level hook
+        .platformio-ide-terminal {
+
+            // status bar
+            &.status-bar {
+
+                display: inline-flex;
+
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                height: 3rem;
+                margin: 0;
+                padding: 0 1rem 0 1rem;
+
+                vertical-align: initial;
+
+                background-color: transparent;
+                // background-color: darken( @app-canvas, 1% );
+
+                transition: @all220;
+
+                &:hover {
+
+                    // background-color: darken( @app-canvas, 6.5% );
+
+                }
+
+                .icon {
+
+                    display: flex;
+
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    align-self: center;
+
+                    width: ~'calc(1.5rem + 2px)';
+                    min-width: ~'calc(1.5rem + 2px)';
+                    height: ~'calc(1.5rem + 2px)';
+                    margin-right: 0.25rem;
+                    padding: 0.25rem;
+
+                    border: 1px solid transparent;
+
+                    line-height: 1rem;
+
+                    // background-color: darken( @code-canvas, 1.5% );
+
+                    transition: @all220;
+
+                    &:hover {
+
+                        &.icon-plus,
+                        &.icon-x {
+
+                            opacity: 1.000;
+
+                        }
+
+                    }
+
+                    &:before {
+
+                        top: 0;
+
+                    }
+
+                    &.icon-plus,
+                    &.icon-x {
+
+                        color: @text-color-selected;
+
+                        opacity: 0.465;
+
+                    }
+
+                    &.icon-plus {
+
+                        &:hover {
+
+                            border: 1px solid @text-color-success;
+
+                            background-color: fade( @background-color-success, 60% );
+
+                        }
+
+                    }
+
+                    &.icon-x {
+
+                        margin-right: 0;
+
+                        &:before {
+
+                            top: -1px;
+
+                        }
+
+                        &:hover {
+
+                            border: 1px solid @text-color-error;
+
+                            background-color: fade( @text-color-error, 60% );
+
+                        }
+
+                    }
+
+                }
+
+                .status-container {
+
+                    height: 1rem;
+                    margin: 0;
+
+                    line-height: 1rem;
+
+                }
+
+            }
+
+            &.terminal-view {
+
+                .btn-toolbar {
+
+                    // display: inline-flex;
+                    //
+                    // flex-direction: row-reverse;
+                    // justify-content: flex-start;
+                    // align-items: center;
+                    // align-content: space-around;
+
+                    // height: ~'calc( 2rem + 1px )';
+                    padding: 0;
+                    margin: 0;
+
+                    // border-top: 1px solid @base-border-color;
+                    // border-bottom: 1px solid @base-border-color;
+
+                    background-color: darken( @app-canvas, 2.5% );
+
+                    .btn {
+
+                        display: inline-flex;
+
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        // align-self: flex-start;
+
+                        width: 2rem;
+                        height: 2rem;
+                        margin: 0;
+                        padding: 8px;
+
+                        border: none;
+
+                        line-height: 30px;
+
+                        background-color: darken( @app-canvas, 1% );
+
+                        &:hover {
+
+                            background-color: lighten( @app-canvas, 4.5% );
+
+                            .icon {
+
+                                &:before {
+
+                                    color: @text-color;
+
+                                }
+
+                            }
+
+                        }
+
+                        .icon {
+
+                            display: inline-flex;
+
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+
+                            width: 16px;
+                            height: 16px;
+                            // width: 14px;
+
+                            &:before {
+
+                                display: inline-flex;
+
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+
+                                width: 14px;
+
+                                color: fade( @text-color, 45% );
+
+                                transition: @all220;
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        .platformio-ide-terminal {
+
+            &.terminal-view {
+
+                .xterm {
+
+                    padding: 1rem;
+
+                    @{type}-family: @code-font;
+                    @{type}-size: 9.5px;
+                    @{type}-weight: 700;
+
+                    color: @syntax-text-color;
+
+                    background-color: darken( @app-canvas, 4% );
+
+                    ::selection {
+
+                        // background-color: fade( @ui-blue, 40% );
+
+                    }
+
+                    .terminal-cursor {
+
+                        background-color: @cursor;
+
+                    }
+
+                }
+
+            }
+
+        }

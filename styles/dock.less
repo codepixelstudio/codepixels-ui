@@ -1,0 +1,93 @@
+// stylesheet :: docks
+
+    // settings
+        @foo : 'foo';
+
+    // styles
+        .atom-dock {
+
+            &-inner {
+
+                position: relative;
+
+            }
+
+            &-resize-handle {
+
+                position: absolute;
+
+                z-index: 10;
+
+                flex: 0 0 auto;
+
+                height: auto;
+
+                &.left, &.right {
+
+                    top: 0;
+                    bottom: 0;
+
+                }
+
+                &.left {
+
+                    right: 0;
+
+                }
+
+                &.right {
+
+                    left: 0;
+
+                }
+
+                &.top, &.bottom {
+
+                    right: 0;
+                    left: 0;
+
+                }
+
+                &.top {
+
+                    bottom: 0;
+
+                }
+
+                &.bottom {
+
+                    top: 0;
+
+                }
+
+            }
+
+            &-toggle-button {
+
+                display: none;
+
+                .atom-dock-toggle-button-inner {
+
+                    border-radius: 0px;
+
+                    color: @text-color;
+
+                    background-color: @base-background-color;
+
+                    .icon {
+
+                        &:before {
+
+                            margin-left: 0.45rem;
+
+                            font-size: 1rem;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }

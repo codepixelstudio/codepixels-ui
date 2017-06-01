@@ -1,27 +1,80 @@
+// stylesheet :: panels
 
-// Panels
-// -------------------
+    // settings
+        @panel-ui-base : 16rem;
 
-// Overrides: atom/static/panels.less
+    // left panel -> tree view
+    atom-panel-container {
 
-.panel-heading {
-  border-bottom: 1px solid @panel-heading-border-color;
-  background-color: @panel-heading-background-color;
-}
+        &.left {
 
-.inset-panel {
-  background-color: @inset-panel-background-color;
-  .panel-heading {
-    background-color: lighten(@inset-panel-background-color, 4%);
-  }
-}
+            // min-width: 256px;
 
+        }
 
-// Modal -------------------
-// Used on top of the editor, like the Command Palette.
+    }
 
-atom-panel.modal {
-  border: 1px solid @overlay-border-color;
-  border-top: none;
-  box-shadow: 0 2px 8px 1px hsla(0,0%,0%,.3);
-}
+    // focus on active editor
+    atom-pane {
+
+        &.pane {
+
+            atom-text-editor {
+
+                // background-color: darken( @app-canvas, 6.5% );
+
+                // transition: background-color 120ms @zipit 0ms;
+
+                .editor--private {
+
+                    // -webkit-filter: brightness(0.685);
+
+                    // transition: opacity 120ms @zipit 0ms;
+
+                }
+
+            }
+
+            &.active {
+
+                atom-text-editor {
+
+                    // background-color: darken( @app-canvas, 1% );
+
+                    // transition: background-color 120ms @zipit 0ms;
+
+                    .editor--private {
+
+                        // -webkit-filter: grayscale(0.000);
+
+                        // transition: opacity 120ms @zipit 0ms;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .panel-heading {
+
+        border-bottom: none;
+
+        background-color: @panel-heading-background-color;
+
+    }
+
+    .inset-panel {
+
+        background-color: @inset-panel-background-color;
+
+        .panel-heading {
+
+            background-color: lighten(@inset-panel-background-color, 4%);
+
+        }
+
+    }

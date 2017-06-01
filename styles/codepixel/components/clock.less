@@ -1,0 +1,84 @@
+// stylesheet :: toolbar component
+
+    // settings
+        @clock-font : 'Decima Mono Pro';
+
+    // styles
+        status-bar-clock {
+
+            &.codepixel-toolbar {
+
+                display: flex;
+
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+
+                height: 3rem;
+                padding: 0 1rem 0 0;
+
+                line-height: 3rem;
+
+                // background-color: darken( @app-canvas, 2% );
+
+                &:before {
+
+                    content: '\f0e0';
+
+                    display: inline-flex;
+
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    width: 2rem;
+                    height: 3rem;
+                    margin: 0;
+                    padding: 17px 0 15px 1rem;
+
+                    // font-family: @badmofo;
+                    font-family: @octicons;
+                    font-size: 16px;
+                    font-weight: 400;
+
+                    line-height: 1rem;
+
+                    color: @ui-text-brite;
+
+                    // background-color: lighten( @app-canvas, 1% );
+
+                    // background-image: url('atom://atom-build-ui/assets/img/icons/ui/icon_clock.svg');
+                    // background-repeat: no-repeat;
+                    // background-size: 16px 16px;
+                    // background-position: 16px 16px;
+
+                    opacity: 0.965;
+
+                }
+
+                .timestamp {
+
+                    display: inline-flex;
+
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+
+                    padding: 1px 0 0 0.375rem;
+
+                    // font-family: @clock-font;
+                    // font-family: @centimont;
+                    font-size: 9px;
+                    font-weight: 700;
+
+                    line-height: 0.625rem;
+
+                    letter-spacing: 0.075em;
+
+                    color: fade( @text-color-selected, 45% );
+
+                }
+
+            }
+
+        }

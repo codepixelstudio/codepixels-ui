@@ -1,14 +1,356 @@
+// stylesheet :: status bar
 
-// Status Bar
-// -------------------
+    // styles
+        status-bar {
 
-// Located at the bottom.
-// Displays information about the current editor.
-// Overrides: atom/status-bar
+            height: @ui-status-bar-height;
 
-.status-bar {
-  font-size: @font-size;
-  color: @text-color;
-  border-top: 1px solid @base-border-color;
-  background-color: @tree-view-background-color;
-}
+            // border-top: 1px solid @base-border-color;
+
+            @{type}-family: @indu-font;
+            @{type}-size: 10px;
+            @{type}-weight: 600;
+
+            line-height: @ui-status-bar-height;
+
+            letter-spacing: 0.045em;
+
+            color: @text-color;
+
+            background-color: @toolbar-ui-color;
+
+            .flexbox-repaint-hack {
+
+                padding: 0;
+
+            }
+
+            .icon {
+
+                &:before {
+
+                    top: 0;
+
+                    width: 1rem;
+                    height: 1rem;
+
+                    font-size: 1rem;
+
+                }
+
+            }
+
+            status-bar-launch-mode {
+
+                &.icon-color-mode {
+
+                    position: relative;
+
+                    display: flex;
+
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+
+                    width: 3rem;
+                    height: 3rem;
+                    margin: 0;
+                    padding: 1rem;
+
+                    background-color: transparent;
+                    // background-color: fade( @red, 7.5% );
+
+                    transition: @all220;
+
+                    &:before,
+                    &:after {
+
+                        display: inline-flex;
+
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+
+                        width: auto;
+                        height: 0.5rem;
+
+
+
+                    }
+
+                    &:before {
+
+                        // browser
+                        content: '\f0c5';
+                        // content: 'developer';
+
+                        // color: lighten( @app-canvas, 15% );
+                        color: fade( @red, 65% );
+                        // color: @red;
+
+                        transition: @all220;
+
+                    }
+
+                    &:hover {
+
+                        background-color: darken( @app-canvas, 5% );
+                        background-color: fade( @red, 45% );
+
+                        &:before {
+
+                            color: @red;
+                            color: @text-color-selected;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .status-bar-left,
+            .status-bar-right {
+
+                display: flex;
+
+                flex-direction: row;
+                align-items: center;
+
+            }
+
+            .status-bar-left {
+
+                padding-left: 0;
+
+            }
+
+            .status-bar-right {
+
+                padding-right: 0;
+
+                .package-updates-status-view {
+
+                    margin: 0;
+                    padding: 0 1rem 0 1rem;
+
+                    // background-color: lighten( @app-canvas, 3% );
+
+                    &:hover {
+
+                        text-decoration: none;
+
+                    }
+
+                    .icon {
+
+                        &.icon-package {
+
+                            &:before {
+
+                                // refresh
+                                // content: '\f087';
+
+                                // versions
+                                content: '\f064';
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                .inline-block {
+
+                    display: inline-flex;
+
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+
+                    height: 3rem;
+                    margin: 0;
+
+                    line-height: 3rem;
+
+                    // opacity: 0.525;
+
+                    transition: @all220;
+
+                    &:hover {
+
+                        background-color: @app-canvas;
+
+                        opacity: 1.000;
+
+                        a,
+                        span {
+
+                            text-decoration: none;
+
+                        }
+
+                    }
+
+                    .icon {
+
+                        display: inline-flex;
+
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        margin-right: 0.5rem;
+
+                    }
+
+                }
+
+                encoding-selector-status,
+                grammar-selector-status {
+
+                    padding: 0 0.75rem 0 0.75rem;
+
+                    &.inline-block {
+
+                        margin-right: 0;
+                        margin-left: 0;
+
+                    }
+
+                }
+
+                .deprecation-cop-status,
+                .line-ending-tile {
+
+                    &.inline-block {
+
+                        margin-right: 0;
+                        margin-left: 0;
+                        padding: 0 0.75rem 0 0.75rem;
+
+                    }
+
+                }
+
+                status-bar-git {
+
+                    display: inline-flex;
+
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+
+                    flex-grow: 1;
+
+                    .git-status {
+
+                        .icon {
+
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+
+                        }
+
+                    }
+
+                    .inline-block {
+
+                        padding: 0 0.75rem 0 0.75rem;
+
+                    }
+
+                    .icon {
+
+                        display: flex;
+
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+
+                    }
+
+                }
+
+            }
+
+            status-bar-file {
+
+                padding: 0 1rem 0 1rem;
+
+                background-color: transparent;
+
+                transition: @all220;
+
+                &:hover {
+
+                    background-color: darken( @app-canvas, 5% );
+
+                    .current-path {
+
+                        text-decoration: none;
+
+                        color: @text-color-highlight;
+
+                    }
+
+                }
+
+                .current-path {
+
+                    transition: @all220;
+
+                }
+
+            }
+
+            status-bar-file,
+            status-bar-cursor {
+
+                padding: 0 1rem 0 1rem;
+
+                letter-spacing: 0.035em;
+
+                color: fade( @text-color, 45% );
+
+                background-color: transparent;
+
+                transition: @all220;
+
+                a {
+
+                    text-decoration: none;
+
+                    color: fade( @text-color, 45% );
+
+                }
+
+                &.cursor-position {
+
+                    a {
+
+                        font-family: @code-font;
+                        font-size: 8.5px;
+                        font-weight: 700;
+
+                        letter-spacing: auto;
+
+                        color: fade( @text-color, 45% );
+
+                    }
+
+                }
+
+            }
+
+            status-bar-cursor {
+
+                display: none !important;
+
+            }
+
+        }

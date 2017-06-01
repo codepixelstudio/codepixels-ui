@@ -1,12 +1,96 @@
+// stylesheet :: git diff styles
 
-// Git
-// -------------------
+.status {
 
-// Used to color git status
+    .name {
 
-.status          { color: @text-color; }
-.status-added    { color: @text-color-success; } // green
-.status-ignored  { color: @text-color-subtle; }  // faded
-.status-modified { color: @text-color-warning; } // orange
-.status-removed  { color: @text-color-error; }   // red
-.status-renamed  { color: @text-color-info; }    // blue
+        // color: fade( @text-color, 42.5% );
+
+        &:before {
+
+            color: @text-color;
+
+        }
+
+    }
+
+}
+.status-added {
+
+    .name {
+
+        // color: fade( @text-color, 42.5% );
+
+        &:before {
+
+            color: @text-color-success;
+
+        }
+
+    }
+
+}
+
+.status-ignored {
+
+    .name {
+
+        // color: fade( @text-color, 42.5% );
+
+        &:before {
+
+            color: fade( @text-color, 25% );
+
+        }
+
+    }
+
+}
+
+.status-modified {
+
+    .name {
+
+        // color: fade( @text-color, 42.5% );
+
+        &:before {
+
+            color: @text-color-warning;
+
+        }
+
+    }
+
+}
+
+.status-removed {
+
+    .name {
+
+        // color: fade( @text-color, 42.5% );
+
+        &:before {
+
+            color: @text-color-error;
+
+        }
+
+    }
+
+}
+
+.status-renamed {
+
+    .name {
+
+        // color: fade( @text-color, 42.5% );
+
+        &:before {
+
+            color: @text-color-info;
+
+        }
+
+    }
+
+}

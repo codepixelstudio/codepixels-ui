@@ -1,0 +1,101 @@
+// stylesheet :: gutter styles
+
+    // settings
+        @gutter-space : 1rem;
+
+    // styles
+
+        // top-level hook
+        atom-text-editor {
+
+            .gutter-container {
+
+                &:hover {
+
+                    .gutter {
+
+                        // opacity: 1.000;
+                        //
+                        // transform: translate3d( 0, 0, 0 );
+                        //
+                        // transition: all 220ms @zipit 0ms;
+
+                    }
+
+                }
+
+            }
+
+            .gutter {
+
+                position: relative;
+
+                // opacity: 0.000;
+                //
+                // transform: translate3d( -100%, 0, 0 );
+                //
+                // transition: all 220ms @zipit 0ms;
+
+                .line-number {
+
+                    display: flex;
+
+                    flex-direction: row;
+                    justify-content: flex-end;
+                    align-items: center;
+
+                    height: 1rem;
+
+                    padding-left: @gutter-space*1.5;
+
+                    line-height: 1rem;
+
+                    color: fade( @code-text-color, 45% );
+
+                    &.cursor-line {
+
+                        color: fade( @text-color, 85% );
+
+                    }
+
+                    &.folded {
+
+                        .icon-right {
+
+                            &:before {
+
+                                content: '\f05a' !important;
+
+                            }
+
+                        }
+
+                    }
+
+                    .icon-right {
+
+                        display: inline-flex;
+
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        width: 1.5rem;
+                        height: 1rem;
+                        padding: 0 0.25rem 0.125rem 0.25rem;
+
+                        font-size: 16px;
+
+                        &:before {
+
+                            content: '\f05b';
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }

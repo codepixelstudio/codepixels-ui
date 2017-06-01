@@ -1,63 +1,272 @@
+// stylesheet :: buttons
 
-// Buttons
-// -------------------
+    // settings
+        @btn-font-size : 10.5px;
 
-// Overrides: atom/atom/static/buttons.less
+    // styles
 
+        // base
+        .btn {
 
-.btn {
-  color: lighten(@text-color, 6%);
-  background-color: @button-background-color;
-  &:hover,
-  &:focus {
-    color: @text-color-highlight;
-    background-color: @button-background-color-hover;
-  }
-  &:active {
-    color: fade(@text-color-selected, 66%);
-    background-color: darken(@button-background-color, 2%);
-  }
-  &.selected {
-    color: @text-color-selected;
-    background-color: @button-background-color-selected;
-  }
-  &:focus,
-  &:focus:active {
-    outline: none;
-  }
-}
+            display: inline-flex;
 
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
 
-// Colored buttons -----------------------
+            min-height: ~'calc(2rem + 2px)';
+            padding: 0 0.75rem 0 0.75rem;
 
-.btn.btn-primary { .btn-color(@background-color-info); }
-.btn.btn-info    { .btn-color(@background-color-info); }
-.btn.btn-success { .btn-color(@background-color-success); }
-.btn.btn-warning { .btn-color(@background-color-warning); }
-.btn.btn-error   { .btn-color(@background-color-error); }
+            border: 1px solid lighten( @app-canvas, 6.5% );
 
-.btn-color(@bg) {
-  color: @text-color-selected;
-  background-color: @bg;
-  &:hover,
-  &:focus {
-    background-color: lighten(@bg, 4%);
-  }
-  &:active {
-    background-color: darken(@bg, 4%);
-  }
-  &.selected {
-    background-color: lighten(@bg, 4%);
-  }
-  &.selected:focus,
-  &.selected:hover {
-    background-color: lighten(@bg, 8%);
-  }
-}
+            @{type}-family: @indu-font;
+            @{type}-size: @btn-font-size;
+            @{type}-weight: 600;
 
+            // line-height:  ~'calc(2rem + 2px)';
+            line-height: 2rem;
 
-// Button Group -----------------------
+            letter-spacing: 0.025em;
 
-.btn-group > .btn {
-  border-color: hsla(0,0%,0%,.2);;
-}
+            @{text}-transform: @txtup;
+
+            color: lighten(@text-color, 6%);
+
+            background-color: @button-background-color;
+
+            transition: @all220;
+
+            &:hover,
+            &:focus {
+
+                border: 1px solid lighten( @app-canvas, 10% );
+
+                color: @text-color-highlight;
+
+                background-color: @button-background-color-hover;
+
+            }
+
+            &:active {
+
+                color: fade(@text-color-selected, 66%);
+
+                background-color: darken(@button-background-color, 2%);
+
+            }
+
+            &.selected {
+
+                color: @text-color-selected;
+
+                background-color: @button-background-color-selected;
+
+            }
+
+            &:focus,
+            &:focus:active {
+
+                outline: none;
+
+            }
+
+        }
+
+        // colored buttons
+        .btn {
+
+            &.btn-primary {
+
+                border: 1px solid lighten( @app-canvas, 7.5% );
+
+                .btn-color( darken( @app-canvas, 1.5% ) );
+
+                &:hover,
+                &:focus {
+
+                    border: 1px solid lighten( @app-canvas, 15% );
+
+                    .btn-color( lighten( @app-canvas, 7.5% ) );
+
+                }
+
+                &.selected:focus {
+
+                    border: 1px solid lighten( @app-canvas, 15% );
+
+                    .btn-color( lighten( @app-canvas, 3.5% ) );
+
+                }
+
+            }
+
+            &.btn-info {
+
+                .btn-color( fade( @background-color-info, 30% ) );
+
+                border: 1px solid fade( @background-color-info, 30% );
+
+                &:hover,
+                &:focus {
+
+                    border: 1px solid @text-color-info;
+
+                    .btn-color( fade( @text-color-info, 40% ) );
+
+                }
+
+                &.selected:focus {
+
+                    border: 1px solid @text-color-info;
+
+                    .btn-color( fade( @text-color-info, 25% ) );
+
+                }
+
+            }
+
+            &.btn-success {
+
+                border: 1px solid fade( @background-color-success, 30% );
+
+                .btn-color( fade( @background-color-success, 30% ) );
+
+                &:hover,
+                &:focus {
+
+                    border: 1px solid @text-color-success;
+
+                    .btn-color( fade( @text-color-success, 40% ) );
+
+                }
+
+                &.selected:focus {
+
+                    border: 1px solid @text-color-success;
+
+                    .btn-color( fade( @text-color-success, 25% ) );
+
+                }
+
+            }
+
+            &.btn-warning {
+
+                border: 1px solid fade( @background-color-warning, 30% );
+
+                .btn-color( fade( @background-color-warning, 30% ) );
+
+                &:hover,
+                &:focus {
+
+                    border: 1px solid @text-color-warning;
+
+                    .btn-color( fade( @text-color-warning, 40% ) );
+
+                }
+
+                &.selected:focus {
+
+                    border: 1px solid @text-color-warning;
+
+                    .btn-color( fade( @text-color-warning, 25% ) );
+
+                }
+
+            }
+
+            &.btn-error {
+
+                border: 1px solid fade( @background-color-error, 60% );
+
+                .btn-color( fade( @background-color-error, 30% ) );
+
+                &:hover,
+                &:focus {
+
+                    border: 1px solid @text-color-error;
+
+                    .btn-color( fade( @text-color-error, 70% ) );
+
+                }
+
+                &.selected:focus {
+
+                    border: 1px solid @text-color-error;
+
+                    .btn-color( fade( @text-color-error, 40% ) );
+
+                }
+
+            }
+
+        }
+
+        // programmatic shit
+        .btn-color(@bg) {
+
+            color: fade( @text-color-selected, 85% );
+
+            background-color: @bg;
+
+            &:hover,
+            &:focus {
+
+                color: @text-color-selected;
+
+                background-color: @bg;
+
+            }
+
+            &:active {
+
+                // background-color: darken(@bg, 4%);
+
+            }
+
+            &.selected {
+
+                background-color: @bg;
+
+            }
+
+            &.selected:focus,
+            &.selected:hover {
+
+                background-color: @bg;
+
+            }
+
+        }
+
+        // button group
+        .btn-group > .btn {
+
+            border-color: transparent;
+
+            &.btn-info {
+
+                border: 1px solid fade( @background-color-brite, 0% );
+
+                .btn-color( fade( @background-color-brite, 50% ) );
+
+                &:hover,
+                &:focus {
+
+                    border: 1px solid @text-color-brite;
+
+                    .btn-color( fade( @text-color-brite, 30% ) );
+
+                }
+
+                &.selected:focus {
+
+                    border: 1px solid @text-color-brite;
+
+                    .btn-color( fade( @text-color-brite, 25% ) );
+
+                }
+
+            }
+
+        }

@@ -1,20 +1,224 @@
+// stylesheet :: tree view
 
-// Tree View
-// -------------------
+    atom-dock {
 
-// Used to explore and open files in the current project.
-// Overrides: atom/tree-view
+        &.left {
 
+            .atom-dock-content-wrapper {
 
-.tree-view-resizer {
-  border-right: 1px solid @base-border-color;
-}
+                &.left {
 
-.tree-view {
-  color: @text-color;
-  background-color: @tree-view-background-color;
+                    position: absolute;
 
-  .list-item.selected {
-    color: @text-color-selected;
-  }
-}
+                    right: 0;
+
+                    display: flex;
+
+                    flex-direction: row-reverse;
+
+                    border-right: none;
+
+                    .tree-view {
+
+                        > .list-tree {
+
+                            padding-top: 0.5rem;
+
+                        }
+
+                    }
+
+                    .atom-dock-resize-handle {
+
+                        position: absolute;
+
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+
+                        z-index: 3;
+
+                        display: flex;
+
+                        flex: 0 0 auto;
+
+                        width: 8px;
+
+                        background-color: transparent;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .tree-view-resizer {
+
+        width: 1px;
+
+        .tree-view-resize-handle {
+
+            border-right: 1px solid @base-border-color;
+
+        }
+
+    }
+
+    .tree-view {
+
+        color: @text-color;
+
+        background-color: @tree-view-background-color;
+
+        .list-nested-item {
+
+            .list-item {
+
+                &:before {
+
+                    color: fade( @text-color, 65% );
+
+                }
+
+            }
+
+        }
+
+        .entry {
+
+            .name {
+
+                @{type}-family: @indu-font;
+                @{type}-size: 0.625rem;
+                @{type}-weight: 600;
+
+                letter-spacing: 0.035em;
+
+                color: fade( @text-color, 42.5% );
+
+                &:before {
+
+                    color: fade( @text-color, 88.5% );
+
+                }
+
+            }
+
+            &.status-ignored {
+
+                .name {
+
+                    &:before {
+
+                        color: fade( @text-color, 25% );
+
+                    }
+
+                }
+
+            }
+
+            &.status-modified {
+
+                .name {
+
+                    &:before {
+
+                        color: mix( @app-canvas, @ui-text-yellow, 50% );
+
+                    }
+
+                }
+
+            }
+
+            &.status-added {
+
+                .name {
+
+                    &:before {
+
+                        color: mix( @app-canvas, @ui-text-green, 50% );
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        .list-nested-item,
+        .list-item {
+
+            &.selected {
+
+                &:before {
+
+                    right: -1px;
+
+                    width: 100%;
+
+                }
+
+            }
+
+        }
+
+        .list-nested-item.selected {
+
+            > .header {
+
+                > .name {
+
+                    color: @text-color-selected;
+
+                }
+
+            }
+
+        }
+
+        .list-item.selected {
+
+            &.status-modified {
+
+                .name {
+
+                    &:before {
+
+                        color: @ui-text-yellow;
+
+                    }
+
+                }
+
+            }
+
+            &.status-added {
+
+                .name {
+
+                    &:before {
+
+                        color: @ui-text-green;
+
+                    }
+
+                }
+
+            }
+
+            .name {
+
+                color: @text-color-selected;
+
+            }
+
+        }
+
+    }

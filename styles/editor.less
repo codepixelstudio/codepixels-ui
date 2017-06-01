@@ -1,27 +1,48 @@
+// stylesheet :: editor styles
 
-// Mini Editor
-// -------------------
+    // legacy -> remove (?)
+        atom-text-editor[mini] {
 
-// Mini Editors are the "text inputs" used in find+replace or in the settings.
+            padding-left: @component-padding/2;
 
+            color: @text-color;
 
-atom-text-editor[mini] {
-  padding-left: @component-padding/2;
-  color: @text-color;
-  border-radius: @component-border-radius;
-  background-color: @input-background-color;
+            border-radius: @component-border-radius;
 
-  &.is-focused {
-    background-color: darken(@input-background-color, 5%);
-  }
+            background-color: @input-background-color;
 
-  &, // <-- Deprecated. The `&,` can be removed once the Shadow DOM can't be turned off in the settings.
-  &::shadow {
-    .placeholder-text {
-      color: @text-color-subtle;
-    }
-    .selection .region {
-      background-color: @background-color-selected;
-    }
-  }
-}
+            &.is-focused {
+
+                background-color: darken(@input-background-color, 5%);
+
+            }
+
+        }
+
+    // styles
+        atom-text-editor {
+
+            @{type}-family: @code-font;
+            @{type}-size: 9.5px;
+            @{type}-weight: 700;
+
+            line-height: 16px;
+
+            .cursor-line {
+
+                // background-color: darken( @app-canvas, 1% );
+                background-color: fade( @code-line-color, 1.5% );
+                // background-color: transparent;
+
+            }
+
+            // pigments
+            .pigments-native-underline .region,
+            .pigments-native-underline-in-selection .region {
+
+                height: 1px !important;
+                margin-top: 14px;
+
+            }
+
+        }

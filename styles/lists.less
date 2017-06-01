@@ -1,58 +1,88 @@
+// stylesheet :: lists
 
-// Lists
-// -------------------
+    // settings
+        @list-stuff : 2rem;
 
-// Used in different places, like the Tree View, Commmand Palette etc.
-// Overrides: atom/static/lists.less
+    // styles
 
-// List Group -------------------
-.list-group {
-  li {
-    padding-left: @component-padding/2;
+        // list group
+        .list-group {
 
-    // We want to highlight the background of the list items because we dont know their size.
-    &.selected {
-      color: @text-color-selected;
-      background-color: @background-color-selected;
-      &:before{ display: none; }
-    }
-  }
-}
+            li {
+
+                padding-left: @component-padding/2;
+
+                &.selected {
+
+                    color: @text-color-selected;
+
+                    background-color: @background-color-selected;
+
+                    &:before{
+
+                        display: none;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        // list tree
+        .list-tree {
+
+            .selected {
+
+                color: @text-color;
+
+            }
+
+        }
 
 
-// List Tree -------------------
-.list-tree {
-  .selected {
-    color: @text-color-selected;
-  }
-}
+        // select list
+        .select-list {
+
+            li {
+
+                padding: @component-padding/2 @component-padding;
+
+            }
+
+            .status {
+
+                float: right;
+
+            }
+
+        }
 
 
-// Select List -------------------
-.select-list {
-  li {
-    padding: @component-padding/2 @component-padding;
-  }
-  .status {
-    float: right;
-  }
-}
+        // popover list
+        .select-list.popover-list {
 
+            @popover-list-padding: @component-padding/2;
 
-// Popover List -------------------
-// Used as a popover for something like autocomplete.
-.select-list.popover-list {
-  @popover-list-padding: @component-padding/2;
+            padding: @popover-list-padding;
 
-  padding: @popover-list-padding;
-  border-radius: @component-border-radius;
-  background-color: @overlay-background-color;
-  box-shadow: 0 2px 8px 1px hsla(0,0%,0%,.3);
+            border-radius: @component-border-radius;
 
-  .list-group {
-    margin-top: @popover-list-padding;
-    li {
-      padding-left: @popover-list-padding;
-    }
-  }
-}
+            background-color: @overlay-background-color;
+
+            box-shadow: 0 2px 8px 1px hsla(0,0%,0%,.3);
+
+            .list-group {
+
+                margin-top: @popover-list-padding;
+
+                li {
+
+                    padding-left: @popover-list-padding;
+
+                }
+
+            }
+
+        }

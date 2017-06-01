@@ -1,25 +1,85 @@
-// UI Theme
-// -------------------
+// stylesheet :: comprehensive stylesheet compiler
 
-// This is the main file that imports all the Less files from the `/styles` directory.
+    // ui variables
+        @import 'styles/ui-variables';
 
-// For more infos about creating themes, check out:
-// http://flight-manual.atom.io/hacking-atom/sections/creating-a-theme
+    // atom high-levels
+        @import 'styles/atom';
 
-@import "styles/ui-variables";
+    // base + background
+        @import 'styles/base';
 
-@import "styles/base";
-@import "styles/buttons";
-@import "styles/editor";
-@import "styles/find-and-replace";
-@import "styles/git";
-@import "styles/key-binding";
-@import "styles/lists";
-@import "styles/panels";
-@import "styles/progress";
-@import "styles/sites";
-@import "styles/status-bar";
-@import "styles/tabs";
-@import "styles/text";
-@import "styles/tooltips";
-@import "styles/tree-view";
+    // buttons
+        @import 'styles/buttons';
+
+    // package cards
+        @import 'styles/cards';
+
+    // dock
+        @import 'styles/dock';
+
+    // code
+        @import 'styles/editor';
+
+    // find + replace pane
+        @import 'styles/find-and-replace';
+
+    // git
+        @import 'styles/git';
+
+    // gutter
+        @import 'styles/gutter';
+
+    // key binding
+        @import 'styles/key-binding';
+
+    // lists
+        @import 'styles/lists';
+
+    // overlays
+        @import 'styles/overlays';
+
+    // panels
+        @import 'styles/panels';
+
+    // packages
+        @import 'styles/packages/packages';
+
+    // progress
+        @import 'styles/progress';
+
+    // project
+        @import 'styles/project';
+
+    // settings
+        @import 'styles/settings';
+
+    // sites
+        @import 'styles/sites';
+
+    // status bar
+        @import 'styles/status-bar';
+
+    // styleguide
+        @import 'styles/styleguide';
+
+    // tabs
+        @import 'styles/tabs';
+
+    // text formatting
+        @import 'styles/text';
+
+    // toolbars
+        @import 'styles/toolbars';
+
+    // tooltips
+        @import 'styles/tooltips';
+
+    // tree list
+        @import 'styles/tree-view';
+
+    // welcome panels
+        @import 'styles/welcome';
+
+    // codepixel utilities
+        @import 'codepixel/codepixel';

@@ -1,0 +1,182 @@
+// stylesheet :: overlays + modals
+
+    // settings
+        @overlay-ui-shadow : 0 0 16px fade( @app-canvas-nite, 95% );
+
+    // styles
+        .overlay,
+        atom-panel {
+
+            &.modal {
+
+                padding: @component-padding;
+
+                overflow: hidden;
+
+                border: none;
+                border-radius: @component-border-radius;
+
+                @{type}-size: 11px;
+                @{type}-weight: 600;
+
+                color: @text-color;
+
+                background-color: @overlay-background-color;
+
+                box-shadow: none;
+
+                -webkit-filter: drop-shadow( @overlay-ui-shadow );
+
+                atom-text-editor[mini] {
+
+                    height: 2rem;
+                    min-height: 2rem;
+                    margin-bottom: @component-padding;
+                    padding: 0 0.5rem 0 0.5rem;
+
+                    @{type}-size: 10px;
+                    @{type}-weight: 600;
+
+                    line-height: 1rem;
+
+                    .editor--private {
+
+                        display: flex;
+
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+
+                        input {
+
+                            font-size: 10px;
+
+                        }
+
+                    }
+
+                }
+
+                &.select-list ol.list-group,
+                .select-list ol.list-group {
+
+                    margin: 0 -@component-padding -@component-padding;
+
+                    li {
+
+                        display: flex;
+
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        padding: @component-padding;
+
+                        // border-bottom: 1px solid fade(@text-color, 2.5%);
+
+                        color: fade( @text-color, 65% );
+
+                        background-color: fade( @app-canvas, 99% );
+
+                        &.two-lines {
+
+                            // flex-direction: column;
+                            // justify-content: flex-start;
+                            // align-items: flex-start;
+
+                            flex-wrap: wrap;
+
+                            padding: @component-padding/2 @component-padding;
+
+                            .primary-line,
+                            .secondary-line {
+
+                                flex-grow: 1;
+                                flex-basis: 90%;
+
+                            }
+
+                            .primary-line {
+
+                                order: 1;
+
+                            }
+
+                            .secondary-line {
+
+                                order: 3;
+
+                            }
+
+                            .status {
+
+                                // order: 1;
+                                align-self: flex-end;
+
+                                float: none !important;
+
+                            }
+
+                        }
+
+                        .status.icon {
+
+                            float: right;
+
+                            margin-left: @component-icon-padding;
+
+                            &::before {
+
+                                margin-right: 0;
+
+                            }
+
+                        }
+
+                        .pull-right,
+                        .status {
+
+                            order: 2;
+
+                        }
+
+                        .key-binding {
+
+                            @{type}-family: @code-font;
+                            // @{type}-family: 'Share Tech Mono';
+                            @{type}-size: 11px;
+                            @{type}-weight: 400;
+
+                            line-height: 1rem;
+
+                            @{text}-rendering: @pixperf;
+
+                        }
+
+                        &.selected {
+
+                            color: @text-color-selected;
+
+                            background-color: darken( @app-canvas, 3.5% );
+
+                            .status.icon {
+
+                                color: @text-color-selected;
+
+                            }
+
+                        }
+
+                        &:last-child {
+
+                            border-bottom: none;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }

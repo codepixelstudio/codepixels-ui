@@ -1,22 +1,46 @@
+// stylesheet :: base styles
 
-// Base
-// -------------------
+    // settings
 
-// Used for global styles
-// Or to override certain Atom core styles
+    // window
+        html {
 
-// -------------------
+            background-color: darken( @app-canvas, 3.5% );
 
+        }
 
-body {
-  font-size: @font-size;
-  color: @text-color;
-  background-color: @app-background-color;
-}
+    // body
+        body {
 
-atom-pane {
-  border-right: 1px solid @base-border-color;
-  &:last-child {
-    border-right: none;
-  }
-}
+            // @{type}-family: @indu-font;
+            // @{type}-weight: 500;
+
+            // font-size: @font-size;
+
+            color: @text-color;
+
+            background-color: @app-background-color;
+
+            -webkit-font-smoothing: @antilias;
+
+        }
+
+    // pane
+        atom-pane {
+
+            // border-right: 1px solid @base-border-color;
+
+            &:last-child {
+
+                border-right: none;
+
+            }
+
+        }
+
+    // pane container
+        atom-pane-container {
+
+            flex: 1;
+
+        }

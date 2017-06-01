@@ -1,0 +1,351 @@
+// stylesheet :: styleguide
+
+    // settings
+        @foobar : none;
+
+    // styles
+
+        // define deep override hook
+        atom-pane-container {
+
+            atom-pane {
+
+                .pane-item {
+
+                    &.styleguide {
+
+                        background-color: lighten( @app-canvas, 1% );
+
+                        .styleguide-header {
+
+                            padding: 1rem 1rem 0 1rem;
+
+                            h1 {
+
+                                line-height: 34px;
+
+                            }
+
+                            p {
+
+                                font-size: 12px;
+                                font-weight: 600;
+
+                            }
+
+                            .styleguide-controls {
+
+                                top: 1rem;
+                                right: 1rem;
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        // base
+        .styleguide {
+
+            .styleguide-sections {
+
+                padding: 1rem;
+
+                section {
+
+                    position: relative;
+
+                    margin: 0 0 1rem 0;
+
+                    border-bottom: none;
+
+                    &:before {
+
+                        content: '\f017';
+
+                        position: absolute;
+
+                        top: 16px;
+                        bottom: 16px;
+                        left: 16px;
+
+                        z-index: 10;
+
+                        display: flex;
+
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        width: 16px;
+                        height: 16px;
+                        margin: 0;
+                        padding: 0;
+
+                        font-family: @octicons;
+                        font-size: 1rem;
+                        font-weight: 400;
+
+                        line-height: 1rem;
+
+                        // color: fade( @text-color-selected, 45% );
+                        color: @text-color-brite;
+
+                    }
+
+                    // variables
+                    &[data-name='variables'] {
+
+                        &:before {
+
+                            content: '\f0be';
+
+                        }
+
+                    }
+
+                    // icons
+                    &[data-name='icons'] {
+
+                        &:before {
+
+                            content: '\f0b6';
+
+                        }
+
+                    }
+
+                    // inputs
+                    &[data-name='inputs'] {
+
+                        &:before {
+
+                            content: '\f0c8';
+
+                        }
+
+                    }
+
+                    // text
+                    &[data-name='text'] {
+
+                        &:before {
+
+                            content: '\f0e3';
+
+                        }
+
+                    }
+
+                    // layout
+                    &[data-name='layout'] {
+
+                        &:before {
+
+                            content: '\f0c5';
+
+                        }
+
+                    }
+
+                    // git status
+                    &[data-name='git'] {
+
+                        &:before {
+
+                            content: '\f00a';
+
+                        }
+
+                    }
+
+                    // site colors
+                    &[data-name='site-highlight'] {
+
+                        &:before {
+
+                            content: '\f0d1';
+
+                        }
+
+                    }
+
+                    // badges
+                    &[data-name='badges'] {
+
+                        &:before {
+
+                            content: '\f0e6';
+
+                        }
+
+                    }
+
+                    // buttons
+                    &[data-name='buttons'] {
+
+                        &:before {
+
+                            content: '\f05c';
+
+                        }
+
+                    }
+
+                    // panels
+                    &[data-name='panel'] {
+
+                        &:before {
+
+                            content: '\f064';
+
+                        }
+
+                    }
+
+                    // list-group
+                    &[data-name='list-group'] {
+
+                        &:before {
+
+                            content: '\f062';
+
+                        }
+
+                    }
+
+                    // list-tree
+                    &[data-name='list-tree'] {
+
+                        &:before {
+
+                            content: '\f017';
+
+                        }
+
+                    }
+
+                    // select-list
+                    &[data-name='select-list'] {
+
+                        &:before {
+
+                            content: '\f0e5';
+
+                        }
+
+                    }
+
+                    // popover-list
+                    &[data-name='popover-list'] {
+
+                        &:before {
+
+                            content: '\f067';
+
+                        }
+
+                    }
+
+                    // modals
+                    &[data-name='modal-panel'] {
+
+                        &:before {
+
+                            content: '\f066';
+
+                        }
+
+                    }
+
+                    // tooltips
+                    &[data-name='tooltips'] {
+
+                        &:before {
+
+                            content: '\f02b';
+
+                        }
+
+                    }
+
+                    // messages
+                    &[data-name='error-messages'] {
+
+                        &:before {
+
+                            content: '\f02d';
+
+                        }
+
+                    }
+
+                    // progress
+                    &[data-name='progress'] {
+
+                        &:before {
+
+                            content: '\f087';
+
+                        }
+
+                    }
+
+                    .section-heading {
+
+                        display: flex;
+
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+
+                        height: 3rem;
+                        margin: 0 0 0 0;
+                        padding: 1px 0 0 2.5rem;
+
+                        @{type}-family: @klav-slim;
+                        @{type}-size: 1rem;
+                        @{type}-weight: 400;
+
+                        line-height: 3rem;
+
+                        // background-color: darken( @app-canvas, 1% );
+
+                        transition: @all220;
+
+                        &:hover {
+
+                            // background-color: lighten( @app-canvas, 2% );
+                            background-color: @app-canvas;
+
+                        }
+
+                    }
+
+                    &.collapsed {
+
+                        .section-heading {
+
+                            background-color: darken( @app-canvas, 1% );
+
+                            &:hover {
+
+                                background-color: darken( @app-canvas, 3% );
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }

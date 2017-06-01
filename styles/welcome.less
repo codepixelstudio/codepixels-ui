@@ -1,0 +1,132 @@
+// stylesheet :: welcome panels
+
+    // settings
+        @welcome-card-style : @indu-font;
+
+    // styles
+        .item-views {
+
+            .welcome {
+
+                // guide
+                &.is-guide {
+
+                    background-color: lighten( @app-canvas, 2% );
+
+                    .welcome-panel {
+
+                        details {
+
+                            display: flex;
+
+                            flex-direction: row;
+                            justify-content: flex-start;
+                            align-items: center;
+
+                            margin: 0 0 1rem 0;
+
+                            border: none;
+
+                            &:last-child {
+
+                                margin-bottom: 0;
+
+                            }
+
+                            summary {
+
+                                width: 100%;
+                                height: 3rem;
+                                padding: 0.125rem 1rem 0 1rem;
+
+                                @{type}-family: @klav-slim;
+                                @{type}-size: 1rem;
+                                @{type}-weight: 400;
+
+                                line-height: 3rem;
+
+                                letter-spacing: 0.065em;
+
+                                @{text}-transform: @txtup;
+
+                                color: fade( @text-color, 46.5% );
+
+                                background-color: @app-canvas;
+
+                                transition: @all220;
+
+                                &:before {
+
+                                    display: inline-flex;
+
+                                    width: 1rem;
+                                    height: 1rem;
+                                    margin: 0 0.5rem 0 0;
+
+                                }
+
+                                &:hover {
+
+                                    background-color: darken( @app-canvas, 2.5% );
+
+                                    transition: @all220;
+
+                                }
+
+                            }
+
+                            .welcome-detail {
+
+                                border-top: none;
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                // splash
+                background-color: @app-canvas;
+
+                &:not(.is-guide) {
+
+                    .welcome-container {
+
+                        .welcome-header {
+
+                            margin-bottom: 0;
+
+                            // opacity: 0.165;
+
+                            a {
+
+                                text-decoration: none;
+
+                            }
+
+                            .welcome-title {
+
+                                font-size: 0.875rem;
+
+                                letter-spacing: 0.185em;
+
+                            }
+
+                        }
+
+                        section,
+                        footer {
+
+                            display: none;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
