@@ -1,0 +1,142 @@
+// stylesheet :: status bar grammar selector menu
+
+    // top-level hook
+        grammar-selector-status {
+
+            .inline-block {
+
+                &:after {
+
+                    font-family: @devop-font;
+                    font-size: 1.5rem;
+                    font-weight: 400;
+
+                    text-indent: 0;
+
+                }
+
+                &[data-grammar="SCSS"] {
+
+                    color: @scss-ui;
+
+                    &:hover {
+
+                        background-color: fade( @scss-ui, 10% );
+
+                    }
+
+                    &:after {
+
+                        content: '\e64b';
+
+                    }
+
+                }
+
+                &[data-grammar="Less"] {
+
+                    color: @less-ui;
+
+                    &:after {
+
+                        content: '\e658';
+
+                    }
+
+                }
+
+                &[data-grammar="JSON"] {
+
+                    color: fade( @json-ui, 65% );
+
+                    &:after {
+
+                        content: '\e618';
+
+                    }
+
+                }
+
+                &[data-grammar="HTML"] {
+
+                    color: fade( @html-ui, 85% );
+
+                    &:after {
+
+                        content: '\e636';
+
+                        font-size: 1rem;
+
+                    }
+
+                }
+
+                &[data-grammar="YAML"] {
+
+                    color: fade( @ui-grammar-orange, 85% );
+
+                    &:after {
+
+                        content: '\e9b2';
+
+                        font-family: @icons-font;
+
+                    }
+
+                }
+
+                &[data-grammar="JavaScript"] {
+
+                    color: @js-ui;
+
+                    &:after {
+
+                        content: '\e681';
+
+                        font-size: 1rem;
+
+                    }
+
+                }
+
+                &[data-grammar="GitHub Markdown"] {
+
+                    color: fade( white, 65% );
+
+                    &:after {
+
+                        content: '\e63e';
+
+                    }
+
+                }
+
+                &[data-grammar="HTACCESS"] {
+
+                    color: lighten( @app-canvas, 45% );
+
+                    &:after {
+
+                        content: '\e699';
+
+                        font-size: 1.25rem;
+
+                    }
+
+                }
+
+                &[data-grammar="PHP"] {
+
+                    color: @php-ui;
+
+                    &:after {
+
+                        content: '\e63d';
+
+                    }
+
+                }
+
+            }
+
+        }

@@ -3,51 +3,248 @@
     // settings
         @panel-ui-base : 16rem;
 
-    // left panel -> tree view
+
+    // top-level panel/pane container
     atom-panel-container {
 
-        &.left {
+        // bottom panel
+        &.bottom {
 
-            // min-width: 256px;
+            border-left: 1px solid @base-border-color;
+
+            .panel-bottom {
+
+                border-top: 1px solid @base-border-color;
+
+            }
 
         }
 
     }
 
-    // focus on active editor
+    // base pane style
     atom-pane {
 
         &.pane {
 
-            atom-text-editor {
+            padding: 1px 0 0 0;
 
-                // background-color: darken( @app-canvas, 6.5% );
+            border-left: 1px solid @base-border-color;
 
-                // transition: background-color 120ms @zipit 0ms;
+            &:before {
 
-                .editor--private {
+                content: '';
 
-                    // -webkit-filter: brightness(0.685);
+                position: absolute;
 
-                    // transition: opacity 120ms @zipit 0ms;
+                top: 0;
+                right: -1px;
+                left: 0;
+
+                z-index: 10;
+
+                height: 1px;
+
+                background-color: @base-border-color;
+
+            }
+
+        }
+
+    }
+
+    // specificity pane style
+    atom-pane-axis {
+
+        &.horizontal.pane-row {
+
+            > atom-pane-axis {
+
+                &.vertical.pane-column {
+
+                    > atom-pane {
+
+                        &:first-child {
+
+                            &:before {
+
+                                left: -1px;
+
+                                background-image:
+
+                                    linear-gradient(
+
+                                        90deg,
+                                        fade( @ui-text-brite, 35% ) 0%,
+                                        fade( @ui-text-yellow, 45% ) 30%,
+                                        fade( @ui-text-green, 45% ) 100%
+
+                                    )
+
+                                ;
+
+                            }
+
+                        }
+
+                    }
+
+                    &:only-of-type {
+
+                        > atom-pane {
+
+                            &:first-child {
+
+                                &:before {
+
+                                    left: -1px;
+
+                                    background-image:
+
+                                        linear-gradient(
+
+                                            90deg,
+                                            fade( @ui-text-purple, 75% ) 0%,
+                                            fade( @ui-text-pink, 45% ) 100%
+
+                                        )
+
+                                    ;
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    &:nth-of-type(0n+2) {
+
+                        > atom-pane {
+
+                            &:first-child {
+
+                                &:before {
+
+                                    left: -1px;
+
+                                    background-image:
+
+                                        linear-gradient(
+
+                                            90deg,
+                                            fade( @ui-text-purple, 75% ) 0%,
+                                            fade( @ui-text-pink, 45% ) 100%
+
+                                        )
+
+                                    ;
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                &.horizontal.pane-row {
+
+                    > atom-pane {
+
+                        &:before {
+
+                            background-color: fade( @ui-text-orange, 55% );
+
+                        }
+
+                    }
+
+                    &:only-of-type {
+
+                        > atom-pane {
+
+                            &:before {
+
+                                background-color: fade( @ui-text-blue, 55% );
+
+                            }
+
+                        }
+
+                    }
 
                 }
 
             }
 
-            &.active {
+            > atom-pane {
 
-                atom-text-editor {
+                &:only-of-type {
 
-                    // background-color: darken( @app-canvas, 1% );
+                    &:before {
 
-                    // transition: background-color 120ms @zipit 0ms;
+                        background-image:
 
-                    .editor--private {
+                            linear-gradient(
 
-                        // -webkit-filter: grayscale(0.000);
+                                90deg,
+                                fade( @ui-text-green, 35% ) 0%,
+                                fade( @ui-text-blue, 45% ) 30%,
+                                fade( @ui-text-purple, 75% ) 100%
 
-                        // transition: opacity 120ms @zipit 0ms;
+                            )
+
+                        ;
+
+                    }
+
+                }
+
+                &:nth-of-type(0n+1) {
+
+                    &:before {
+
+                        left: -1px;
+
+                        background-image:
+
+                            linear-gradient(
+
+                                90deg,
+                                fade( @ui-text-brite, 35% ) 0%,
+                                fade( @ui-text-yellow, 45% ) 30%,
+                                fade( @ui-text-green, 45% ) 100%
+
+                            )
+
+                        ;
+
+                    }
+
+                }
+
+                &:nth-of-type(0n+2) {
+
+                    &:before {
+
+                        left: -1px;
+
+                        background-image:
+
+                            linear-gradient(
+
+                                90deg,
+                                fade( @ui-text-green, 35% ) 0%,
+                                fade( @ui-text-blue, 45% ) 30%,
+                                fade( @ui-text-purple, 75% ) 100%
+
+                            )
+
+                        ;
 
                     }
 

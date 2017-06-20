@@ -3,9 +3,11 @@
     // styles
         status-bar {
 
+            position: relative;
+
             height: @ui-status-bar-height;
 
-            // border-top: 1px solid @base-border-color;
+            border-top: 1px solid @base-border-color;
 
             @{type}-family: @indu-font;
             @{type}-size: 10px;
@@ -52,13 +54,16 @@
                     justify-content: center;
                     align-items: flex-start;
 
-                    width: 3rem;
+                    // width: 3rem;
+                    width: ~'calc(3rem + 1px)';
                     height: 3rem;
                     margin: 0;
-                    padding: 1rem;
+                    padding: 1rem 15px 1rem 17px;
+
+                    border-right: 1px solid @base-border-color;
 
                     background-color: transparent;
-                    // background-color: fade( @red, 7.5% );
+                    // background-color: @app-canvas;
 
                     transition: @all220;
 
@@ -74,35 +79,16 @@
                         width: auto;
                         height: 0.5rem;
 
-
-
                     }
 
                     &:before {
 
                         // browser
                         content: '\f0c5';
-                        // content: 'developer';
 
-                        // color: lighten( @app-canvas, 15% );
                         color: fade( @red, 65% );
-                        // color: @red;
 
                         transition: @all220;
-
-                    }
-
-                    &:hover {
-
-                        background-color: darken( @app-canvas, 5% );
-                        background-color: fade( @red, 45% );
-
-                        &:before {
-
-                            color: @red;
-                            color: @text-color-selected;
-
-                        }
 
                     }
 
@@ -113,6 +99,10 @@
             .status-bar-left,
             .status-bar-right {
 
+                position: relative;
+
+                z-index: 20;
+
                 display: flex;
 
                 flex-direction: row;
@@ -122,20 +112,23 @@
 
             .status-bar-left {
 
+                justify-content: flex-start;
+
                 padding-left: 0;
 
             }
 
             .status-bar-right {
 
+                justify-content: flex-end;
+
                 padding-right: 0;
+                padding-left: 0;
 
                 .package-updates-status-view {
 
                     margin: 0;
                     padding: 0 1rem 0 1rem;
-
-                    // background-color: lighten( @app-canvas, 3% );
 
                     &:hover {
 
@@ -149,10 +142,6 @@
 
                             &:before {
 
-                                // refresh
-                                // content: '\f087';
-
-                                // versions
                                 content: '\f064';
 
                             }
@@ -182,7 +171,7 @@
 
                     &:hover {
 
-                        background-color: @app-canvas;
+                        // background-color: @app-canvas;
 
                         opacity: 1.000;
 
@@ -209,15 +198,41 @@
 
                 }
 
-                encoding-selector-status,
-                grammar-selector-status {
+                encoding-selector-status {
 
-                    padding: 0 0.75rem 0 0.75rem;
+                    border-left: 1px solid @base-border-color;
 
                     &.inline-block {
 
                         margin-right: 0;
                         margin-left: 0;
+
+                        a {
+
+                            min-width: 4rem;
+                            padding: 0 1rem 0 1rem;
+
+                            // font-family: @decimano;
+                            // font-size: 9px;
+                            // font-weight: 700;
+                            //
+                            // letter-spacing: normal;
+
+                            &:hover,
+                            &:focus {
+
+                                text-decoration: none;
+
+                                color: fade( @ui-text-blue, 99% );
+
+                                background-color: darken( @app-canvas, 5% );
+                                // background-color: fade( @ui-text-blue, 5% );
+
+                                outline: none;
+
+                            }
+
+                        }
 
                     }
 
@@ -228,9 +243,13 @@
 
                     &.inline-block {
 
+                        // min-width: @ui-status-bar-height;
+
                         margin-right: 0;
                         margin-left: 0;
-                        padding: 0 0.75rem 0 0.75rem;
+                        padding: 0 1rem 0 1rem;
+
+                        // border-left: 1px solid @base-border-color;
 
                     }
 
@@ -248,11 +267,38 @@
 
                     .git-status {
 
+                        display: inline-flex;
+
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+
+                        span {
+
+                            height: 1rem;
+                            margin: 0 ;
+                            padding: 0.1875rem 0 0 0;
+
+                            font-family: @decimano;
+                            font-size: 11px;
+
+                            line-height: 0.625rem;
+
+                        }
+
                         .icon {
 
                             flex-direction: row;
                             justify-content: center;
                             align-items: center;
+
+                            &:before {
+
+                                top: -2px;
+
+                                margin-right: 0.375rem;
+
+                            }
 
                         }
 
@@ -260,7 +306,23 @@
 
                     .inline-block {
 
-                        padding: 0 0.75rem 0 0.75rem;
+                        // padding: 0 1rem 0 1rem;
+
+                        &:nth-of-type(1) {
+
+                            padding: 0 0 0 1rem;
+
+                            border-left: 1px solid @base-border-color;
+
+                        }
+
+                        &:nth-last-of-type(1) {
+
+                            padding: 0 0.75rem 0 0.75rem;
+
+                            // border-left: 1px solid @base-border-color;
+
+                        }
 
                     }
 
@@ -281,6 +343,8 @@
             status-bar-file {
 
                 padding: 0 1rem 0 1rem;
+
+                border-right: 1px solid @base-border-color;
 
                 background-color: transparent;
 
@@ -350,6 +414,140 @@
             status-bar-cursor {
 
                 display: none !important;
+
+            }
+
+            // visual debug
+            &:before,
+            &:after {
+
+                // content: '';
+
+                position: absolute;
+
+                right: 0;
+                left: 0;
+
+                z-index: 10;
+
+                width: 100%;
+                height: 1rem;
+                margin: 0;
+                padding: 0;
+
+                opacity: 0.325;
+
+            }
+
+            &:before {
+
+                top: 0;
+
+                border-bottom: 1px dotted @ui-text-blue;
+
+                // background-color: fade( @ui-text-blue, 15% );
+
+            }
+
+            &:after {
+
+                bottom: 0;
+
+                border-top: 1px dotted @ui-text-brite;
+
+                // background-color: fade( @ui-text-brite, 10% );
+
+            }
+
+            grammar-selector-status {
+
+                position: relative;
+
+                // width: 3rem;
+                width: ~'calc(3rem + 1px)';
+                height: 3rem;
+                margin: 0;
+
+                // border-right: 1px solid @base-border-color;
+                border-left: 1px solid @base-border-color;
+
+                .inline-block {
+
+                    position: absolute;
+
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+
+                    z-index: 10;
+
+                    width: 3rem;
+                    height: 3rem;
+                    margin: 0;
+                    padding: 0;
+
+                    overflow: hidden;
+
+                    text-indent: -9999em;
+
+                    background-color: transparent;
+
+                    transition: @all220;
+
+                    &:hover {
+
+                        background-color: darken( @app-canvas, 3.5% );
+
+                        &:after {
+
+                            // color: white;
+
+                            opacity: 1.000;
+
+                            transition: @all220;
+
+                        }
+
+                    }
+
+                    &:after {
+
+                        position: absolute;
+
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+
+                        z-index: 10;
+
+                        display: inline-flex;
+
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        width: 3rem;
+                        height: 3rem;
+                        margin: 0;
+                        padding: 1rem;
+
+                        opacity: 0.725;
+
+                        transition: @all220;
+
+                    }
+
+                }
+
+            }
+
+            .github-StatusBarTileController {
+
+                padding: 0 1rem 0 1rem;
+
+                border-left: 1px solid @base-border-color;
 
             }
 

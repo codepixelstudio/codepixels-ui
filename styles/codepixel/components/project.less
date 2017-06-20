@@ -1,0 +1,119 @@
+// stylesheet :: project info
+
+    // settings
+        @project-ui : none;
+
+    // styles
+        codepixel-project {
+
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: 0.075em;
+
+            text-transform: uppercase;
+
+            .project-title {
+
+                position: relative;
+
+                // padding: 0 1.75rem 0 1.75rem;
+                padding: 0 1rem 0 1rem;
+
+                // background-color: darken( @app-canvas, 3.5% );
+
+                &:before,
+                &:after {
+
+                    // content: '';
+
+                    position: absolute;
+
+                    top: 1.125rem;
+                    bottom: 1.125rem;
+
+                    z-index: 10;
+
+                    display: inline;
+
+                    width: 0.75rem;
+                    height: 0.75rem;
+
+                    font-family: @code-font;
+                    font-size: 12px;
+                    font-weight: 600;
+
+                    color: fade( @text-color-selected, 45% );
+
+                    // background-color: fade( @red, 40% );
+
+                }
+
+                &:before {
+
+                    left: 1rem;
+
+                }
+
+                &:after {
+
+                    right: 1rem;
+
+                }
+
+            }
+
+            .label {
+
+                color: fade( @text-color-selected, 75% );
+
+            }
+
+            em {
+
+                // display: inline-block;
+                //
+                // height: 4px;
+
+                font-size: 10px;
+                font-style: normal;
+
+                color: fade( @ui-text-brite, 75% );
+
+            }
+
+            small {
+
+                font-size: 9px;
+                font-weight: 600;
+
+                letter-spacing: 0.035em;
+
+                text-transform: lowercase;
+
+                color: fade( @text-color-selected, 45% );
+
+            }
+
+            .version {
+
+                color: fade( @ui-text-brite, 75% );
+
+            }
+
+            button {
+
+                .btn {
+
+                    font-size: 7.5px;
+                    font-weight: 900;
+
+                    letter-spacing: 1px;
+
+                    text-transform: uppercase;
+
+                }
+
+            }
+
+        }

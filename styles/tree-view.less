@@ -4,6 +4,8 @@
 
         &.left {
 
+            border-left: none;
+
             .atom-dock-content-wrapper {
 
                 &.left {
@@ -18,11 +20,18 @@
 
                     border-right: none;
 
+                    atom-pane {
+
+                        border-left: none;
+
+                    }
+
                     .tree-view {
 
                         > .list-tree {
 
-                            padding-top: 0.5rem;
+                            // padding-top: 0.5rem;
+                            padding-top: 0;
 
                         }
 

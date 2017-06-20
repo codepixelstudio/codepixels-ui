@@ -1,5 +1,9 @@
 // stylesheet :: editor styles
 
+    // settings
+        @baller-code : 'CamingoCode';
+        @editor-base : darken( @app-canvas, 2% );
+
     // legacy -> remove (?)
         atom-text-editor[mini] {
 
@@ -24,15 +28,48 @@
 
             @{type}-family: @code-font;
             @{type}-size: 9.5px;
-            @{type}-weight: 700;
+            @{type}-weight: 600;
 
-            line-height: 16px;
+            // line-height: 16px;
+            line-height: 1.125rem;
+
+            letter-spacing: 0.125px;
 
             .cursor-line {
 
-                // background-color: darken( @app-canvas, 1% );
-                background-color: fade( @code-line-color, 1.5% );
-                // background-color: transparent;
+                background-color: fade( @code-line-color, 2% );
+
+                transition: @all220;
+
+            }
+
+            .line {
+
+                .indent-guide {
+
+                    position: relative;
+
+                    box-shadow: none;
+
+                    &:before {
+
+                        content: '';
+
+                        position: absolute;
+
+                        top: 1px;
+                        bottom: 0;
+                        left: 0;
+
+                        z-index: 1;
+
+                        width: 1px;
+
+                        border-left: 1px dotted @syntax-indent-guide-color;
+
+                    }
+
+                }
 
             }
 

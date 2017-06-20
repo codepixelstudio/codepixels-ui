@@ -1,7 +1,13 @@
 // stylesheet :: gutter styles
 
     // settings
-        @gutter-space : 1rem;
+
+        // metrics
+            @gutter-space : 1rem;
+
+        // colors
+            @gutter-green : fade( @ui-text-brite, 10% );
+            @gutter-blue  : fade( @ui-text-blue, 8.5% );
 
     // styles
 
@@ -10,19 +16,7 @@
 
             .gutter-container {
 
-                &:hover {
-
-                    .gutter {
-
-                        // opacity: 1.000;
-                        //
-                        // transform: translate3d( 0, 0, 0 );
-                        //
-                        // transition: all 220ms @zipit 0ms;
-
-                    }
-
-                }
+                // the emptiness
 
             }
 
@@ -30,11 +24,103 @@
 
                 position: relative;
 
-                // opacity: 0.000;
-                //
-                // transform: translate3d( -100%, 0, 0 );
-                //
-                // transition: all 220ms @zipit 0ms;
+                &:hover {
+
+                    .line-number {
+
+                        &.foldable {
+
+                            &:not(.folded) {
+
+                                .icon-right{
+
+                                    opacity: 1.000;
+
+                                }
+
+                            }
+
+                        }
+
+                        &.folded {
+
+                            .icon-right {
+
+                                &::before {
+
+                                    left: 0;
+
+                                    width: 1rem;
+                                    height: 1rem;
+
+                                    font-size: 0.625rem;
+
+                                    line-height: 1rem;
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                &[gutter-name="pigments-gutter"] {
+
+                    position: absolute;
+
+                    z-index: 1;
+
+                    min-width: 10px !important;
+
+                    .custom-decorations {
+
+                        position: relative;
+
+                        background-color: transparent !important;
+
+                        .pigments-gutter-marker {
+
+                            width: 0.625rem;
+
+                        }
+
+                        .pigments-gutter-marker div,
+                        .pigments-gutter-marker-in-selection div {
+
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+
+                            width: 0.625rem;
+                            padding: 0 0 0 0;
+
+                            span {
+
+                                width: 4px;
+                                height: 4px;
+
+                                &:before {
+
+                                    background-image: none;
+
+                                }
+
+                                &:after {
+
+                                    border: none;
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
 
                 .line-number {
 
@@ -44,17 +130,140 @@
                     justify-content: flex-end;
                     align-items: center;
 
-                    height: 1rem;
+                    // height: 1rem;
 
                     padding-left: @gutter-space*1.5;
 
-                    line-height: 1rem;
+                    font-weight: 700;
 
-                    color: fade( @code-text-color, 45% );
+                    // line-height: 1rem;
+
+                    color: fade( @code-text-color, 15% );
+
+                    background-color: transparent;
+
+                    opacity: 1.000;
+
+                    transition: @all220;
 
                     &.cursor-line {
 
-                        color: fade( @text-color, 85% );
+                        color: fade( @ui-text-brite, 90% );
+
+                        background-color: darken( @app-canvas, 2% );
+
+                        &.foldable {
+
+                            &.folded {
+
+                                color: fade( @code-text-color, 95% );
+
+                                background-color: fade( @ui-text-green, 8.5% );
+
+                                .icon-right {
+
+                                    color: fade( @ui-text-green, 65% );
+
+                                }
+
+                            }
+
+                        }
+
+                        &.foldable {
+
+                            &:not(.folded) {
+
+                                &:hover {
+
+                                    color: fade( @code-text-color, 95% );
+
+                                    background-color: fade( @red, 8.5% );
+
+                                    .icon-right {
+
+                                        color: @red;
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    &.foldable {
+
+                        &:not(.folded) {
+
+                            &:hover {
+
+                                color: fade( @code-text-color, 85% );
+
+                                background-color: fade( @red, 8.5% );
+
+                                .icon-right {
+
+                                    color: @red;
+
+                                }
+
+                            }
+
+                            .icon-right {
+
+                                opacity: 0.000;
+
+                            }
+
+                        }
+
+                        &.folded {
+
+                            color: fade( @code-text-color, 65% );
+
+                            background-color: fade( @ui-text-green, 2% );
+
+                            &:hover {
+
+                                color: fade( @code-text-color, 95% );
+
+                                background-color: fade( @ui-text-green, 5% );
+
+                                .icon-right {
+
+                                    color: @ui-text-green;
+
+                                }
+
+                            }
+
+                            .icon-right {
+
+                                color: fade( @ui-text-green, 25% );
+
+                            }
+
+                        }
+
+                        .icon-right {
+
+                            color: fade( @code-text-color, 35% );
+
+                            opacity: 1.000;
+
+                            transition: @all220;
+
+                            &:before {
+
+                                // triangle
+                                content: '\f05b';
+
+                            }
+
+                        }
 
                     }
 
@@ -62,9 +271,32 @@
 
                         .icon-right {
 
+                            color: fade( @text-color-selected, 45% );
+
+                            opacity: 1.000;
+
                             &:before {
 
-                                content: '\f05a' !important;
+                                // triangle
+                                // content: '\f05a' !important;
+                                content: '\f05b' !important;
+
+                                left: 0;
+
+                                display: inline-flex;
+
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+
+                                width: 1rem;
+                                height: 1rem;
+
+                                font-size: 0.625rem;
+
+                                transform: rotate(-90deg);
+
+                                transform-origin: center center;
 
                             }
 
@@ -80,15 +312,22 @@
                         justify-content: center;
                         align-items: center;
 
-                        width: 1.5rem;
-                        height: 1rem;
-                        padding: 0 0.25rem 0.125rem 0.25rem;
-
-                        font-size: 16px;
+                        width: 1.25rem;
+                        height: 1.125rem;
+                        padding: 0.0625rem 0 0.0625rem 0.25rem;
 
                         &:before {
 
-                            content: '\f05b';
+                            display: inline-flex;
+
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+
+                            width: 1rem;
+                            height: 1rem;
+
+                            font-size: 0.625rem;
 
                         }
 
