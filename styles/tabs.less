@@ -32,7 +32,9 @@
                 line-height: @ui-status-bar-height;
 
                 @{type}-family: @indu-font;
-                @{type}-size: 0.625rem;
+                // @{type}-family: @titillium;
+                // @{type}-size: 0.6875rem;
+                @{type}-size: 0.59375rem;
                 @{type}-weight: 600;
 
                 letter-spacing: 0.035em;
@@ -80,9 +82,18 @@
 
                     color: @text-color-selected;
 
+                    // background-color: fade( @syntax-background-color, 50% );
+                    background-color: fade( @text-color, 2.5% );
+
                     &:before {
 
                         background-color: fade( @ui-text-brite, 45% );
+
+                    }
+
+                    &:after {
+
+                        background-color: fade( @syntax-background-color, 35% );
 
                     }
 
