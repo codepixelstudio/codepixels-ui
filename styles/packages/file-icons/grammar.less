@@ -47,11 +47,14 @@
 
                 &[data-grammar="JSON"] {
 
-                    color: fade( @json-ui, 65% );
+                    // color: fade( @json-ui, 65% );
+                    color: @js-ui;
 
                     &:after {
 
-                        content: '\e618';
+                        content: '\ea27';
+
+                        font-family: @icons-font;
 
                     }
 
@@ -87,13 +90,14 @@
 
                 &[data-grammar="JavaScript"] {
 
-                    color: @js-ui;
+                    // color: @js-ui;
+                    color: fade( @json-ui, 65% );
 
                     &:after {
 
-                        content: '\e681';
+                        content: '\e618';
 
-                        font-size: 1rem;
+                        // font-size: 1rem;
 
                     }
 
@@ -132,6 +136,18 @@
                     &:after {
 
                         content: '\e63d';
+
+                    }
+
+                }
+
+                &[data-grammar="CoffeeScript"] {
+
+                    color: @coffee-ui;
+
+                    &:after {
+
+                        content: '\e651';
 
                     }
 

@@ -1,55 +1,26 @@
 // stylesheet :: base styles
 
-    // settings
-
     // window
-        html {
+    html {
 
-            background-color: darken( @app-canvas, 3.5% );
+        background-color: darken( @app-canvas, 3.5% );
 
-        }
+    }
 
     // body
-        body {
+    body {
 
-            // @{type}-family: @indu-font;
-            // @{type}-weight: 500;
+        color: @text-color;
 
-            // font-size: @font-size;
+        background-color: @app-background-color;
 
-            color: @text-color;
+        -webkit-font-smoothing: @antilias;
 
-            background-color: @app-background-color;
-
-            -webkit-font-smoothing: @antilias;
-
-        }
-
-    // pane
-        atom-pane {
-
-            // border-top: 1px solid @base-border-color;
-
-
-            // overflow: hidden !important;
-
-            &:first-child {
-
-                // border-left: none;
-
-            }
-
-            &:last-child {
-
-                // border-right: none;
-
-            }
-
-        }
+    }
 
     // pane container
-        atom-pane-container {
+    atom-pane-container {
 
-            flex: 1;
+        flex: 1;
 
-        }
+    }

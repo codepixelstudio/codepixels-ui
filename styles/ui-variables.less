@@ -1,111 +1,130 @@
 // stylesheet :: application-required variables
 
-    // imports
+    // fonts
+    @import 'fonts/fonts';
 
-        // fonts
-            @import 'fonts/fonts';
+    // variables
+    @import 'variables/variables';
 
-        // variables
-            @import 'variables/variables';
-
-        // colors
-            @import 'colors/colors';
+    // colors
+    @import 'colors/colors';
 
     // text
-        @text-color             : hsla( 226, 32%, 89%, 1.000 );
-        @text-color-subtle      : fade( @text-color, 70% );
-        @text-color-highlight   : darken( @text-color, 5% );
-        @text-color-selected    : lighten( @text-color, 15% );
+    @text-color             : hsla( 226, 32%, 89%, 1.000 );
+    @text-color-subtle      : fade( @text-color, 70% );
+    @text-color-highlight   : darken( @text-color, 5% );
+    @text-color-selected    : lighten( @text-color, 15% );
 
-        @text-color-pink        : @ui-text-pink;
-        @text-color-info        : @ui-text-blue;
-        @text-color-success     : @ui-text-green;
-        @text-color-warning     : @ui-text-yellow;
-        @text-color-error       : @ui-text-orange;
-        @text-color-action      : @ui-text-pink;
-        @text-color-brite       : @ui-text-brite;
+    // custom colors
+    @gold       : #D7D392;
+    @g140		: #156140;
+	@g135		: #115135;
+	@dark		: #0A3321;
+	@nite 		: #082818;
+	@midnite	: #051910;
+	@dark-nite 	: #050F08;
+
+    @app05		: #172D2A;
+	@app10	 	: #161C1A;
+	@app20 		: #1B211E;
+	@app30		: #1D2421;
+	@app40		: #232B28;
+	@app45      : #21332D;
+	@app50		: #2B3631;
+	@app60		: #2F3B36;
+	@app65 		: #263832;
+	@app70		: #33403A;
+	@app80 		: #394741;
+	@app90		: #34574C;
+
+    @text-color-pink        : @ui-text-pink;
+    @text-color-info        : @ui-text-blue;
+    @text-color-success     : @ui-text-green;
+    @text-color-warning     : @ui-text-yellow;
+    @text-color-error       : @ui-text-orange;
+    @text-color-action      : @ui-text-pink;
+    @text-color-brite       : @ui-text-brite;
 
     // background
-        @background-color-primary   : lighten( @code-canvas, 3.5% );
-        @background-color-info      : mix( @code-canvas, @ui-text-blue, 70% );
-        @background-color-success   : mix( @code-canvas, @ui-text-green, 70% );
-        @background-color-warning   : mix( @code-canvas, @ui-text-yellow, 70% );
-        @background-color-error     : mix( @code-canvas, @ui-text-orange, 70% );
-        @background-color-action    : mix( @code-canvas, @ui-text-pink, 70% );
-        @background-color-brite     : mix( @code-canvas, @ui-text-brite, 70% );
+    @background-color-primary   : lighten( @app-canvas, 3.5% );
+    @background-color-info      : mix( @code-canvas, @ui-text-blue, 70% );
+    @background-color-success   : mix( @code-canvas, @ui-text-green, 70% );
+    @background-color-warning   : mix( @code-canvas, @ui-text-yellow, 70% );
+    @background-color-error     : mix( @code-canvas, @ui-text-orange, 70% );
+    @background-color-action    : mix( @code-canvas, @ui-text-pink, 70% );
+    @background-color-brite     : mix( @code-canvas, @ui-text-brite, 70% );
 
-        @background-color-highlight : lighten(@base-background-color, 5%);
-        @background-color-selected  : lighten(@base-background-color, 0%);
-        @app-background-color       : darken( @app-canvas, 1.5% );
+    @background-color-highlight : lighten(@base-background-color, 5%);
+    @background-color-selected  : lighten(@base-background-color, 0%);
+    @app-background-color       : darken( @app-canvas, 1.5% );
+    // @app-background-color: red;
 
     // base colors
-        // @base-background-color  : @app-canvas;
-        @base-background-color  : darken( @app-canvas, 1.5% );
-        @base-border-color      : lighten( @base-background-color, 2.5% );
-        // @base-border-color      : darken( @app-canvas, 0.5% );
+    // @base-background-color  : @app-canvas;
+    @base-background-color  : darken( @app-canvas, 1.5% );
+    @base-border-color      : lighten( @base-background-color, 2.5% );
+    // @base-border-color      : darken( @app-canvas, 0.5% );
 
     // components
-        @pane-item-background-color     : @base-background-color;
-        @pane-item-border-color         : @base-border-color;
+    @pane-item-background-color     : @base-background-color;
+    @pane-item-border-color         : @base-border-color;
 
-        @input-background-color         : @app-background-color;
-        @input-border-color             : @base-border-color;
+    @input-background-color         : @app-background-color;
+    @input-border-color             : @base-border-color;
 
-        @tool-panel-background-color    : @base-background-color;
-        @tool-panel-border-color        : @base-border-color;
+    @tool-panel-background-color    : @base-background-color;
+    @tool-panel-border-color        : @base-border-color;
 
-        @inset-panel-background-color   : lighten(@base-background-color, 4%);
-        @inset-panel-border-color       : @base-border-color;
+    @inset-panel-background-color   : lighten(@base-background-color, 4%);
+    @inset-panel-border-color       : @base-border-color;
 
-        @panel-heading-background-color : lighten(@base-background-color, 4%);
-        @panel-heading-border-color     : @base-border-color;
+    @panel-heading-background-color : lighten(@base-background-color, 4%);
+    @panel-heading-border-color     : @base-border-color;
 
-        @overlay-background-color       : lighten( @base-background-color, 2.5% );
-        @overlay-border-color           : transparent;
+    @overlay-background-color       : lighten( @base-background-color, 2.5% );
+    @overlay-border-color           : transparent;
 
     // buttons
-        @button-background-color            : darken( @base-background-color, 1.5% );
-        @button-background-color-hover      : lighten( @button-background-color, 5% );
-        @button-background-color-selected   : @button-background-color-hover;
-        @button-border-color                : @base-border-color;
+    @button-background-color            : darken( @base-background-color, 1.5% );
+    @button-background-color-hover      : lighten( @button-background-color, 5% );
+    @button-background-color-selected   : @button-background-color-hover;
+    @button-border-color                : @base-border-color;
 
     // tabs
-        @tab-bar-background-color       : @base-background-color;
-        @tab-bar-border-color           : @base-border-color;
-        @tab-background-color           : @tab-bar-background-color;
-        @tab-background-color-active    : lighten(@tab-bar-background-color, 10%);
-        @tab-border-color               : @base-border-color;
+    @tab-bar-background-color       : @base-background-color;
+    @tab-bar-border-color           : @base-border-color;
+    @tab-background-color           : @tab-bar-background-color;
+    @tab-background-color-active    : lighten(@tab-bar-background-color, 10%);
+    @tab-border-color               : @base-border-color;
 
     // tree view
-        // @tree-view-background-color : darken( @app-canvas, 3.5% );
-        @tree-view-background-color : darken( @app-canvas, 4% );
-        @tree-view-border-color     : @base-border-color;
-        // @tree-view-border-color     : transparent;
+    // @tree-view-background-color : darken( @app-canvas, 3.5% );
+    @tree-view-background-color : darken( @app-canvas, 5% );
+    // @tree-view-background-color : @app05;
+    @tree-view-border-color     : @base-border-color;
+    // @tree-view-border-color     : transparent;
 
     // sites
-        @ui-site-color-1: hsl(208, 100%, 50%);
-        @ui-site-color-2: hsl(160,  70%, 42%);
-        @ui-site-color-3: hsl(32,   60%, 50%);
-        @ui-site-color-4: #D831B0;
-        @ui-site-color-5: #EBDD5B;
+    @ui-site-color-1: hsl(208, 100%, 50%);
+    @ui-site-color-2: hsl(160,  70%, 42%);
+    @ui-site-color-3: hsl(32,   60%, 50%);
+    @ui-site-color-4: #D831B0;
+    @ui-site-color-5: #EBDD5B;
 
-    // sizes
+    // text-based
+    @font-size              : 16px;
+    @input-font-size        : 14px;
+    @disclosure-arrow-size  : 12px;
 
-        // text-based
-            @font-size              : 16px;
-            @input-font-size        : 14px;
-            @disclosure-arrow-size  : 12px;
+    // component-based
+    @component-padding      : 8px;
+    @component-icon-padding : 8px;
+    @component-icon-size    : 16px;
+    @component-line-height  : 24px;
 
-        // component-based
-            @component-padding      : 8px;
-            @component-icon-padding : 8px;
-            @component-icon-size    : 16px;
-            @component-line-height  : 24px;
-
-        // tabs
-            @tab-height : 48px;
-
+    // tabs
+    @tab-height : 48px;
 
     // miscellaneous
-        @component-border-radius    : 0px;
-        @font-family                : 'Industry', 'Helvetica Neue', Ubuntu, Cantarell, sans-serif;
+    @component-border-radius    : 0px;
+    @font-family                : 'Industry', 'Helvetica Neue', Ubuntu, Cantarell, sans-serif;

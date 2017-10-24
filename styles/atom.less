@@ -1,44 +1,70 @@
 // stylesheet :: general atom styles
 
     // everything
-        * {
+    * {
 
-            box-sizing: border-box;
+        box-sizing: border-box;
 
-        }
+    }
 
-        atom-workspace {
+    atom-workspace {
 
-            @{type}-size: .75rem;
+        @{type}-size: .75rem;
 
-            background-color: @app-background-color;
+        background-color: @app-background-color;
 
-        }
+    }
 
     // scrollbars
-        .scrollbars-visible-when-scrolling,
-        .scrollbars-visible-always {
+    .scrollbars-visible-always {
 
-            ::-webkit-scrollbar {
+        ::-webkit-scrollbar {
 
-                width: 0px;
-                height: 0px;
-
-            }
-
-            ::-webkit-scrollbar-corner,
-            ::-webkit-scrollbar-track {
-
-                background-color: transparent;
-
-            }
-
-            ::-webkit-scrollbar-thumb {
-
-                background-color: transparent;
-
-                border-radius: 0;
-
-            }
+            width: 1px;
+            height: 0px;
 
         }
+
+        ::-webkit-scrollbar-corner,
+        ::-webkit-scrollbar-track {
+
+            background-color: transparent;
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+
+            background-color: red;
+
+            border-radius: 0;
+
+        }
+
+    }
+
+    .scrollbars-visible-when-scrolling {
+
+        ::-webkit-scrollbar {
+
+            width: 1px;
+            height: 0px;
+
+        }
+
+        ::-webkit-scrollbar-corner,
+        ::-webkit-scrollbar-track {
+
+            background-color: transparent;
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+
+            // background-color: @ui-text-brite;
+            
+
+            border-radius: 0;
+
+        }
+
+    }

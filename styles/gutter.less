@@ -3,11 +3,11 @@
     // settings
 
         // metrics
-            @gutter-space : 1rem;
+        @gutter-space : 1rem;
 
         // colors
-            @gutter-green : fade( @ui-text-brite, 10% );
-            @gutter-blue  : fade( @ui-text-blue, 8.5% );
+        @gutter-green : fade( @ui-text-brite, 10% );
+        @gutter-blue  : fade( @ui-text-blue, 8.5% );
 
     // styles
 
@@ -35,6 +35,20 @@
                                 .icon-right{
 
                                     opacity: 1.000;
+
+                                }
+
+                                &.codemarked {
+
+                                    .icon-right {
+
+                                        &:before {
+
+                                            color: fade( @code-text-color, 35% );
+
+                                        }
+
+                                    }
 
                                 }
 
@@ -128,12 +142,12 @@
 
                     flex-direction: row;
                     justify-content: flex-end;
-                    align-items: center;
-
-                    // height: 1rem;
+                    align-items: flex-end;
 
                     padding-left: @gutter-space*1.5;
 
+                    font-family: 'Centima Mono';
+                    font-size: 0.625rem;
                     font-weight: 700;
 
                     line-height: 1rem;
@@ -146,11 +160,104 @@
 
                     transition: @all220;
 
+                    &:after {
+
+                        // null
+                        content: '';
+
+                        position: absolute;
+
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+
+                        z-index: 10;
+
+                        width: 1.125rem;
+                        height: 1.125rem;
+                        margin: 0;
+                        padding: 0;
+
+                        background-image: url('atom://codepixel.atom-ui/assets/img/marks/_default.png');
+                        background-position: 1px 0;
+                        background-size: 18px 18px;
+                        background-repeat: no-repeat;
+
+                        opacity: 0.000;
+
+                        transform: translate3d( -0.5rem, 0, 0 );
+
+                        transition: all 720ms @oquin 0ms;
+
+                    }
+
+                    &.codemarked {
+
+                        &:after {
+
+                            background-image: url('atom://codepixel.atom-ui/assets/img/marks/function.png');
+                            background-position: 0 0;
+
+                            opacity: 1.000;
+
+                            transform: translate3d( 0, 0, 0 );
+
+                            transition: all 210ms @oquin 180ms !important;
+
+                        }
+
+                        &.codemark {
+
+                            &:after {
+
+                                background-image: url('atom://codepixel.atom-ui/assets/img/marks/codemark.png');
+                                background-position: 1px 0;
+
+                            }
+
+                        }
+
+                        &.design {
+
+                            &:after {
+
+                                background-image: url('atom://codepixel.atom-ui/assets/img/marks/design.png');
+                                background-position: 0 0;
+
+                            }
+
+                        }
+
+                        &:not(.foldable) {
+
+                            .icon-right {
+
+                                &:before {
+
+                                    // triangle
+                                    content: '\f05b';
+
+                                    // null
+                                    content: '';
+
+                                    display: none;
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
                     &.cursor-line {
 
                         color: fade( @ui-text-brite, 90% );
 
-                        background-color: darken( @app-canvas, 2% );
+                        // background-color: darken( @app-canvas, 6.5% );
+
+                        // background-color: fade( @ui-text-brite, 3% );
+                        background-color: fade( @code-line-color, 3% );
 
                         &.foldable {
 
@@ -208,6 +315,45 @@
 
                                     color: @red;
 
+                                    &:before {
+
+                                        color: @red;
+
+                                        transition: @all220;
+
+                                    }
+
+                                }
+
+                            }
+
+                            &.codemarked {
+
+                                &:hover {
+
+                                    .icon-right {
+
+                                        &:before {
+
+                                            color: @red;
+
+                                            transition: @all220;
+
+                                        }
+
+                                    }
+
+                                }
+
+                                .icon-right {
+
+                                    &:before {
+
+                                        // triangle
+                                        content: '\f05b';
+
+                                    }
+
                                 }
 
                             }
@@ -215,6 +361,58 @@
                             .icon-right {
 
                                 opacity: 0.000;
+
+                            }
+
+                        }
+
+                        &.codemarked {
+
+                            &:not(.folded) {
+
+                                .icon-right {
+
+                                    // opacity: 1.000;
+
+                                    &:before {
+
+                                        // triangle
+                                        content: '\f05b';
+
+                                        // alert
+                                        // content: '\f02d';
+
+                                    }
+
+                                }
+
+                            }
+
+                            &.folded {
+
+                                &:hover {
+
+                                    .icon-right {
+
+                                        &:before {
+
+                                            color: @ui-text-green;
+
+                                        }
+
+                                    }
+
+                                }
+
+                                .icon-right {
+
+                                    &:before {
+
+                                        color: fade( @ui-text-green, 25% );
+
+                                    }
+
+                                }
 
                             }
 
@@ -230,7 +428,7 @@
 
                                 color: fade( @code-text-color, 95% );
 
-                                background-color: fade( @ui-text-green, 5% );
+                                background-color: fade( @ui-text-green, 7.5% );
 
                                 .icon-right {
 
@@ -298,6 +496,8 @@
 
                                 transform-origin: center center;
 
+                                transition: @all220;
+
                             }
 
                         }
@@ -328,6 +528,8 @@
                             height: 1rem;
 
                             font-size: 0.625rem;
+
+                            transition: @all220;
 
                         }
 

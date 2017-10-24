@@ -24,14 +24,16 @@
 
                         border-left: none;
 
+                        background-color: @tree-view-background-color;
+
                     }
 
                     .tree-view {
 
                         > .list-tree {
 
-                            // padding-top: 0.5rem;
-                            padding-top: 0;
+                            // padding-top: 0;
+                            padding: 0 1rem 0 1rem;
 
                         }
 
@@ -81,7 +83,8 @@
 
         color: @text-color;
 
-        background-color: @tree-view-background-color;
+        // background-color: @tree-view-background-color;
+        background-color: transparent;
 
         .list-nested-item {
 
@@ -111,7 +114,8 @@
 
                 &:before {
 
-                    color: fade( @text-color, 88.5% );
+                    color: fade( @text-color, 28.5% );
+                    // color: red;
 
                 }
 
@@ -166,11 +170,15 @@
 
             &.selected {
 
+                color: red !important;
+
                 &:before {
 
                     right: -1px;
 
                     width: 100%;
+
+                    background-color: fade( @text-color, 5% );
 
                 }
 
@@ -225,6 +233,13 @@
             .name {
 
                 color: @text-color-selected;
+                color: @gold;
+
+                &:before {
+
+                    color: fade( @text-color-selected, 85% );
+
+                }
 
             }
 

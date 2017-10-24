@@ -1,0 +1,58 @@
+// stylesheet :: title bar
+
+    // settings
+    @title-bar : 1rem;
+
+    // styles
+    .panel-header {
+
+        .title-bar {
+
+            position: relative;
+
+            height: 2.375rem;
+
+            box-sizing: border-box;
+
+            overflow: visible;
+
+            border-bottom: none;
+
+            background-color: @app-canvas-nite;
+
+            &:before {
+
+                // content: '';
+
+                position: absolute;
+
+                top: 0;
+                right: 0;
+                left: 0;
+
+                z-index: 10;
+
+                width: 100vw;
+                height: 1px;
+
+                background-color: @ui-text-brite;
+
+            }
+
+            .title {
+
+                @{type}-family: @indu-font;
+                @{type}-size: 0.625rem;
+                @{type}-weight: 600;
+
+                line-height: 0.5rem;
+
+                letter-spacing: 0.045em;
+
+                color: fade( @text-color, 65% );
+
+            }
+
+        }
+
+    }

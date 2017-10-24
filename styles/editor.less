@@ -1,73 +1,51 @@
 // stylesheet :: editor styles
 
-    // settings
-        @baller-code : 'CamingoCode';
-        @editor-base : darken( @app-canvas, 2% );
+    // styles
+    atom-text-editor {
 
-    // legacy -> remove (?)
-        atom-text-editor[mini] {
+        line-height: 1.125rem;
 
-            padding-left: @component-padding/2;
+        letter-spacing: 0.125px;
 
-            color: @text-color;
+        .cursor-line {
 
-            border-radius: @component-border-radius;
+            background-color: fade( @code-line-color, 3.5% );
 
-            background-color: @input-background-color;
+            transition: @all220;
 
-            &.is-focused {
+            .fold-marker {
 
-                background-color: darken(@input-background-color, 5%);
+                &:after {
+
+                    color: @ui-text-brite !important;
+
+                    transition: @all220;
+
+                }
+
+                &:before {
+
+                    -webkit-filter: grayscale( 0 ) brightness( 1.0 ) opacity( 1.0 ) !important;
+
+                    transition: @all220;
+
+                }
 
             }
 
         }
 
-    // styles
-        atom-text-editor {
+        .line {
 
-            @{type}-family: @code-font;
-            // @{type}-family: @input-IO;
-            // @{type}-size: 10.5px;
-            @{type}-size: 0.625rem;
-            @{type}-weight: 600;
+            &:hover {
 
-            // line-height: 16px;
-            line-height: 1.125rem;
-
-            letter-spacing: 0.125px;
-
-            .cursor-line {
-
-                background-color: fade( @code-line-color, 2% );
-
-                transition: @all220;
-
-            }
-
-            .line {
-
-                .indent-guide {
-
-                    position: relative;
-
-                    box-shadow: none;
+                .fold-marker {
 
                     &:before {
 
-                        content: '';
+                        -webkit-filter: grayscale( 0 ) brightness( 1.0 ) opacity( 1.0 ) !important;
 
-                        position: absolute;
-
-                        top: 1px;
-                        bottom: 0;
-                        left: 0;
-
-                        z-index: 1;
-
-                        width: 1px;
-
-                        border-left: 1px dotted @syntax-indent-guide-color;
+                        transition: @all220;
 
                     }
 
@@ -75,13 +53,95 @@
 
             }
 
-            // pigments
-            .pigments-native-underline .region,
-            .pigments-native-underline-in-selection .region {
+            .indent-guide {
 
-                height: 1px !important;
-                margin-top: 14px;
+                position: relative;
+
+                box-shadow: none;
+
+                &:before {
+
+                    content: '';
+
+                    position: absolute;
+
+                    top: 1px;
+                    bottom: 0;
+                    left: 0;
+
+                    z-index: 1;
+
+                    width: 1px;
+
+                    border-left: 1px dotted @syntax-indent-guide-color;
+
+                }
+
+            }
+
+            .fold-marker {
+
+                position: relative;
+
+                display: inline-flex;
+
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                width: 1.125rem;
+                height: 1.125rem;
+                margin: 0 0 0 0.125rem;
+                padding: 0 0 0 0;
+
+                &:before {
+
+                    content: '';
+
+                    position: absolute;
+
+                    top: -1px;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+
+                    width: 1.25rem;
+                    height: 1.125rem;
+
+                    background-image: url('atom://codepixel.atom-ui/assets/img/icons/ui/folded.dots@2x.png');
+                    background-repeat: no-repeat;
+                    background-size: 20px 18px;
+
+                    -webkit-filter: grayscale( 0.265 ) brightness( 0.845 ) opacity( 0.645 );
+
+                    transition: @all220;
+
+                }
+
+                &:after {
+
+                    display: inline-flex;
+                    display: none;
+
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: flex-start;
+
+                    width: 1rem;
+                    height: 1.125rem;
+                    margin: 0;
+                    padding: 0;
+
+                    font-size: 1rem;
+
+                    color: fade( @text-color, 15% );
+
+                    transition: @all220;
+
+                }
 
             }
 
         }
+
+    }
