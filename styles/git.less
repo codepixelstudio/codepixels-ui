@@ -1,96 +1,420 @@
 // stylesheet :: git diff styles
 
-.status {
+    // repository panel
+    atom-pane {
 
-    .name {
+        .github-Panel {
 
-        // color: fade( @text-color, 42.5% );
+            font-size: 0.75rem;
 
-        &:before {
+            background-color: @app-background-color;
 
-            color: @text-color;
+            .github-UnstagedChanges {
+
+                header {
+
+                    button {
+
+                        &:hover {
+
+                            border: 1px solid @text-color-success;
+
+                            color: @text-color-selected;
+
+                            .btn-color( fade( @text-color-success, 40% ) );
+
+                            &:before {
+
+                                color: @text-color-selected;
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .github-StagedChanges {
+
+                header {
+
+                    button {
+
+                        &:hover {
+
+                            border: 1px solid @text-color-error;
+
+                            color: @text-color-selected;
+
+                            .btn-color( fade( @text-color-error, 40% ) );
+
+                            &:before {
+
+                                color: @text-color-selected;
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            header {
+
+                display: flex;
+
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+
+                align-content: flex-end;
+
+                height: 3.0625rem;
+                margin: 0;
+                padding: 0 0.5rem 0 0;
+
+                text-transform: uppercase;
+
+                .icon {
+
+                    &.icon-list-unordered,
+                    &.icon-tasklist {
+
+                        width: 3rem;
+                        height: 3rem;
+                        margin: 0;
+                        padding: 0.875rem 1rem 1.125rem 1rem;
+
+                        &:before {
+
+                            margin: 0 0 0 0;
+
+                        }
+
+                    }
+
+                }
+
+                .github-StagingView-title {
+
+                    display: inline-flex;
+
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    margin: 0;
+
+                    font-size: 0.6875rem;
+
+                    line-height: 0.625rem;
+
+                    letter-spacing: 0.045em;
+
+                }
+
+                button {
+
+                    // align-self: stretch;
+                    // align-content: flex-end;
+
+                    // flex-grow: 0;
+
+                    min-width: 6.125rem;
+                    height: 2rem;
+                    margin: 0;
+                    padding: 0 0.75rem 0 0.75rem;
+
+                    border: 1px solid @base-border-color;
+
+                    font-size: 10.5px;
+                    font-weight: 600;
+
+                    letter-spacing: 0.025em;
+
+                    text-transform: uppercase;
+
+                    color: fade( @text-color, 65% );
+
+                    // background-color: fade( @ui-text-green, 5% );
+
+                    transition: @all220;
+
+                    &:before {
+
+                        width: 1rem;
+                        height: 1rem;
+                        margin: 0 0.125rem 0.125rem 0;
+                        padding: 0.0125rem 0 0 0;
+
+                        overflow: hidden;
+
+                        font-size: 1rem !important;
+                        font-weight: 400 !important;
+
+                        transition: @all220;
+
+                    }
+
+                }
+
+            }
+
+            .github-StagingView-list {
+
+                padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+
+                .github-FilePatchListView-item {
+
+                    display: flex;
+
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    height: 2rem;
+                    margin: 0;
+                    padding: 0.0625rem 0.5rem 0 0.5rem;
+
+                    background-color: transparent;
+
+                    transition: @all220;
+
+                    &:hover {
+
+                        background-color: fade( @text-color-selected, 3% );
+
+                        .github-FilePatchListView-path {
+
+                            color: @text-color-selected;
+
+                            // transition: @all220;
+
+                        }
+
+                        .github-FilePatchListView-icon {
+
+                            opacity: 1.000;
+
+                            // transition: @all220;
+
+                        }
+
+                    }
+
+                    .github-FilePatchListView-icon {
+
+                        width: 1rem;
+                        height: 2rem;
+                        margin: 0 0.5rem 0 0;
+                        padding: 0.5rem 0 0.5rem 0;
+
+                        opacity: 0.565;
+
+                        transition: @all220;
+
+                        &:before {
+
+                            display: inline-flex;
+
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+
+                            margin: 0;
+
+                        }
+
+                    }
+
+                    .github-FilePatchListView-path {
+
+                        font-size: 10.5px;
+                        font-weight: 600;
+
+                        letter-spacing: 0.025em;
+
+                        color: fade( @text-color, 65% );
+
+                        transition: @all220;
+
+                    }
+
+                }
+
+            }
 
         }
 
     }
 
-}
-.status-added {
+    // tab
+    atom-dock {
 
-    .name {
+        &.right {
 
-        // color: fade( @text-color, 42.5% );
+            max-width: 24.0625rem;
 
-        &:before {
+            .tab-bar {
 
-            color: @text-color-success;
+                .tab {
 
-        }
+                    background-color: @app-background-color;
 
-    }
+                    &:before {
 
-}
+                        background-color: @ui-text-pink;
 
-.status-ignored {
+                    }
 
-    .name {
+                    .title {
 
-        // color: fade( @text-color, 42.5% );
+                        &.icon-git-commit {
 
-        &:before {
+                            color: fade( white, 0% );
 
-            color: fade( @text-color, 25% );
+                            &:before,
+                            &:after {
 
-        }
+                                color: @text-color-selected;
 
-    }
+                            }
 
-}
+                            &:before {
 
-.status-modified {
+                                content: '\f00a';
 
-    .name {
+                                margin: 0 0 0 0;
 
-        // color: fade( @text-color, 42.5% );
+                            }
 
-        &:before {
+                            &:after {
 
-            color: @text-color-warning;
+                                content: 'github.io';
 
-        }
+                                position: absolute;
 
-    }
+                                left: 2.5rem;
 
-}
+                            }
 
-.status-removed {
+                        }
 
-    .name {
+                    }
 
-        // color: fade( @text-color, 42.5% );
+                }
 
-        &:before {
+            }
 
-            color: @text-color-error;
+            atom-pane {
 
-        }
+                max-width: 24.0625rem;
 
-    }
-
-}
-
-.status-renamed {
-
-    .name {
-
-        // color: fade( @text-color, 42.5% );
-
-        &:before {
-
-            color: @text-color-info;
+            }
 
         }
 
     }
 
-}
+    // legacy styles
+    .status {
+
+        .name {
+
+            // color: fade( @text-color, 42.5% );
+
+            &:before {
+
+                color: @text-color;
+
+            }
+
+        }
+
+    }
+
+    .status-added {
+
+        .name {
+
+            // color: fade( @text-color, 42.5% );
+
+            &:before {
+
+                color: @text-color-success;
+
+            }
+
+        }
+
+    }
+
+    .status-ignored {
+
+        .name {
+
+            // color: fade( @text-color, 42.5% );
+
+            &:before {
+
+                color: fade( @text-color, 25% );
+
+            }
+
+        }
+
+    }
+
+    .status-modified {
+
+        .name {
+
+            // color: fade( @text-color, 42.5% );
+
+            &:before {
+
+                color: @text-color-warning;
+
+            }
+
+        }
+
+    }
+
+    .status-removed {
+
+        .name {
+
+            // color: fade( @text-color, 42.5% );
+
+            &:before {
+
+                color: @text-color-error;
+
+            }
+
+        }
+
+    }
+
+    .status-renamed {
+
+        .name {
+
+            // color: fade( @text-color, 42.5% );
+
+            &:before {
+
+                color: @text-color-info;
+
+            }
+
+        }
+
+    }

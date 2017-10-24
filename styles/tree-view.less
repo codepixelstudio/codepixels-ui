@@ -102,6 +102,31 @@
 
         .entry {
 
+            &:hover {
+
+                .name {
+
+                    //
+
+                }
+
+            }
+
+            &:before {
+
+                position: absolute;
+
+                right: -1px;
+
+                width: 100%;
+                height: 1.5rem;
+
+                background-color: transparent;
+
+                transition: @all220;
+
+            }
+
             .name {
 
                 @{type}-family: @indu-font;
@@ -112,10 +137,11 @@
 
                 color: fade( @text-color, 42.5% );
 
+                transition: @all220;
+
                 &:before {
 
                     color: fade( @text-color, 28.5% );
-                    // color: red;
 
                 }
 
@@ -165,20 +191,137 @@
 
         }
 
+        .list-item {
+
+            &:not(.header) {
+
+                &:hover {
+
+                    &:before {
+
+                        background-color: fade( @text-color-selected, 3.5% );
+
+                    }
+
+                    > .name {
+
+                        color: fade( @text-color, 95% );
+
+                        transition: @all220;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        .list-nested-item {
+
+            &:after {
+
+                // content: '';
+
+                position: absolute;
+
+                top: 0;
+                right: -1px;
+                // left: -1rem;
+
+                width: 100%;
+                height: 1.5rem;
+
+                background-color: red;
+
+                opacity: 0.000;
+
+                transition: @all220;
+
+            }
+
+            &:hover {
+
+                &:after {
+
+                    // opacity: 0.675;
+
+                    transition: @all220;
+
+                }
+
+            }
+
+            &.collapsed {
+
+                &:hover {
+
+                    &:before {
+
+                        background-color: fade( @text-color-selected, 3.5% );
+
+                    }
+
+                }
+
+            }
+
+            &.expanded {
+
+                &:hover {
+
+                    > &:before {
+
+                        background-color: fade( @text-color-selected, 3.5% );
+
+                    }
+
+                    &:after {
+
+                        opacity: 1.000;
+
+                    }
+
+                    > .header {
+
+
+
+                    }
+
+                }
+
+            }
+
+        }
+
         .list-nested-item,
         .list-item {
 
-            &.selected {
+            > &:before {
 
-                color: red !important;
+                right: -1px;
+
+                width: 100%;
+                height: 1.5rem;
+
+                background-color: fade( @text-color, 5% );
+
+                transition: @all220;
+
+            }
+
+            &.selected {
 
                 &:before {
 
                     right: -1px;
 
                     width: 100%;
+                    height: 1.5rem;
 
                     background-color: fade( @text-color, 5% );
+
+                    transition: @all220;
 
                 }
 
@@ -193,6 +336,12 @@
                 > .name {
 
                     color: @text-color-selected;
+
+                    &:before {
+
+                        color: fade( @text-color-selected, 85% );
+
+                    }
 
                 }
 
