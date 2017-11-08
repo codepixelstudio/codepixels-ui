@@ -3,20 +3,15 @@
     // settings
     @panel-ui-base : 16rem;
 
-
     // top-level panel/pane container
     atom-panel-container {
 
         // bottom panel
         &.bottom {
 
-            border-left: 1px solid @base-border-color;
+            position: relative;
 
-            .panel-bottom {
-
-                // border-top: 1px solid @base-border-color;
-
-            }
+            z-index: 10;
 
         }
 
@@ -25,29 +20,11 @@
     // base pane style
     atom-pane {
 
+        flex-grow: auto !important;
+
         &.pane {
 
-            padding: 1px 0 0 0;
-
-            border-left: 1px solid @base-border-color;
-
-            &:before {
-
-                content: '';
-
-                position: absolute;
-
-                top: 0;
-                right: -1px;
-                left: 0;
-
-                z-index: 10;
-
-                height: 1px;
-
-                background-color: @base-border-color;
-
-            }
+            min-width: 30rem;
 
         }
 

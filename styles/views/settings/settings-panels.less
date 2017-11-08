@@ -1,0 +1,107 @@
+// stylesheet :: settings view panels
+
+    // settings
+    @settings-view : 1rem;
+
+// styles
+
+    // top-level hook
+    .settings-view {
+
+        .link {
+
+            color: @ui-text-brite;
+
+            transition: @all220;
+
+            &:hover {
+
+                text-decoration: none;
+
+                // color: @ui-text-blue;
+                color: @ui-text-brite;
+
+            }
+
+        }
+
+        .btn {
+
+            margin: 0 !important;
+
+            background-color: lighten( @app-canvas, 1% );
+
+            &:hover {
+
+                background-color: lighten( @app-canvas, 4.5% );
+
+                transition: @all220;
+
+                &:before {
+
+                    color: @text-color-selected;
+
+                }
+
+            }
+
+            &:before {
+
+                color: fade( @text-color-selected, 40% );
+
+                transition: @all220;
+
+            }
+
+        }
+
+        section,
+        .section {
+
+            .section-heading {
+
+                display: flex;
+
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: flex-start;
+
+                font-family: @klav-slim;
+                font-size: 1.5rem;
+                font-weight: 400;
+
+                line-height: 2rem;
+
+                letter-spacing: 0.085em;
+
+                text-transform: uppercase;
+
+                &:before {
+
+                    width: 1rem;
+                    height: 2rem;
+                    margin: 0 0.5rem 0 0;
+                    padding: 0.5rem 0 0.5rem 0;
+
+                }
+
+            }
+
+        }
+
+        atom-text-editor {
+
+            display: flex;
+
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+
+            min-height: 2rem;
+            padding: 0 0 0 0.5rem;
+
+            font-size: 0.625rem;
+
+        }
+
+    }

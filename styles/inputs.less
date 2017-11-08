@@ -1,0 +1,42 @@
+// stylesheet :: inputs
+
+    // settings
+    @input-element-border-radius : 0px;
+
+// styles
+    .form-control {
+
+        height: 2rem;
+        padding: 0 1rem 0 0.75rem;
+
+        border: none;
+        border-radius: @input-element-border-radius;
+
+        font-size: 0.75rem;
+
+        line-height: 2rem;
+
+        background-color: darken( @app-canvas, 5% ) !important;
+
+        -webkit-appearance: none;
+
+        box-shadow: none;
+
+        &:after {
+
+            content: '\ee3b';
+
+            width: 1rem;
+            height: 1rem;
+            margin: 0;
+            padding: 0;
+
+            font-family: @codicons;
+            font-size: 1rem;
+            font-weight: normal;
+
+            color: white;
+
+        }
+
+    }

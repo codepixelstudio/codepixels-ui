@@ -1,40 +1,89 @@
 // stylesheet :: tabs
 
     // settings
-    @tab-base : @toolbar-ui-color;
+    @tab-base : darken( @app-canvas, 3.5% );
 
-    // styles
+// styles
+
+    // tab bar
     .tab-bar {
-
-        z-index: 20;
 
         background-color: @tab-base;
 
-        border-bottom: none;
+        transition: all 360ms @ocirc 0ms;
 
+        // listener class
+        &.default {
+
+            background-color: fade( @ui-text-brite, 20% ) !important;
+
+            transition: all 360ms @ocirc 0ms;
+
+        }
+
+        // listener class
+        &.small {
+
+            background-color: fade( @ui-text-orange, 20% ) !important;
+
+            transition: all 360ms @ocirc 0ms;
+
+        }
+
+        // listener class
+        &.medium {
+
+            background-color: fade( @ui-text-blue, 20% ) !important;
+
+            transition: all 360ms @ocirc 0ms;
+
+        }
+
+        // listener class
+        &.large {
+
+            background-color: fade( @ui-text-pink, 20% ) !important;
+
+            transition: all 360ms @ocirc 0ms;
+
+        }
+
+        // listener class
+        &.x-large {
+
+            background-color: fade( @ui-text-yellow, 20% ) !important;
+
+            transition: all 360ms @ocirc 0ms;
+
+        }
+
+        // tab
         .tab {
 
             position: relative;
 
+            z-index: 20;
+
             color: @text-color;
 
-            display: flex;
+            display: inline-flex;
 
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
 
+            // flex-grow: 0;
+
             width: @pane-tab-ui-link;
             max-width: @pane-tab-ui-link;
+            // min-width: 10rem;
             height: @ui-status-bar-height;
             padding: 0 0.75rem 0 0;
 
             line-height: @ui-status-bar-height;
 
             @{type}-family: @indu-font;
-            // @{type}-family: @titillium;
-            // @{type}-size: 0.6875rem;
-            @{type}-size: 0.59375rem;
+            @{type}-size: 0.5625rem;
             @{type}-weight: 600;
 
             letter-spacing: 0.035em;
@@ -43,7 +92,7 @@
 
             background-color: transparent;
 
-            transition: @all220;
+            transition: all 180ms linear 0ms;
 
             &:before {
 
@@ -51,6 +100,7 @@
 
                 position: absolute;
 
+                top: 0;
                 right: 0;
                 left: 0;
 
@@ -60,21 +110,7 @@
 
                 background-color: transparent;
 
-            }
-
-            &:before {
-
-                top: -1px;
-
-                transition: @all220;
-
-            }
-
-            &:after {
-
-                bottom: -1px;
-
-                background-color: transparent;
+                transition: all 180ms linear 0ms;
 
             }
 
@@ -83,7 +119,9 @@
                 color: @text-color-selected;
 
                 // background-color: fade( @syntax-background-color, 50% );
-                background-color: fade( @text-color, 2.5% );
+                // background-color: fade( @text-color, 2.5% );
+
+                opacity: 1.000;
 
                 &:before {
 
@@ -91,31 +129,19 @@
 
                 }
 
-                &:after {
-
-                    background-color: fade( @syntax-background-color, 35% );
-
-                }
-
-            }
-
-            &:first-child {
-
-                border-left: none;
-
-                &:before {
-
-                    left: -1px;
-
-                }
-
             }
 
             &.active {
 
+                // flex-grow: 1;
+
                 @{type}-weight: 600;
 
                 color: @text-color-selected;
+
+                // background-color: darken( @app-canvas, 5% );
+
+                opacity: 1.000;
 
                 .title {
 
@@ -127,48 +153,70 @@
 
                     background-color: fade( @ui-text-brite, 95% );
 
-                    transition: @all220;
-
-                }
-
-                &:after {
-
-                    background-color: @syntax-background-color;
+                    transition: all 180ms linear 0ms;
 
                 }
 
             }
 
-            &[data-type="CodePixelConsoleView"] {
+            &[data-type='WelcomeView'], // TBD
+            &[data-type='GuideView'], // TBD
+            &[data-type='StyleguideView'], // styleguide
+            &[data-type='SettingsView'], // settings-view
+            &[data-type='AboutView'], // about
+            &[data-type='TimecopView'], // timecop
+            &[data-type='ResultsPaneView'] { // preview-pane
 
-                width: 100%;
+                // tab title
+                .title {
 
-                &:hover {
+                    position: relative;
+
+                    display: inline-flex;
+
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    padding: 0 0 0 1rem;
+
+                    font-weight: 700;
+
+                    line-height: 0.375rem;
+
+                    text-transform: @txtup;
 
                     &:before {
 
-                        background-color: fade( @ui-text-pink, 45% );
+                        display: flex;
+
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        width: 1rem;
+                        height: 1rem;
+                        margin: 0 0.75rem 0 0;
+                        padding: 0 0 0 0;
+
+                        font-family: @codicons;
+                        font-size: 1rem;
+                        font-weight: normal;
 
                     }
 
                 }
 
-                &.active {
+                // close icon
+                .close-icon {
 
-                    background-color: lighten( @syntax-background-color, 0.5% );
-
-                    &:before {
-
-                        left: 0;
-
-                        background-color: fade( @ui-text-pink, 95% );
-
-                    }
+                    display: none !important;
 
                 }
 
             }
 
+            // welcome
             &[data-type='WelcomeView'] {
 
                 &.active {
@@ -179,6 +227,7 @@
 
             }
 
+            // guide
             &[data-type='GuideView'] {
 
                 &.active {
@@ -189,15 +238,168 @@
 
             }
 
-            &[data-type='StyleguideView'] {
+            // about
+            &[data-type='AboutView'] {
+
+                .title {
+
+                    &:before {
+
+                        // flag
+                        content: '\ecab';
+
+                        // info
+                        content: '\ed63';
+
+                        // qrcode
+                        content: '\e9f8';
+
+                        // clipboard
+                        content: '\ec55';
+
+                        // group
+                        content: '\ee7d';
+
+                        // stack text
+                        content: '\ed44';
+
+                        // align left
+                        content: '\eeb7';
+
+                        background-color: transparent;
+
+                    }
+
+                }
 
                 &:hover {
 
                     &:before {
 
-                        background-color: fade( @ui-text-blue, 45% );
+                        background-color: fade( @ui-text-green, 95% );
 
                     }
+
+                }
+
+                &:before {
+
+                    background-color: fade( @ui-text-green, 0% );
+
+                }
+
+                &.active {
+
+                    background-color: darken( @app-canvas, 1.5% );
+
+                    &:before {
+
+                        background-color: fade( @ui-text-green, 95% );
+
+                    }
+
+                    .title {
+
+                        &:before {
+
+                            color: fade( @ui-text-green, 95% );
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            // timecop
+            &[data-type='TimecopView'] {
+
+                .title {
+
+                    &:before {
+
+                        // pie chart
+                        content: '\eb82';
+
+                        // pie chart
+                        content: '\eb70';
+
+                        background-color: transparent;
+
+                    }
+
+                }
+
+                &:hover {
+
+                    &:before {
+
+                        background-color: fade( @ui-text-yellow, 95% );
+
+                    }
+
+                }
+
+                &:before {
+
+                    background-color: fade( @ui-text-yellow, 0% );
+
+                }
+
+                &.active {
+
+                    background-color: darken( @app-canvas, 1.5% );
+
+                    &:before {
+
+                        background-color: fade( @ui-text-yellow, 95% );
+
+                    }
+
+                    .title {
+
+                        &:before {
+
+                            color: fade( @ui-text-yellow, 95% );
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            // styleguide
+            &[data-type='StyleguideView'] {
+
+                .title {
+
+                    &:before {
+
+                        // triangle
+                        content: '\e90d';
+
+                        background-color: transparent;
+
+                    }
+
+                }
+
+                &:hover {
+
+                    &:before {
+
+                        background-color: fade( @ui-text-blue, 95% );
+
+                    }
+
+                }
+
+                &:before {
+
+                    background-color: fade( @ui-text-blue, 0% );
 
                 }
 
@@ -207,9 +409,17 @@
 
                     &:before {
 
-                        // left: 0;
-
                         background-color: fade( @ui-text-blue, 95% );
+
+                    }
+
+                    .title {
+
+                        &:before {
+
+                            color: fade( @ui-text-blue, 95% );
+
+                        }
 
                     }
 
@@ -217,26 +427,35 @@
 
             }
 
+            // settings
             &[data-type='SettingsView'] {
 
-                &:hover {
+                .title {
 
                     &:before {
 
-                        background-color: fade( @ui-text-orange, 65% );
+                        // pie chart
+                        content: '\eb82';
+
+                        // stack text
+                        content: '\eb5a';
+
+                        // gear
+                        content: '\eb62';
+
+                        // switch
+                        content: '\ec4c';
+
+                        // null
+                        // content: '';
 
                     }
 
                 }
 
-                &.active {
-
-                    // background-color: lighten( @app-canvas, 2% );
-                    background-color: darken( @app-canvas, 4% );
+                &:hover {
 
                     &:before {
-
-                        // left: 0;
 
                         background-color: fade( @ui-text-orange, 95% );
 
@@ -244,16 +463,96 @@
 
                 }
 
-            }
+                &:before {
 
-            &[data-type='TreeView'] {
+                    background-color: fade( @ui-text-orange, 0% );
 
-                width: 100%;
-                max-width: none;
+                }
 
                 &.active {
 
-                    border-top-color: transparent;
+                    background-color: lighten( @app-canvas, 2% );
+
+                    &:before {
+
+                        background-color: fade( @ui-text-orange, 95% );
+
+                    }
+
+                    .title {
+
+                        &:before {
+
+                            color: fade( @ui-text-orange, 95% );
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            // find + replace
+            &[data-type='ResultsPaneView'] {
+
+                .title {
+
+                    &:before {
+
+                        // search
+                        content: '\eb37';
+
+                        // search
+                        content: '\eb33';
+
+                        // folder search
+                        content: '\e9d1';
+
+                        // stack text
+                        content: '\ed44';
+
+                        background-color: transparent;
+
+                    }
+
+                }
+
+                &:hover {
+
+                    &:before {
+
+                        background-color: fade( @ui-text-pink, 95% );
+
+                    }
+
+                }
+
+                &:before {
+
+                    background-color: fade( @ui-text-pink, 0% );
+
+                }
+
+                &.active {
+
+                    background-color: darken( @app-canvas, 1.5% );
+
+                    &:before {
+
+                        background-color: fade( @ui-text-pink, 95% );
+
+                    }
+
+                    .title {
+
+                        &:before {
+
+                            color: fade( @ui-text-pink, 95% );
+
+                        }
+
+                    }
 
                 }
 
@@ -375,7 +674,7 @@
 
                         color: fade( @text-color-selected, 35% );
 
-                        transition: @all220;
+                        transition: all 180ms linear 0ms;
 
                     }
 
@@ -391,11 +690,11 @@
 
             &.is-dragging {
 
-                background: darken(@tab-background-color, 10%);
+                background: darken(@tab-background-color, 5%);
 
                 border-color: transparent;
 
-                opacity: .5;
+                opacity: 0.515;
 
                 & .close-icon {
 

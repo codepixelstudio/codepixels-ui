@@ -1,7 +1,8 @@
 // stylesheet :: docks
 
     // settings
-    @foo : 'foo';
+    @dock-position : fixed;
+    @dock-overlay  : ~'calc( 100vw + 24rem )';
 
     // styles
     .atom-dock {
@@ -81,6 +82,154 @@
                         margin-left: 0.45rem;
 
                         font-size: 1rem;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    atom-dock {
+
+        &.right {
+
+            position: fixed;
+
+            top: 0;
+            right: 0;
+            bottom: 0;
+
+            z-index: 100;
+
+            width: 24rem;
+            max-width: 24rem;
+
+            border-left: none;
+
+            transform: translate3d( 24rem, 0, 0 );
+
+            .atom-dock-inner {
+
+                position: absolute;
+
+                width: 24rem;
+
+                &:before {
+
+                    content: '';
+
+                    position: fixed;
+
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: -100vw;
+
+                    z-index: -1;
+
+                    width: 100vw;
+
+                    visibility: hidden;
+
+                    background-color: fade( black, 30% );
+
+                    opacity: 0.000;
+
+                    transition: all 20ms @ocirc 0ms;
+
+                }
+
+                &.atom-dock-open {
+
+                    width: 24rem;
+
+                    &:before {
+
+                        visibility: visible;
+
+                        opacity: 1.000;
+
+                        transition: all 80ms linear 120ms;
+
+                    }
+
+                    .atom-dock-mask,
+                    .atom-dock-content-wrapper {
+
+                        width: 24rem !important;
+                        min-width: 24rem !important;
+
+                    }
+
+                    .atom-dock-mask {
+
+                        box-shadow: -2rem 0 6rem 0 fade( black, 40% );
+
+                        transform: translate3d( -24rem, 0, 0 );
+
+                        transition: all 540ms @ocirc 60ms;
+
+                    }
+
+                }
+
+            }
+
+            .atom-dock-mask,
+            .atom-dock-content-wrapper {
+
+                width: 24rem !important;
+                min-width: 24rem !important;
+
+            }
+
+            .atom-dock-mask {
+
+                transform: translate3d( 0, 0, 0 );
+
+                transition: all 360ms @ocirc 0ms;
+
+                background-color: transparent !important;
+
+            }
+
+            .atom-dock-content-wrapper {
+
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+
+            }
+
+            atom-pane {
+
+                border: none;
+
+                &:before {
+
+                    right: 0;
+
+                }
+
+                .tab-bar {
+
+                    .tab {
+
+                        width: 100%;
+                        max-width: none;
+
+                        background-color: lighten( @toolbar-ui-color, 3% );
+
+                        .close-icon {
+
+                            display: none;
+
+                        }
 
                     }
 

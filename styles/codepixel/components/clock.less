@@ -1,7 +1,7 @@
 // stylesheet :: toolbar component
 
     // settings
-        @clock-font : 'Pirulen';
+    @clock-font : 'Pirulen';
 
     // styles
     status-bar-clock {
@@ -18,11 +18,14 @@
 
             width: 4rem;
             height: 3rem;
-            padding: 0 0.75rem 0 0.75rem;
+            padding: 0 1rem 0 1rem;
 
-            border-left: 1px solid @base-border-color;
+            border-left: @global-status-bar-border;
 
             line-height: 0.75rem;
+
+            // background-color: lighten( @toolbar-ui-color, 1.5% );
+            // background-color: darken( @toolbar-ui-color, 1.5% );
 
             &:before {
 

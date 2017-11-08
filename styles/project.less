@@ -18,19 +18,6 @@
 
                             padding: 0 0 0 0;
 
-                            background-image:
-
-                                linear-gradient(
-
-                                    180deg,
-                                    fade( @dark, 50% ) 0%,
-                                    transparent 100%
-                                    // fade( @g140, 40% ) 100%
-
-                                )
-
-                            ;
-
                             &:before {
 
                                 display: none;
@@ -47,7 +34,7 @@
                                 margin: 0;
                                 padding: 0;
 
-                                background-image: url('atom://codepixel.atom-ui/assets/img/brand/brand.state.horns.svg');
+                                background-image: url('atom://code-pixel-studio-ui/assets/img/brand/brand.state.horns.svg');
                                 background-repeat: no-repeat;
                                 background-size: cover;
                                 // background-position: ;
@@ -68,22 +55,6 @@
 
                             }
 
-                            &[data-group='foundation.state'] {
-
-                                background-image:
-
-                                    linear-gradient(
-
-                                        160deg,
-                                        fade( @g135, 40% ) 0%,
-                                        transparent 30%
-
-                                    )
-
-                                ;
-
-                            }
-
                         }
 
                     }
@@ -92,13 +63,14 @@
 
                         display: flex;
 
+                        display: none;
+
                         flex-direction: column;
                         justify-content: space-between;
                         align-items: stretch;
 
                         border-bottom: none;
 
-                        // background-color: @tree-view-background-color;
                         background-color: transparent;
 
                         .tab {
@@ -120,29 +92,6 @@
 
                             background-color: transparent;
 
-                            &:before {
-
-                                // display: none;
-
-                                top: 0;
-                                right: -1px;
-
-                                background-color: transparent;
-
-                                background-image:
-
-                                    linear-gradient(
-
-                                        90deg,
-                                        fade( @gold, 95% ) 0%,
-                                        fade( @gold, 25% ) 100%
-
-                                    )
-
-                                ;
-
-                            }
-
                             .title {
 
                                 position: relative;
@@ -156,15 +105,10 @@
                                 width: 100%;
                                 height: 3rem;
                                 margin: 0;
-                                // padding: 0 1rem 0.37rem 2.75rem;
-                                padding: 1rem 1rem 1rem 2.75rem;
+                                padding: 1rem 1rem 0.75rem 2.75rem;
 
-                                // font-family: @klav-slim;
                                 font-family: @indu-font;
-                                // @{type}-size: 12px;
-                                // font-size: 0.6875rem;
                                 font-size: 0.5625rem;
-                                // @{type}-weight: 500;
                                 font-weight: 700;
 
                                 line-height: 0.5rem;
@@ -173,10 +117,11 @@
 
                                 text-transform: uppercase;
 
-                                background-image: url('atom://codepixel.atom-ui/assets/img/brand/foundation.state.svg');
+                                // background-image: url('atom://code-pixel-studio-ui/assets/img/brand/codepixel.studio.svg');
+                                background-image: url('atom://code-pixel-studio-ui/assets/img/brand/foundation.state.svg');
                                 background-repeat: no-repeat;
-                                background-size: 16px 16px;
-                                background-position: 16px 16px;
+                                background-size: 24px 24px;
+                                background-position: 12px 12px;
 
                                 color: fade( @text-color-selected, 40% );
 
@@ -195,11 +140,7 @@
                                     padding: 0;
 
                                     font-family: @indu-font;
-                                    // font-family: @klav-slim;
-                                    // @{type}-size: 9px;
-                                    // font-size: 0.6875rem;
                                     font-size: 0.5625rem;
-                                    // @{type}-weight: 400;
                                     @{type}-weight: 700;
 
                                     line-height: 0.5rem;
@@ -211,6 +152,7 @@
                                 &:before {
 
                                     content: 'foundation';
+                                    // content: 'codepixel';
 
                                     margin: 0 0.09375rem 0 0;
 
@@ -221,6 +163,7 @@
                                 &:after {
 
                                     content: 'state';
+                                    // content: 'atom';
 
                                     // right: 0.75rem;
 
@@ -231,7 +174,7 @@
 
                                     color: fade( @text-color-selected, 25% );
 
-                                    color: @gold;
+                                    color: @text-color-brite;
 
                                 }
 

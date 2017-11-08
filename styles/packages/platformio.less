@@ -1,363 +1,435 @@
-.pio {
-    select.form-control {
-        // .select();
-        line-height: 36px;
-        height: 36px;
-    }
-}
 // stylesheet :: platform IO terminal package styles
 
     // settings
-        @cursor   : hsla( 188, 75%, 68%, 1.000 );
+    @cursor   : hsla( 188, 75%, 68%, 1.000 );
+    @terminal-backdrop : darken( @app-canvas, 3% );
 
-    // styles
+// styles
 
-        // top-level hook
-        .platformio-ide-terminal {
+    // class hook
+    atom-panel-container {
 
-            // status bar
-            &.status-bar {
+        // bottom
+        &.bottom {
 
-                display: inline-flex;
+            position: relative;
 
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
+            z-index: 100;
 
-                height: 3rem;
-                margin: 0;
-                padding: 0 0.75rem 0 1rem;
-
-                border-right: 1px solid @base-border-color;
-
-                vertical-align: initial;
+            // bottom panel
+            .panel-bottom {
 
                 background-color: transparent;
 
-                transition: @all220;
-
-                &:last-child {
-
-                    margin-right: 0;
-
-                }
-
-                .icon {
-
-                    &.icon-plus,
-                    &.icon-x {
-
-                        display: flex;
-
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-
-                        align-self: center;
-
-                        width: ~'calc(1.5rem + 2px)';
-                        min-width: ~'calc(1.5rem + 2px)';
-                        height: ~'calc(1.5rem + 2px)';
-                        margin-right: 0.25rem;
-                        padding: 0.25rem;
-
-                        border: 1px solid transparent;
-
-                        line-height: 1rem;
-
-                        transition: @all220;
-
-                    }
-
-                    &:hover {
-
-                        &.icon-plus,
-                        &.icon-x {
-
-                            &:before {
-
-                                color: @text-color-selected;
-
-                            }
-
-                        }
-
-                    }
-
-                    &:before {
-
-                        top: 0;
-
-                    }
-
-                    &.icon-plus,
-                    &.icon-x {
-
-                        &:before {
-
-                            color: fade( @text-color-selected, 38.5% );
-
-                            transition: @all220;
-
-                        }
-
-                    }
-
-                    &.icon-plus {
-
-                        // margin-right: 0.25rem;
-
-                        &:hover {
-
-                            border: 1px solid @text-color-success;
-
-                            background-color: fade( @background-color-success, 60% );
-
-                        }
-
-                    }
-
-                    &.icon-x {
-
-                        // margin-right: 0;
-
-                        &:before {
-
-                            top: -1px;
-
-                        }
-
-                        &:hover {
-
-                            border: 1px solid @text-color-error;
-
-                            .btn-color( fade( @text-color-error, 70% ) );
-
-                        }
-
-                    }
-
-                }
-
-                .status-container {
-
-                    order: 3;
-
-                    height: ~'calc(1.5rem + 2px)';
-                    margin: 0;
-
-                    line-height: 1rem;
-
-                    .pio-terminal-status-icon {
-
-                        min-width: ~'calc(1.5rem + 2px)';
-                        height: ~'calc(1.5rem + 2px)';
-                        padding: 0 1px 0 0;
-                        margin: 0 0.25rem 0 0;
-
-                        border: 1px solid transparent;
-
-                        opacity: 1.000;
-
-                        transition: @all220;
-
-                        &:last-child {
-
-                            // margin-right: 0;
-
-                        }
-
-                        &:hover ,
-                        &.active {
-
-                            border: 1px solid lighten( @app-canvas, 15% );
-
-                            .btn-color( lighten( @app-canvas, 7.5% ) );
-
-                            color: @text-color-highlight;
-
-                            .icon-terminal {
-
-                                &:before {
-
-                                    color: @text-color-selected;
-
-                                    transition: @all220;
-
-                                }
-
-                            }
-
-                            .name {
-
-                                color: @text-color-selected;
-
-                            }
-
-                        }
-
-                        &.active {
-
-                            border: 1px solid @text-color-info;
-
-                            .btn-color( fade( @text-color-info, 40% ) );
-
-                            color: @text-color-highlight;
-
-                            .icon-terminal {
-
-                                &:before {
-
-                                    color: @text-color-selected;
-
-                                    transition: @all220;
-
-                                }
-
-                            }
-
-                            .name {
-
-                                color: @text-color-selected;
-
-                            }
-
-                        }
-
-                        .icon-terminal {
-
-                            // width: ~'calc(1.25rem + 4px)';
-                            width: 1.25rem;
-                            // height: 1.5rem;
-                            height: ~'calc(1.5rem + 2px)';
-                            padding: 0.25rem 0 0.25rem 0.25rem;
-
-                            color: fade( @text-color-selected, 40% );
-
-                            transition: @all220;
-
-                            &:before {
-
-                                top: 1px;
-
-                                transition: @all220;
-
-                            }
-
-                        }
-
-                        .name {
-
-                            display: inline-flex;
-
-                            flex-direction: row;
-                            justify-content: flex-start;
-                            align-items: center;
-
-                            align-self: center;
-
-                            height: ~'calc(1.5rem + 2px)';
-                            padding: 0 0.125rem 0 1px;
-
-                            font-size: 10px;
-                            font-weight: 500;
-
-                            letter-spacing: 0.25px;
-
-                            color: fade( @text-color-selected, 60% );
-
-                            transition: @all220;
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-            &.terminal-view {
-
-                .input-block {
-
-                    padding: 0 0 0 0;
-
-                    .btn-toolbar {
-
-                        padding: 0 0 0 0;
-
-                    }
-
-                }
-
-                .btn-toolbar {
-
-                    padding: 0;
-                    margin: 0;
-
-                    background-color: darken( @app-canvas, 2.5% );
-
-                    .btn {
+                // package class
+                .platformio-ide-terminal {
+
+                    // status bar
+                    &.status-bar {
 
                         display: inline-flex;
 
-                        flex-direction: column;
-                        justify-content: center;
+                        flex-direction: row;
+                        justify-content: space-between;
                         align-items: center;
 
-                        width: 2rem;
-                        height: 2rem;
+                        height: 3rem;
                         margin: 0;
-                        padding: 8px;
+                        padding: 0 0 0 0;
 
-                        border: none;
+                        vertical-align: initial;
 
-                        line-height: 30px;
+                        background-color: transparent;
 
-                        background-color: darken( @app-canvas, 1% );
+                        transition: @all220;
 
-                        &:hover {
-
-                            background-color: lighten( @app-canvas, 4.5% );
-
-                            .icon {
-
-                                &:before {
-
-                                    color: @text-color;
-
-                                }
-
-                            }
-
-                        }
-
+                        // icon class
                         .icon {
 
-                            display: inline-flex;
+                            // common styles
+                            &.icon-plus,
+                            &.icon-x {
 
-                            flex-direction: column;
-                            justify-content: center;
-                            align-items: center;
-
-                            width: 16px;
-                            height: 16px;
-
-                            &:before {
-
-                                display: inline-flex;
+                                display: flex;
 
                                 flex-direction: column;
                                 justify-content: center;
                                 align-items: center;
 
-                                width: 14px;
+                                align-self: center;
 
-                                color: fade( @text-color, 45% );
+                                width: 3rem;
+                                min-width: 3rem;
+                                height: 3rem;
+                                margin: 0 0 0 0;
+                                padding: 1rem 1rem 1rem 1rem;
+
+                                border: none;
+
+                                line-height: 1rem;
 
                                 transition: @all220;
 
                             }
+
+                            // hover state
+                            &:hover {
+
+                                &.icon-plus,
+                                &.icon-x {
+
+                                    &:before {
+
+                                        color: @text-color-selected;
+
+                                    }
+
+                                }
+
+                            }
+
+                            // button icons
+                            &.icon-plus,
+                            &.icon-x {
+
+                                &:before {
+
+                                    color: fade( @text-color-selected, 38.5% );
+
+                                    transition: @all220;
+
+                                }
+
+                            }
+
+                            // new terminal icon
+                            &.icon-plus {
+
+                                // margin-right: 0.25rem;
+
+                                &:hover {
+
+                                    border: 1px solid @text-color-success;
+                                    border: none;
+
+                                    background-color: fade( @text-color-success, 70% );
+
+                                }
+
+                            }
+
+                            // close terminal icon
+                            &.icon-x {
+
+                                // margin-right: 0;
+
+                                &:before {
+
+                                    top: -1px;
+
+                                }
+
+                                &:hover {
+
+                                    border: 1px solid @text-color-error;
+                                    border: none;
+
+                                    .btn-color( fade( @text-color-error, 80% ) );
+
+                                }
+
+                            }
+
+                        }
+
+                        // active terminals
+                        .status-container {
+
+                            order: 3;
+
+                            height: 3rem;
+                            margin: 0;
+
+                            line-height: 1rem;
+
+                            .pio-terminal-status-icon {
+
+                                min-width: 3rem;
+                                height: 3rem;
+                                padding: 1rem 1rem 1rem 1rem;
+                                margin: 0 0 0 0;
+
+                                border: 1px solid transparent;
+                                border: none;
+
+                                opacity: 1.000;
+
+                                transition: @all220;
+
+                                &:last-child {
+
+                                    // margin-right: 0;
+
+                                }
+
+                                &:hover ,
+                                &.active {
+
+                                    // border: 1px solid lighten( @app-canvas, 15% );
+                                    border: none;
+
+                                    .btn-color( lighten( @app-canvas, 7.5% ) );
+
+                                    color: @text-color-highlight;
+
+                                    .icon-terminal {
+
+                                        &:before {
+
+                                            color: @text-color-selected;
+
+                                            transition: @all220;
+
+                                        }
+
+                                    }
+
+                                    .name {
+
+                                        color: @text-color-selected;
+
+                                    }
+
+                                }
+
+                                &.active {
+
+                                    // border: 1px solid @text-color-info;
+                                    border: none;
+
+                                    .btn-color( fade( @text-color-info, 50% ) );
+
+                                    color: @text-color-highlight;
+
+                                    .icon-terminal {
+
+                                        &:before {
+
+                                            color: @text-color-selected;
+
+                                            transition: @all220;
+
+                                        }
+
+                                    }
+
+                                    .name {
+
+                                        color: @text-color-selected;
+
+                                    }
+
+                                }
+
+                                .icon-terminal {
+
+                                    // width: ~'calc(1.25rem + 4px)';
+                                    width: 1rem;
+                                    // height: 1.5rem;
+                                    // height: ~'calc(1.5rem + 2px)';
+                                    height: 1rem;
+                                    padding: 0 0 0 0;
+
+                                    color: fade( @text-color-selected, 40% );
+
+                                    transition: @all220;
+
+                                    &:before {
+
+                                        top: 0;
+
+                                        transition: @all220;
+
+                                    }
+
+                                }
+
+                                .name {
+
+                                    display: inline-flex;
+
+                                    flex-direction: row;
+                                    justify-content: flex-start;
+                                    align-items: center;
+
+                                    align-self: center;
+
+                                    // height: ~'calc(1.5rem + 2px)';
+                                    padding: 0 0 0 0;
+
+                                    font-size: 10px;
+                                    font-weight: 500;
+
+                                    line-height: 0.625rem;
+
+                                    letter-spacing: 0.25px;
+
+                                    color: fade( @text-color-selected, 60% );
+
+                                    transition: @all220;
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    // active state
+                    &.terminal-view {
+
+                        position: fixed;
+
+                        bottom: 3rem;
+                        left: 0;
+
+                        z-index: 100;
+
+                        width: 30rem;
+
+                        transition: all 540ms linear 180ms;
+
+                    }
+
+                    // class hook
+                    .input-block {
+
+                        height: 3rem;
+                        padding: 0 0 0 0;
+
+                        .btn-toolbar {
+
+                            height: 3rem;
+                            padding: 0 0 0 0;
+
+                        }
+
+                    }
+
+                    // terminal toolbar
+                    .btn-toolbar {
+
+                        padding: 0;
+                        margin: 0;
+
+                        background-color: darken( @app-canvas, 1.5% );
+
+                        // button class
+                        .btn {
+
+                            display: inline-flex;
+
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+
+                            width: 3rem;
+                            height: 3rem;
+                            margin: 0;
+                            padding: 8px;
+
+                            border: none;
+
+                            background-color: transparent;
+
+                            // icon class
+                            &.icon {
+
+                                display: inline-flex;
+
+                                flex-direction: row;
+                                justify-content: center;
+                                align-items: center;
+
+                                padding: 1rem 1rem 1rem 1rem;
+
+                                line-height: 0.875rem;
+
+                                // hover state
+                                &:hover {
+
+                                    background-color: lighten( @app-canvas, 4.5% );
+
+                                    &:before {
+
+                                        color: @text-color;
+
+                                    }
+
+                                }
+
+                                // full screen icon
+                                &.icon-screen-full {
+
+                                    padding: 0.375rem 0.5rem 0.625rem 0.5rem;
+
+                                }
+
+                                // icon
+                                &:before {
+
+                                    display: inline-flex;
+
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: center;
+
+                                    width: 1rem;
+                                    height: 1rem;
+
+                                    color: fade( @text-color, 45% );
+
+                                    transition: @all220;
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    // plugin class
+                    .xterm {
+
+                        min-height: ~'calc( 100% - 3rem )';
+
+                        padding: 1rem;
+
+                        @{type}-family: @code-font;
+                        @{type}-size: 9.5px;
+                        @{type}-weight: 700;
+
+                        color: @syntax-text-color;
+
+                        background-color: fade( @terminal-backdrop, 90% );
+
+                        ::selection {
+
+                            // the emptiness
+
+                        }
+
+                        .terminal-cursor {
+
+                            background-color: @cursor;
+
+                        }
+
+                        .terminal {
+
+                            background-color: transparent !important;
 
                         }
 
@@ -369,36 +441,4 @@
 
         }
 
-        .platformio-ide-terminal {
-
-            &.terminal-view {
-
-                .xterm {
-
-                    padding: 1rem;
-
-                    @{type}-family: @code-font;
-                    @{type}-size: 9.5px;
-                    @{type}-weight: 700;
-
-                    color: @syntax-text-color;
-
-                    background-color: darken( @app-canvas, 4% );
-
-                    ::selection {
-
-                        // the emptiness
-
-                    }
-
-                    .terminal-cursor {
-
-                        background-color: @cursor;
-
-                    }
-
-                }
-
-            }
-
-        }
+    }

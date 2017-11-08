@@ -1,299 +1,262 @@
 // stylesheet :: gutter styles
 
     // settings
+    @gutter-space : 1rem;
+    @gutter-base : darken( @app-canvas, 3.75% );
 
-        // metrics
-        @gutter-space : 1rem;
+// styles
 
-        // colors
-        @gutter-green : fade( @ui-text-brite, 10% );
-        @gutter-blue  : fade( @ui-text-blue, 8.5% );
+    // element hook
+    atom-text-editor {
 
-    // styles
+        // class hook
+        .gutter {
 
-        // top-level hook
-        atom-text-editor {
+            position: relative;
 
-            .gutter-container {
-
-                // the emptiness
-
-            }
-
-            .gutter {
-
-                position: relative;
-
-                &:hover {
-
-                    .line-number {
-
-                        &.foldable {
-
-                            &:not(.folded) {
-
-                                .icon-right{
-
-                                    opacity: 1.000;
-
-                                }
-
-                                &.codemarked {
-
-                                    .icon-right {
-
-                                        &:before {
-
-                                            color: fade( @code-text-color, 35% );
-
-                                        }
-
-                                    }
-
-                                }
-
-                            }
-
-                        }
-
-                        &.folded {
-
-                            .icon-right {
-
-                                &::before {
-
-                                    left: 0;
-
-                                    width: 1rem;
-                                    height: 1rem;
-
-                                    font-size: 0.625rem;
-
-                                    line-height: 1rem;
-
-                                }
-
-                            }
-
-                        }
-
-                    }
-
-                }
-
-                &[gutter-name="pigments-gutter"] {
-
-                    position: absolute;
-
-                    z-index: 1;
-
-                    min-width: 10px !important;
-
-                    .custom-decorations {
-
-                        position: relative;
-
-                        background-color: transparent !important;
-
-                        .pigments-gutter-marker {
-
-                            width: 0.625rem;
-
-                        }
-
-                        .pigments-gutter-marker div,
-                        .pigments-gutter-marker-in-selection div {
-
-                            flex-direction: column;
-                            justify-content: center;
-                            align-items: center;
-
-                            width: 0.625rem;
-                            padding: 0 0 0 0;
-
-                            span {
-
-                                width: 4px;
-                                height: 4px;
-
-                                &:before {
-
-                                    background-image: none;
-
-                                }
-
-                                &:after {
-
-                                    border: none;
-
-                                }
-
-                            }
-
-                        }
-
-                    }
-
-                }
+            &:hover {
 
                 .line-number {
 
-                    display: flex;
+                    &.foldable {
 
-                    flex-direction: row;
-                    justify-content: flex-end;
-                    align-items: flex-end;
+                        &:not(.folded) {
 
-                    padding-left: @gutter-space*1.5;
+                            .icon-right{
 
-                    font-family: 'Centima Mono';
-                    font-size: 0.625rem;
-                    font-weight: 700;
-
-                    line-height: 1rem;
-
-                    color: fade( @code-text-color, 15% );
-
-                    background-color: transparent;
-
-                    opacity: 1.000;
-
-                    transition: @all220;
-
-                    &:after {
-
-                        // null
-                        content: '';
-
-                        position: absolute;
-
-                        top: 0;
-                        bottom: 0;
-                        left: 0;
-
-                        z-index: 10;
-
-                        width: 1.125rem;
-                        height: 1.125rem;
-                        margin: 0;
-                        padding: 0;
-
-                        background-image: url('atom://codepixel.atom-ui/assets/img/marks/_default.png');
-                        background-position: 1px 0;
-                        background-size: 18px 18px;
-                        background-repeat: no-repeat;
-
-                        opacity: 0.000;
-
-                        transform: translate3d( -0.5rem, 0, 0 );
-
-                        transition: all 720ms @oquin 0ms;
-
-                    }
-
-                    &.codemarked {
-
-                        &:after {
-
-                            background-image: url('atom://codepixel.atom-ui/assets/img/marks/function.png');
-                            background-position: 0 0;
-
-                            opacity: 1.000;
-
-                            transform: translate3d( 0, 0, 0 );
-
-                            transition: all 210ms @oquin 180ms !important;
-
-                        }
-
-                        &.codemark {
-
-                            &:after {
-
-                                background-image: url('atom://codepixel.atom-ui/assets/img/marks/codemark.png');
-                                background-position: 1px 0;
+                                opacity: 1.000;
 
                             }
 
-                        }
-
-                        &.design {
-
-                            &:after {
-
-                                background-image: url('atom://codepixel.atom-ui/assets/img/marks/design.png');
-                                background-position: 0 0;
-
-                            }
-
-                        }
-
-                        &:not(.foldable) {
-
-                            .icon-right {
-
-                                &:before {
-
-                                    // triangle
-                                    content: '\f05b';
-
-                                    // null
-                                    content: '';
-
-                                    display: none;
-
-                                }
-
-                            }
-
-                        }
-
-                    }
-
-                    &.cursor-line {
-
-                        color: fade( @ui-text-brite, 90% );
-
-                        // background-color: darken( @app-canvas, 6.5% );
-
-                        // background-color: fade( @ui-text-brite, 3% );
-                        background-color: fade( @code-line-color, 3% );
-
-                        &.foldable {
-
-                            &.folded {
-
-                                color: fade( @code-text-color, 95% );
-
-                                background-color: fade( @ui-text-green, 8.5% );
+                            &.codemarked {
 
                                 .icon-right {
 
-                                    color: fade( @ui-text-green, 65% );
+                                    &:before {
 
-                                }
-
-                            }
-
-                        }
-
-                        &.foldable {
-
-                            &:not(.folded) {
-
-                                &:hover {
-
-                                    color: fade( @code-text-color, 95% );
-
-                                    background-color: fade( @red, 8.5% );
-
-                                    .icon-right {
-
-                                        color: @red;
+                                        color: fade( @code-text-color, 35% );
 
                                     }
 
                                 }
+
+                            }
+
+                        }
+
+                    }
+
+                    &.folded {
+
+                        .icon-right {
+
+                            &::before {
+
+                                left: 0;
+
+                                width: 1rem;
+                                height: 1rem;
+
+                                font-size: 0.625rem;
+
+                                line-height: 1rem;
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            &[gutter-name="pigments-gutter"] {
+
+                position: absolute;
+
+                z-index: 1;
+
+                min-width: 10px !important;
+
+                .custom-decorations {
+
+                    position: relative;
+
+                    background-color: transparent !important;
+
+                    .pigments-gutter-marker {
+
+                        width: 0.625rem;
+
+                    }
+
+                    .pigments-gutter-marker div,
+                    .pigments-gutter-marker-in-selection div {
+
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        width: 0.625rem;
+                        padding: 0 0 0 0;
+
+                        span {
+
+                            width: 4px;
+                            height: 4px;
+
+                            &:before {
+
+                                background-image: none;
+
+                            }
+
+                            &:after {
+
+                                border: none;
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .line-number {
+
+                display: flex;
+
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: flex-end;
+
+                padding-left: @gutter-space*1.5;
+
+                font-family: 'Centima Mono';
+                font-size: 0.625rem;
+                font-weight: 700;
+
+                line-height: 1rem;
+
+                color: fade( @code-text-color, 20% );
+
+                background-color: transparent;
+
+                opacity: 1.000;
+
+                transition: @all220;
+
+                &:after {
+
+                    // null
+                    content: '';
+
+                    position: absolute;
+
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+
+                    z-index: 10;
+
+                    width: 1.125rem;
+                    height: 1.125rem;
+                    margin: 0;
+                    padding: 0;
+
+                    background-image: url('atom://code-pixel-studio-ui/assets/img/marks/_default.png');
+                    background-position: 1px 0;
+                    background-size: 18px 18px;
+                    background-repeat: no-repeat;
+
+                    opacity: 0.000;
+
+                    transform: translate3d( -0.5rem, 0, 0 );
+
+                    transition: all 720ms @oquin 0ms;
+
+                }
+
+                &.codemarked {
+
+                    &:after {
+
+                        background-image: url('atom://code-pixel-studio-ui/assets/img/marks/function.png');
+                        background-position: 0 0;
+
+                        opacity: 1.000;
+
+                        transform: translate3d( 0, 0, 0 );
+
+                        transition: all 210ms @oquin 180ms !important;
+
+                    }
+
+                    &.codemark {
+
+                        &:after {
+
+                            background-image: url('atom://code-pixel-studio-ui/assets/img/marks/codemark.png');
+                            background-position: 1px 0;
+
+                        }
+
+                    }
+
+                    &.design {
+
+                        &:after {
+
+                            background-image: url('atom://code-pixel-studio-ui/assets/img/marks/design.png');
+                            background-position: 0 0;
+
+                        }
+
+                    }
+
+                    &:not(.foldable) {
+
+                        .icon-right {
+
+                            &:before {
+
+                                // triangle
+                                content: '\f05b';
+
+                                // null
+                                content: '';
+
+                                display: none;
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                &.cursor-line {
+
+                    color: fade( @ui-text-brite, 90% );
+
+                    background-color: fade( @code-line-color, 3.5% );
+
+                    &.foldable {
+
+                        &.folded {
+
+                            color: fade( @code-text-color, 95% );
+
+                            background-color: fade( @ui-text-green, 8.5% );
+
+                            .icon-right {
+
+                                color: fade( @ui-text-green, 65% );
 
                             }
 
@@ -307,13 +270,55 @@
 
                             &:hover {
 
-                                color: fade( @code-text-color, 85% );
+                                color: fade( @code-text-color, 95% );
 
                                 background-color: fade( @red, 8.5% );
 
                                 .icon-right {
 
                                     color: @red;
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                &.foldable {
+
+                    &:not(.folded) {
+
+                        &:hover {
+
+                            color: fade( @code-text-color, 85% );
+
+                            background-color: fade( @red, 8.5% );
+
+                            .icon-right {
+
+                                color: @red;
+
+                                &:before {
+
+                                    color: @red;
+
+                                    transition: @all220;
+
+                                }
+
+                            }
+
+                        }
+
+                        &.codemarked {
+
+                            &:hover {
+
+                                .icon-right {
 
                                     &:before {
 
@@ -327,90 +332,42 @@
 
                             }
 
-                            &.codemarked {
-
-                                &:hover {
-
-                                    .icon-right {
-
-                                        &:before {
-
-                                            color: @red;
-
-                                            transition: @all220;
-
-                                        }
-
-                                    }
-
-                                }
-
-                                .icon-right {
-
-                                    &:before {
-
-                                        // triangle
-                                        content: '\f05b';
-
-                                    }
-
-                                }
-
-                            }
-
                             .icon-right {
 
-                                opacity: 0.000;
+                                &:before {
+
+                                    // triangle
+                                    content: '\f05b';
+
+                                }
 
                             }
 
                         }
 
-                        &.codemarked {
+                        .icon-right {
 
-                            &:not(.folded) {
+                            opacity: 0.000;
 
-                                .icon-right {
+                        }
 
-                                    // opacity: 1.000;
+                    }
 
-                                    &:before {
+                    &.codemarked {
 
-                                        // triangle
-                                        content: '\f05b';
+                        &:not(.folded) {
 
-                                        // alert
-                                        // content: '\f02d';
+                            .icon-right {
 
-                                    }
+                                // opacity: 1.000;
 
-                                }
+                                &:before {
 
-                            }
+                                    // triangle
+                                    content: '\f05b';
 
-                            &.folded {
-
-                                &:hover {
-
-                                    .icon-right {
-
-                                        &:before {
-
-                                            color: @ui-text-green;
-
-                                        }
-
-                                    }
-
-                                }
-
-                                .icon-right {
-
-                                    &:before {
-
-                                        color: fade( @ui-text-green, 25% );
-
-                                    }
+                                    // alert
+                                    // content: '\f02d';
 
                                 }
 
@@ -420,19 +377,15 @@
 
                         &.folded {
 
-                            color: fade( @code-text-color, 65% );
-
-                            background-color: fade( @ui-text-green, 2% );
-
                             &:hover {
-
-                                color: fade( @code-text-color, 95% );
-
-                                background-color: fade( @ui-text-green, 7.5% );
 
                                 .icon-right {
 
-                                    color: @ui-text-green;
+                                    &:before {
+
+                                        color: @ui-text-green;
+
+                                    }
 
                                 }
 
@@ -440,24 +393,11 @@
 
                             .icon-right {
 
-                                color: fade( @ui-text-green, 25% );
+                                &:before {
 
-                            }
+                                    color: fade( @ui-text-green, 25% );
 
-                        }
-
-                        .icon-right {
-
-                            color: fade( @code-text-color, 35% );
-
-                            opacity: 1.000;
-
-                            transition: @all220;
-
-                            &:before {
-
-                                // triangle
-                                content: '\f05b';
+                                }
 
                             }
 
@@ -467,38 +407,27 @@
 
                     &.folded {
 
-                        .icon-right {
+                        color: fade( @code-text-color, 75% );
 
-                            color: fade( @text-color-selected, 45% );
+                        background-color: fade( @ui-text-green, 2% );
 
-                            opacity: 1.000;
+                        &:hover {
 
-                            &:before {
+                            color: fade( @code-text-color, 95% );
 
-                                // triangle
-                                // content: '\f05a' !important;
-                                content: '\f05b' !important;
+                            background-color: fade( @ui-text-green, 7.5% );
 
-                                left: 0;
+                            .icon-right {
 
-                                display: inline-flex;
-
-                                flex-direction: column;
-                                justify-content: center;
-                                align-items: center;
-
-                                width: 1rem;
-                                height: 1rem;
-
-                                font-size: 0.625rem;
-
-                                transform: rotate(-90deg);
-
-                                transform-origin: center center;
-
-                                transition: @all220;
+                                color: @ui-text-green;
 
                             }
+
+                        }
+
+                        .icon-right {
+
+                            color: fade( @ui-text-green, 25% );
 
                         }
 
@@ -506,17 +435,38 @@
 
                     .icon-right {
 
-                        display: inline-flex;
+                        color: fade( @code-text-color, 35% );
 
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
+                        opacity: 1.000;
 
-                        width: 1.25rem;
-                        height: 1.125rem;
-                        padding: 0.0625rem 0 0.0625rem 0.25rem;
+                        transition: @all220;
 
                         &:before {
+
+                            // triangle
+                            content: '\f05b';
+
+                        }
+
+                    }
+
+                }
+
+                &.folded {
+
+                    .icon-right {
+
+                        color: fade( @text-color-selected, 45% );
+
+                        opacity: 1.000;
+
+                        &:before {
+
+                            // triangle
+                            // content: '\f05a' !important;
+                            content: '\f05b' !important;
+
+                            left: 0;
 
                             display: inline-flex;
 
@@ -529,6 +479,10 @@
 
                             font-size: 0.625rem;
 
+                            transform: rotate(-90deg);
+
+                            transform-origin: center center;
+
                             transition: @all220;
 
                         }
@@ -537,6 +491,39 @@
 
                 }
 
+                .icon-right {
+
+                    display: inline-flex;
+
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    width: 1.25rem;
+                    height: 1.125rem;
+                    padding: 0.0625rem 0 0.0625rem 0.25rem;
+
+                    &:before {
+
+                        display: inline-flex;
+
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        width: 1rem;
+                        height: 1rem;
+
+                        font-size: 0.625rem;
+
+                        transition: @all220;
+
+                    }
+
+                }
+
             }
 
         }
+
+    }

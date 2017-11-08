@@ -44,26 +44,25 @@
 
     .scrollbars-visible-when-scrolling {
 
-        ::-webkit-scrollbar {
+        /deep/ ::-webkit-scrollbar {
 
-            width: 1px;
+            width: 0px;
             height: 0px;
 
-        }
+            &-track {
 
-        ::-webkit-scrollbar-corner,
-        ::-webkit-scrollbar-track {
+                background-color: fade( @text-color-selected, 3% );
 
-            background-color: transparent;
+            }
 
-        }
+            &-thumb {
 
-        ::-webkit-scrollbar-thumb {
+                background-color: fade( @ui-text-blue, 50% );
+                background-color: fade( @text-color-selected, 10% );
 
-            // background-color: @ui-text-brite;
-            
+                border-radius: 0;
 
-            border-radius: 0;
+            }
 
         }
 

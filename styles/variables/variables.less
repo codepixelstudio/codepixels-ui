@@ -11,6 +11,9 @@
         @antilias : antialiased;
         @pixperf  : geometricPrecision;
 
+        // eat dicks
+        @toolbar-ui-color : darken( @app-canvas, 3.5% );
+
         // fonts
 
             // code
@@ -49,9 +52,8 @@
     // maths + constants
 
         // UI controls
-        @ui-status-bar-height : ~'calc(3rem + 1px)';
-        // @ui-status-bar-height : 3rem;
-        @pane-tab-ui-link     : 160px;
+        @ui-status-bar-height : 3rem;
+        @pane-tab-ui-link     : 192px;
 
     // animations
 
@@ -61,3 +63,5 @@
         // baller
         @zipit  : cubic-bezier( 0.19, 1, 0.22, 1);
         @oquin  : cubic-bezier( 0.23, 1, 0.32, 1);
+        @ioexpo : cubic-bezier( 1, 0, 0, 1 );
+        @ocirc  : cubic-bezier( 0.075, 0.82, 0.165, 1 );

@@ -30,6 +30,14 @@
 
         }
 
+        .list-group li:not(.list-nested-item),
+        .list-tree li:not(.list-nested-item),
+        .list-group li.list-nested-item > .list-item, .list-tree li.list-nested-item > .list-item {
+
+            line-height: 1.5rem;
+
+        }
+
         // list tree
         .list-tree {
 
@@ -41,6 +49,13 @@
 
         }
 
+        .list-tree.has-collapsable-children .list-nested-item > .list-tree > li,
+        .list-tree.has-collapsable-children .list-nested-item > .list-group > li {
+
+            // margin-left: 1rem;
+            // padding-left: 1rem;
+
+        }
 
         // select list
         .select-list {
@@ -54,6 +69,305 @@
             .status {
 
                 float: right;
+
+            }
+
+        }
+
+        .overlay.modal .select-list ol.list-group, atom-panel.modal .select-list ol.list-group {
+
+            margin: 0.5rem 0 0 0 !important;
+
+        }
+
+        // project manager
+        .select-list {
+
+            &.project-manager {
+
+                .text-smaller {
+
+                    display: none;
+
+                }
+
+                .list-group {
+
+                    li {
+
+                        width: 100%;
+
+                    }
+
+                    .primary-line {
+
+                        position: relative;
+
+                        padding: 0 2rem 0 0;
+
+                        overflow: visible;
+
+                        .project-manager-devmode {
+
+                            position: absolute;
+
+                            right: 0.5rem;
+
+                            z-index: 10;
+
+                            display: inline-flex;
+
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+
+                            width: 1.5rem;
+                            height: 1.5rem;
+
+                            margin: 0;
+                            // padding: 0 0 0.25rem 0;
+
+                            &:before {
+
+                                display: inline-flex;
+
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+
+                                width: 1rem;
+                                height: 1rem;
+
+                                color: @ui-text-orange;
+
+                                content: '\ec6b';
+
+                                font-family: @codicons;
+
+                            }
+
+                        }
+
+                        .icon {
+
+                            display: inline-flex;
+
+                            flex-direction: row;
+                            justify-content: flex-start;
+                            align-items: center;
+
+                            span {
+
+                                height: 1.25rem;
+
+                                // line-height: 0.75rem;
+
+                            }
+
+                            &:before {
+
+                                font-family: @codicons;
+
+                                margin: 0.0625rem 0.5rem 0 0;
+
+                            }
+
+                            // atom.local
+                            &.icon-file-binary {
+
+                                &:before {
+
+                                    content: '\ec96';
+
+                                }
+
+                            }
+
+                            // package.build
+                            &.icon-bug {
+
+                                &:before {
+
+                                    content: '\ed4f';
+
+                                    // color: @ui-text-orange;
+
+                                }
+
+                            }
+
+                            // package.cvmbs
+                            &.icon-squirrel {
+
+                                &:before {
+
+                                    // content: '';
+
+                                    font-family: @octicons;
+
+                                }
+
+                            }
+
+                            // atom.ui
+                            &.icon-file-submodule {
+
+                                &:before {
+
+                                    content: '\e90d';
+
+                                }
+
+                            }
+
+                            // launch.chrome
+                            &.icon-browser {
+
+                                &:before {
+
+                                    content: '\ef38';
+
+                                }
+
+                            }
+
+                            // enterprise
+                            &.icon-briefcase {
+
+                                &:before {
+
+                                    content: '\e90a';
+
+                                }
+
+                            }
+
+                            // system.interface
+                            &.icon-server {
+
+                                &:before {
+
+                                    content: '\ef1d';
+
+                                }
+
+                            }
+
+                            // static.assets
+                            &.icon-cloud-download {
+
+                                &:before {
+
+                                    // font-family: @octicons;
+
+                                    content: '\ec78';
+
+                                }
+
+                            }
+
+                            // zurb
+                            &.icon-zap {
+
+                                &:before {
+
+                                    font-family: @octicons;
+
+                                }
+
+                            }
+
+                            // foundation.state
+                            &.icon-globe {
+
+                                &:before {
+
+                                    content: '\ee7d';
+
+                                }
+
+                            }
+
+                            // codpixel.studio
+                            &.icon-code {
+
+                                &:before {
+
+                                    content: '\e9f8';
+
+                                }
+
+                            }
+
+                            // library.studio
+                            &.icon-book {
+
+                                &:before {
+
+                                    content: '\e995';
+
+                                }
+
+                            }
+
+                            // stadium.sessions
+                            &.icon-jersey {
+
+                                &:before {
+
+                                    content: '\ec38';
+
+                                }
+
+                            }
+
+                            // protostar
+                            &.icon-broadcast {
+
+                                &:before {
+
+                                    content: '\ea73';
+
+                                }
+
+                            }
+
+                            // codepixelstudio.github.io
+                            &.icon-mark-github {
+
+                                &:before {
+
+                                    font-family: @octicons;
+
+                                    // content: '';
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    .secondary-line {
+
+                        padding: 0 0 0 1.5rem;
+
+                        .no-icon {
+
+                            display: flex;
+
+                            flex-direction: row;
+                            justify-content: flex-end;
+                            align-items: center;
+
+                            padding: 0 0 0 0;
+
+                        }
+
+                    }
+
+                }
 
             }
 

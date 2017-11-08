@@ -1,13 +1,20 @@
 // stylesheet :: git diff styles
 
+    // settings
+    @github-base : darken( @toolbar-ui-color, 3.5% );
+    @header-base : lighten( @toolbar-ui-color, 1% );
+
     // repository panel
     atom-pane {
 
         .github-Panel {
 
+            width: 24rem;
+            max-width: 24rem;
+
             font-size: 0.75rem;
 
-            background-color: @app-background-color;
+            background-color: fade( @github-base, 90% );
 
             .github-UnstagedChanges {
 
@@ -65,7 +72,25 @@
 
             }
 
+            .github-StagingView-group {
+
+                position: relative;
+
+                flex-basis: auto;
+
+                height: 50%;
+
+            }
+
             header {
+
+                position: absolute;
+
+                top: 0;
+                right: 0;
+                left: 0;
+
+                z-index: 10;
 
                 display: flex;
 
@@ -75,11 +100,15 @@
 
                 align-content: flex-end;
 
-                height: 3.0625rem;
+                height: 3rem;
                 margin: 0;
                 padding: 0 0.5rem 0 0;
 
+                border: none;
+
                 text-transform: uppercase;
+
+                background-color: fade( @header-base, 90% );
 
                 .icon {
 
@@ -168,7 +197,10 @@
 
             .github-StagingView-list {
 
-                padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+                height: auto;
+                padding: 4rem 1rem 1rem 1rem;
+
+                // background-color: darken( @toolbar-ui-color, 3.5% );
 
                 .github-FilePatchListView-item {
 
@@ -180,7 +212,9 @@
 
                     height: 2rem;
                     margin: 0;
-                    padding: 0.0625rem 0.5rem 0 0.5rem;
+                    padding: 0 0.5rem 0 0.5rem;
+
+                    line-height: 1rem;
 
                     background-color: transparent;
 
@@ -188,7 +222,7 @@
 
                     &:hover {
 
-                        background-color: fade( @text-color-selected, 3% );
+                        background-color: fade( @text-color-selected, 5% );
 
                         .github-FilePatchListView-path {
 
@@ -213,7 +247,7 @@
                         width: 1rem;
                         height: 2rem;
                         margin: 0 0.5rem 0 0;
-                        padding: 0.5rem 0 0.5rem 0;
+                        padding: 0.4375rem 0 0.5625rem 0;
 
                         opacity: 0.565;
 
@@ -250,6 +284,200 @@
 
             }
 
+            .github-CommitView {
+
+                padding: 1rem 1rem 1rem 1rem;
+
+                border: none;
+
+                background-color: fade( @header-base, 90% );
+
+                .github-CommitView-editor {
+
+                    padding: 0;
+
+                    border: none;
+
+                    background-color: transparent;
+
+                }
+
+                atom-text-editor {
+
+                    height: 5rem;
+                    padding: 0.5rem 0.625rem 0.5rem 0.625rem;
+
+                    background-color: fade( @syntax-background-color, 50% );
+
+                    transition: @all220;
+
+                    div {
+
+                        background-color: transparent !important;
+
+                    }
+
+                    &.is-focused {
+
+                        background-color: fade( @syntax-background-color, 100% );
+
+                        transition: @all220;
+
+                        .placeholder-text {
+
+                            color: fade( @ui-text-brite, 80% );
+
+                            transition: @all220;
+
+                        }
+
+                    }
+
+                    .placeholder-text {
+
+                        font-family: @indu-font;
+                        font-weight: 700;
+                        font-style: italic;
+                        font-size: 0.625rem;
+
+                        letter-spacing: 0.025em;
+
+                        text-transform: lowercase;
+
+                        color: fade( @code-text-color, 25% );
+
+                        transition: @all220;
+
+                    }
+
+                    .line {
+
+                        line-height: 1rem;
+
+                    }
+
+                }
+
+                .github-CommitView-bar {
+
+                    display: flex;
+
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    align-content: space-between;
+
+                    height: 2.125rem;
+                    margin: 1rem 0 0 0;
+
+                }
+
+                .github-CommitView-label {
+
+                    display: flex;
+
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    flex-grow: 1;
+
+                    height: 1rem;
+
+                    font-size: 0.6875rem;
+                    font-weight: 600;
+
+                    letter-spacing: 0.025em;
+
+                    text-transform: lowercase;
+
+                    color: fade( @text-color-selected, 25% );
+
+                    &:after {
+
+                        content: 'commit';
+
+                        display: inline-block;
+
+                        margin-left: 0.25rem;
+
+                    }
+
+                    .input-checkbox {
+
+                        margin: 0 0.5rem 0 0;
+
+                        &:checked {
+
+                            color: red;
+
+                        }
+
+                    }
+
+                }
+
+                .github-CommitView-expandButton {
+
+                    background-color: transparent;
+
+                    transition: @all220;
+
+                }
+
+                .github-CommitView-button {
+
+                    align-items: center;
+
+                    flex-grow: 0;
+                    flex-basis: auto;
+
+                    // min-width: 4.5rem;
+
+                }
+
+                .github-CommitView-remaining-characters {
+
+                    display: inline-flex;
+
+                    // flex-direction: column;
+                    flex-direction: row;
+                    // justify-content: center;
+                    justify-content: flex-end;
+                    // align-items: flex-end;
+                    align-items: center;
+
+                    width: 1.5rem;
+                    height: 2.125rem;
+                    margin: 0;
+                    padding: 0.125rem 0 0 0;
+
+                    font-family: @decimano;
+                    font-size: 0.875rem;
+                    font-weight: 600;
+
+                    line-height: 3rem;
+
+                    color: @ui-text-blue;
+
+                    transition: all 220ms linear 0ms;
+
+                    &.is-warning {
+
+                        color: @ui-text-yellow;
+
+                    }
+
+                    &.is-error {
+
+                        color: @ui-text-orange;
+
+                    }
+
+                }
+
+            }
+
         }
 
     }
@@ -259,9 +487,11 @@
 
         &.right {
 
-            max-width: 24.0625rem;
+            // max-width: 24rem;
 
             .tab-bar {
+
+                position: static;
 
                 .tab {
 
@@ -269,7 +499,7 @@
 
                     &:before {
 
-                        background-color: @ui-text-pink;
+                        background-color: @ui-text-blue;
 
                     }
 
@@ -292,11 +522,13 @@
 
                                 margin: 0 0 0 0;
 
+                                color: @ui-text-blue;
+
                             }
 
                             &:after {
 
-                                content: 'github.io';
+                                content: 'repository';
 
                                 position: absolute;
 
@@ -314,104 +546,7 @@
 
             atom-pane {
 
-                max-width: 24.0625rem;
-
-            }
-
-        }
-
-    }
-
-    // legacy styles
-    .status {
-
-        .name {
-
-            // color: fade( @text-color, 42.5% );
-
-            &:before {
-
-                color: @text-color;
-
-            }
-
-        }
-
-    }
-
-    .status-added {
-
-        .name {
-
-            // color: fade( @text-color, 42.5% );
-
-            &:before {
-
-                color: @text-color-success;
-
-            }
-
-        }
-
-    }
-
-    .status-ignored {
-
-        .name {
-
-            // color: fade( @text-color, 42.5% );
-
-            &:before {
-
-                color: fade( @text-color, 25% );
-
-            }
-
-        }
-
-    }
-
-    .status-modified {
-
-        .name {
-
-            // color: fade( @text-color, 42.5% );
-
-            &:before {
-
-                color: @text-color-warning;
-
-            }
-
-        }
-
-    }
-
-    .status-removed {
-
-        .name {
-
-            // color: fade( @text-color, 42.5% );
-
-            &:before {
-
-                color: @text-color-error;
-
-            }
-
-        }
-
-    }
-
-    .status-renamed {
-
-        .name {
-
-            // color: fade( @text-color, 42.5% );
-
-            &:before {
-
-                color: @text-color-info;
+                max-width: 24rem;
 
             }
 

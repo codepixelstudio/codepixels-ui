@@ -1,0 +1,158 @@
+// stylesheet :: settings
+
+    // settings
+        @border-shit : none;
+
+    // styles
+    .settings-view {
+
+        // background-color: darken( @app-canvas, 2% );
+
+        .config-menu {
+
+            display: flex;
+
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: stretch;
+
+            width: @pane-tab-ui-link;
+            min-width: @pane-tab-ui-link;
+            max-width: @pane-tab-ui-link;
+            padding-top: 0;
+
+            border-right: none;
+
+            // background-color: lighten( @tab-bar-background-color, 2% );
+            // background-color: darken( @app-canvas, 4% );
+            background-color: lighten( @app-canvas, 2% );
+
+            .button-area {
+
+                margin: 0;
+
+                .btn {
+
+                    justify-content: flex-start;
+
+                    height: 3rem;
+                    padding-left: 0;
+
+                    border: none;
+
+                    font-size: 9px;
+                    font-weight: 700;
+
+                    line-height: 3rem;
+
+                    color: fade( @text-color-highlight, 72.5% );
+
+                    background-color: transparent;
+
+                    &:hover {
+
+                        color: @text-color-selected;
+
+                        // background-color: darken( @app-canvas, 1% );
+                        background-color: lighten( @app-canvas, 4% );
+
+                    }
+
+                    &:before {
+
+                        width: 2.5rem;
+                        height: 3rem;
+                        margin: 0 0 0 0;
+                        padding: 1rem;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        .panels {
+
+            .settings-panel {
+
+                // padding: 0 1.5rem 1.5rem 1.5rem;
+
+            }
+
+        }
+
+        div {
+
+            > section {
+
+                &.section {
+
+                    &.settings-panel {
+
+                        // background-color: red !important;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        section {
+
+            &.section {
+
+                .section-heading {
+
+                    display: flex;
+
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+
+                    font-family: @klav-slim;
+                    font-size: 1.5rem;
+                    font-weight: 400;
+
+                    line-height: 2rem;
+
+                    letter-spacing: 0.085em;
+
+                    text-transform: uppercase;
+
+                    &:before {
+
+                        // display: inline-flex;
+                        //
+                        // flex-direction: column;
+                        // justify-content: center;
+                        // align-items: center;
+
+                        width: 2rem;
+                        height: 2rem;
+                        margin: 0 0 0 0;
+                        padding: 0.5rem;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        .sub-section {
+
+            .sub-section-heading {
+
+                font-size: 1rem;
+                font-weight: 400;
+
+            }
+
+        }
+
+    }

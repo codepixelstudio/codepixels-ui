@@ -1,6 +1,6 @@
 {
 
-    "name": "codepixel.atom-ui",
+    "name": "code-pixel-studio-ui",
 
     "theme": "ui",
 
@@ -10,13 +10,39 @@
 
     "keywords": [],
 
-    "repository": "https://github.com/codepixelstudio/codepixel.atom-ui",
+    "repository": "https://github.com/codepixelstudio/codepixelstudio-atom-ui",
 
     "license": "MIT",
+
+    "main": "./lib/main",
 
     "engines": {
 
         "atom": ">=1.0.0 <2.0.0"
+
+    },
+
+    "consumedServices": {
+
+        "status-bar": {
+
+            "versions": {
+
+                "^1.0.0": "consumeStatusBar"
+
+            }
+
+        },
+
+        "project-manager": {
+
+            "versions": {
+
+                "^1.0.0": "consumeProjectManager"
+
+            }
+
+        }
 
     }
 

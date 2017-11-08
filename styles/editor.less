@@ -1,58 +1,28 @@
 // stylesheet :: editor styles
 
-    // styles
+    // settings
+    @cursor-line : @ui-text-brite;
+
+// styles
+
+    // class hook
     atom-text-editor {
 
         line-height: 1.125rem;
 
-        letter-spacing: 0.125px;
-
+        // cursor line
         .cursor-line {
 
             background-color: fade( @code-line-color, 3.5% );
 
             transition: @all220;
 
-            .fold-marker {
-
-                &:after {
-
-                    color: @ui-text-brite !important;
-
-                    transition: @all220;
-
-                }
-
-                &:before {
-
-                    -webkit-filter: grayscale( 0 ) brightness( 1.0 ) opacity( 1.0 ) !important;
-
-                    transition: @all220;
-
-                }
-
-            }
-
         }
 
+        // class hook
         .line {
 
-            &:hover {
-
-                .fold-marker {
-
-                    &:before {
-
-                        -webkit-filter: grayscale( 0 ) brightness( 1.0 ) opacity( 1.0 ) !important;
-
-                        transition: @all220;
-
-                    }
-
-                }
-
-            }
-
+            // indent guides
             .indent-guide {
 
                 position: relative;
@@ -79,6 +49,7 @@
 
             }
 
+            // custom fold marker
             .fold-marker {
 
                 position: relative;
@@ -108,7 +79,7 @@
                     width: 1.25rem;
                     height: 1.125rem;
 
-                    background-image: url('atom://codepixel.atom-ui/assets/img/icons/ui/folded.dots@2x.png');
+                    background-image: url('atom://code-pixel-studio-ui/assets/img/icons/ui/folded.dots@2x.png');
                     background-repeat: no-repeat;
                     background-size: 20px 18px;
 
@@ -141,6 +112,18 @@
                 }
 
             }
+
+        }
+
+        // bracket matcher
+        .bracket-matcher .region {
+
+            position: absolute;
+
+            width: 0.3125rem !important;
+            margin-left: 1px;
+
+            border-bottom: 1px dotted @code-cursor;
 
         }
 

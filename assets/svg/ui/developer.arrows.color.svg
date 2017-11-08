@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;}
+	.st2{fill:#00FE6D;}
+	.st3{fill:#F9EC32;}
+	.st4{fill:#EF4136;}
+	.st5{display:inline;opacity:0.2;fill:url(#screen_1_);}
+	.st6{display:inline;opacity:0.5;fill:#FFFFFF;}
+	.st7{display:none;fill:none;}
+	.st8{fill:url(#arrow_x5F_L_1_);}
+	.st9{fill:url(#arrow_x5F_R_1_);}
+</style>
+<g id="terminal_1_" class="st0">
+	<g id="buttons" class="st1">
+		<rect x="12" y="10" class="st2" width="1" height="1"/>
+		<rect x="10" y="10" class="st3" width="1" height="1"/>
+		<rect x="8" y="10" class="st4" width="1" height="1"/>
+	</g>
+	<linearGradient id="screen_1_" gradientUnits="userSpaceOnUse" x1="16" y1="22" x2="16" y2="12">
+		<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.4"/>
+		<stop  offset="1" style="stop-color:#FFFFFF"/>
+	</linearGradient>
+	<rect id="screen_2_" x="8" y="12" class="st5" width="16" height="10"/>
+	<path id="frame" class="st6" d="M7,9v14h18V9H7z M12,10h1v1h-1V10z M10,10h1v1h-1V10z M8,10h1v1H8V10z M24,22H8V12h16V22z M24,11
+		H14v-1h10V11z"/>
+</g>
+<rect id="viewBox_7_" class="st7" width="32" height="32"/>
+<linearGradient id="arrow_x5F_L_1_" gradientUnits="userSpaceOnUse" x1="14.9834" y1="33.832" x2="-0.7683" y2="18.0803">
+	<stop  offset="0" style="stop-color:#EF4136"/>
+	<stop  offset="5.821807e-02" style="stop-color:#F04A34"/>
+	<stop  offset="0.1532" style="stop-color:#F2622F"/>
+	<stop  offset="0.2731" style="stop-color:#F68A28"/>
+	<stop  offset="0.4118" style="stop-color:#FCC11D"/>
+	<stop  offset="0.48" style="stop-color:#FFDE17"/>
+	<stop  offset="0.5218" style="stop-color:#FDE21F;stop-opacity:0.9128"/>
+	<stop  offset="0.6251" style="stop-color:#FAEA2C;stop-opacity:0.6978"/>
+	<stop  offset="0.72" style="stop-color:#F9EC30;stop-opacity:0.5"/>
+	<stop  offset="1" style="stop-color:#F9ED32;stop-opacity:0"/>
+</linearGradient>
+<path id="arrow_x5F_L_6_" class="st8" d="M10,28.6l1.8-1.8l5.1,5.1L16,32C7.6,32,0.7,25.5,0,17.3h2C2.5,22.3,5.6,26.6,10,28.6
+	L10,28.6z"/>
+<linearGradient id="arrow_x5F_R_1_" gradientUnits="userSpaceOnUse" x1="32.7455" y1="13.8798" x2="17.0251" y2="-1.8405">
+	<stop  offset="0" style="stop-color:#1C75BB;stop-opacity:0"/>
+	<stop  offset="0.1121" style="stop-color:#1F7EC3;stop-opacity:0.2001"/>
+	<stop  offset="0.28" style="stop-color:#2594D7;stop-opacity:0.5"/>
+	<stop  offset="0.4069" style="stop-color:#2AA6E7;stop-opacity:0.7644"/>
+	<stop  offset="0.52" style="stop-color:#30B9F8"/>
+	<stop  offset="0.5496" style="stop-color:#2CBFEC"/>
+	<stop  offset="0.7014" style="stop-color:#19DAB6"/>
+	<stop  offset="0.8325" style="stop-color:#0CEE8E"/>
+	<stop  offset="0.9363" style="stop-color:#03FA76"/>
+	<stop  offset="1" style="stop-color:#00FF6D"/>
+</linearGradient>
+<path id="arrow_x5F_R_6_" class="st9" d="M16,0c8.4,0,15.3,6.4,16,14.6h-2c-0.4-5-3.6-9.2-8-11.3l-1.8,1.8l-5.1-5.1L16,0z"/>
+</svg>

@@ -1,0 +1,60 @@
+{
+
+    "configSchema": {
+
+        "gutter": {
+
+            "order": 1,
+            "type": "object",
+            "title": "Gutter Size",
+            "description": "select a base value for the width of the editor gutter(s)",
+            "properties": {
+
+                "default": {
+
+                    "title": "default",
+                    "description": "base gutter width",
+                    "type": "boolean",
+                    "default": false
+
+                },
+                "small": {
+
+                    "title": "small",
+                    "description": "small gutter width",
+                    "type": "boolean",
+                    "default": false
+
+                },
+                "medium": {
+
+                    "title": "medium",
+                    "description": "medium gutter width",
+                    "type": "boolean",
+                    "default": false
+
+                },
+                "large": {
+
+                    "title": "large",
+                    "description": "large gutter width",
+                    "type": "boolean",
+                    "default": false
+
+                },
+                "xlarge": {
+
+                    "title": "x-large",
+                    "description": "x-large gutter width",
+                    "type": "boolean",
+                    "default": false
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

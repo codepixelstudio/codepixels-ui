@@ -5,6 +5,18 @@
 
             .inline-block {
 
+                background-color: darken( @app-canvas, 5% );
+
+                &:hover {
+
+                    &:after {
+
+                        opacity: 1.000;
+
+                    }
+
+                }
+
                 &:after {
 
                     font-family: @devop-font;
@@ -12,6 +24,8 @@
                     font-weight: 400;
 
                     text-indent: 0;
+
+                    opacity: 0.525;
 
                 }
 
@@ -143,11 +157,45 @@
 
                 &[data-grammar="CoffeeScript"] {
 
-                    color: @coffee-ui;
+                    color: @ui-grammar-orange;
 
                     &:after {
 
                         content: '\e651';
+
+                        font-size: 1rem;
+
+                    }
+
+                }
+
+                &[data-grammar="AppleScript"] {
+
+                    color: fade( @ui-grammar-pink, 70% );
+
+                    &:after {
+
+                        content: '\e611';
+
+                        font-size: 1rem;
+
+                    }
+
+                }
+
+                &[data-grammar="Shell Script"] {
+
+                    color: fade( @text-color, 90% );
+
+                    // background-color: red;
+
+                    &:after {
+
+                        content: '\eed4';
+
+                        font-family: @codicons;
+
+                        font-size: 1rem;
 
                     }
 
