@@ -1,6 +1,6 @@
 {
 
-    "name": "code-pixel-studio-ui",
+    "name": "codepixels-ui",
 
     "theme": "ui",
 
@@ -10,7 +10,7 @@
 
     "keywords": [],
 
-    "repository": "https://github.com/codepixelstudio/codepixelstudio-atom-ui",
+    "repository": "https://github.com/codepixelstudio/codepixels-ui",
 
     "license": "MIT",
 
