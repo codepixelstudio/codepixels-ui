@@ -3,8 +3,76 @@
     // settings
     @cursor   : hsla( 188, 75%, 68%, 1.000 );
     @terminal-backdrop : darken( @app-canvas, 3% );
+    @electrons : #9DE6F6;
+    @electron : #71B0BC;
+    @electron_bg : #32313E;
+    @zurb : #44B8F6;
 
 // styles
+
+    // widescreen class
+    .widescreen {
+
+        // class hook
+        atom-panel-container {
+
+            // bottom
+            &.bottom {
+
+                // bottom panel
+                .panel-bottom {
+
+                    // package class
+                    .platformio-ide-terminal {
+
+                        // active state
+                        &.terminal-view {
+
+                            width: 32rem;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    // standard class
+    .standard {
+
+        // class hook
+        atom-panel-container {
+
+            // bottom
+            &.bottom {
+
+                // bottom panel
+                .panel-bottom {
+
+                    // package class
+                    .platformio-ide-terminal {
+
+                        // active state
+                        &.terminal-view {
+
+                            width: 30rem;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
 
     // class hook
     atom-panel-container {
@@ -150,9 +218,11 @@
                             height: 3rem;
                             margin: 0;
 
-                            line-height: 1rem;
+                            // line-height: 1rem;
 
                             .pio-terminal-status-icon {
+
+                                .flex( @iflex, row, @fstart, @cent );
 
                                 min-width: 3rem;
                                 height: 3rem;
@@ -231,14 +301,130 @@
 
                                 }
 
+                                // foundation
+                                &:nth-child( 1 ) {
+
+                                    .fill( @zurb, 0% );
+
+                                    &:hover {
+
+                                        .fill( @zurb, 5% );
+
+                                        .icon-terminal {
+
+                                            &:before {
+
+                                                color: @zurb;
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                    &.active {
+
+                                        .fill( @zurb, 10% );
+
+                                        &:hover {
+
+                                            .fill( @zurb, 20% );
+
+                                            .icon-terminal {
+
+                                                &:before {
+
+                                                    color: @zurb;
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                        .icon-terminal {
+
+                                            &:before {
+
+                                                color: @zurb;
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                }
+
+                                // electron
+                                &:nth-child( 2 ) {
+
+                                    .fill( @electron_bg, 0% );
+
+                                    &:hover {
+
+                                        // .fill( @electron, 20% );
+                                        .fill( @electron_bg, 100% );
+
+                                        .icon-terminal {
+
+                                            &:before {
+
+                                                color: @electrons;
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                    &.active {
+
+                                        .fill( @electron, 10% );
+
+                                        &:hover {
+
+                                            .fill( @electron, 20% );
+
+                                            .icon-terminal {
+
+                                                &:before {
+
+                                                    color: @electrons;
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                        .icon-terminal {
+
+                                            &:before {
+
+                                                color: @electrons;
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                }
+
                                 .icon-terminal {
 
+                                    .flex( @iflex, @col, @cent, @cent );
+
                                     // width: ~'calc(1.25rem + 4px)';
-                                    width: 1rem;
+                                    width: 0.875rem;
                                     // height: 1.5rem;
                                     // height: ~'calc(1.5rem + 2px)';
                                     height: 1rem;
-                                    padding: 0 0 0 0;
+                                    margin: 0 0.125rem 0 0;
+                                    padding: 0 0 0.125rem 0;
+
+                                    line-height: 0.875rem;
 
                                     color: fade( @text-color-selected, 40% );
 
@@ -248,6 +434,19 @@
 
                                         top: 0;
 
+                                        .flex( flex, @col, @cent, @cent );
+
+                                        width: 0.875rem;
+                                        height: 0.875rem;
+
+                                        // codicons -> terminal
+                                        // content: '\eed4';
+                                        // font-family: @codicons;
+
+                                        // devopicons -> terminal
+                                        // content: '\e695';
+                                        // font-family: @devop-font;
+
                                         transition: @all220;
 
                                     }
@@ -256,25 +455,23 @@
 
                                 .name {
 
-                                    display: inline-flex;
+                                    display: inline-table;
 
-                                    flex-direction: row;
-                                    justify-content: flex-start;
-                                    align-items: center;
+                                    height: 0.75rem;
+                                    // margin: 0 0 0 -0.1875rem;
+                                    padding: 0.125rem 0 0 0;
 
-                                    align-self: center;
+                                    .type( @industry, 0.53125rem, 900 );
 
-                                    // height: ~'calc(1.5rem + 2px)';
-                                    padding: 0 0 0 0;
+                                    line-height: 0.5rem;
 
-                                    font-size: 10px;
-                                    font-weight: 500;
+                                    letter-spacing: 0.045em;
 
-                                    line-height: 0.625rem;
+                                    text-transform: @txtup;
 
-                                    letter-spacing: 0.25px;
+                                    white-space: pre;
 
-                                    color: fade( @text-color-selected, 60% );
+                                    color: fade( @lite, 30% );
 
                                     transition: @all220;
 
@@ -295,8 +492,6 @@
                         left: 0;
 
                         z-index: 100;
-
-                        width: 30rem;
 
                         transition: all 540ms linear 180ms;
 

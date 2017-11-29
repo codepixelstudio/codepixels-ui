@@ -1,0 +1,304 @@
+// settings.menu
+
+    // settings
+    @settings_font : 0.5625rem;
+
+// styles
+
+    // widescreen class
+    .widescreen {
+
+        // container
+        .settings-view {
+
+            // element
+            .config-menu {
+
+                width: @pane-tab-widescreen;
+                min-width: @pane-tab-widescreen;
+                max-width: @pane-tab-widescreen;
+
+            }
+
+        }
+
+    }
+
+    // standard class
+    .standard {
+
+        // container
+        .settings-view {
+
+            // element
+            .config-menu {
+
+                width: @pane-tab-standard;
+                min-width: @pane-tab-standard;
+                max-width: @pane-tab-standard;
+
+            }
+
+        }
+
+    }
+
+    // container
+    .settings-view {
+
+        // element
+        .config-menu {
+
+            .flex( flex, @col, @stween, @strch );
+
+            padding-top: 0;
+
+            border-right: none;
+
+            background-color: @settings-base-color;
+
+            // menu items
+            .panels-menu {
+
+                // container
+                li {
+
+                    // core
+                    &[name='Core'] {
+
+                        // element
+                        a {
+
+                            // icon
+                            &:before {
+
+                                // gear
+                                content: '\ec97';
+
+                            }
+
+                        }
+
+                    }
+
+                    // editor
+                    &[name='Editor'] {
+
+                        // element
+                        a {
+
+                            // icon
+                            &:before {
+
+                                // rulers
+                                content: '\eecf';
+
+                            }
+
+                        }
+
+                    }
+
+                    // keybindings
+                    &[name='Keybindings'] {
+
+                        // element
+                        a {
+
+                            // icon
+                            &:before {
+
+                                font-family: @octicons;
+
+                            }
+
+                        }
+
+                    }
+
+                    // packages
+                    &[name='Packages'] {
+
+                        // element
+                        a {
+
+                            // icon
+                            &:before {
+
+                                // box
+                                content: '\ea84';
+
+                            }
+
+                        }
+
+                    }
+
+                    // themes
+                    &[name='Themes'] {
+
+                        // element
+                        a {
+
+                            // icon
+                            &:before {
+
+                                // design
+                                content: '\e90d';
+
+                            }
+
+                        }
+
+                    }
+
+                    // updates
+                    &[name='Updates'] {
+
+                        // element
+                        a {
+
+                            // icon
+                            &:before {
+
+                                // download
+                                content: '\ec8b';
+
+                                // font-family: @octicons;
+
+                            }
+
+                        }
+
+                    }
+
+                    // install
+                    &[name='Install'] {
+
+                        // element
+                        a {
+
+                            // icon
+                            &:before {
+
+                                // folder upload
+                                content: '\e9e4';
+
+                            }
+
+                        }
+
+                    }
+
+                    // :not active -> hover
+                    &:not( .active ) {
+
+                        // link
+                        a {
+
+                            // hover state
+                            &:hover {
+
+                                color: @text-color-selected;
+
+                                .fill( @app-canvas-45, 100% );
+
+                            }
+
+                        }
+
+                    }
+
+                    // element
+                    a {
+
+                        .flex( flex, @row, @fstart, @cent );
+
+                        height: 2rem;
+                        padding: 0.0625rem 0 0 1rem;
+
+                        .type( @indu-font, @settings_font, 700 );
+
+                        line-height: 1.125rem;
+
+                        letter-spacing: 0.045em;
+
+                        text-transform: @txtup;
+
+                        color: fade( @text-color-selected, 60% );
+
+                        transition: @all220;
+
+                        // icon
+                        &:before {
+
+                            .flex( @iflex, @col, @cent, @cent );
+
+                            width: 1rem;
+                            height: 1rem;
+                            margin: 0 0.75rem 0.0625rem 0;
+
+                            font-family: @codicons;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            // config button
+            .button-area {
+
+                margin: 0;
+
+                // element
+                .btn {
+
+                    justify-content: flex-start;
+
+                    height: 3rem;
+                    padding-left: 0;
+
+                    border: none;
+
+                    font-size: 9px;
+                    font-weight: 700;
+
+                    line-height: 3rem;
+
+                    color: fade( @text-color-highlight, 72.5% );
+
+                    background-color: transparent;
+
+                    // hover state
+                    &:hover {
+
+                        color: @text-color-selected;
+
+                        background-color: @app-canvas;
+
+                    }
+
+                    // icon
+                    &:before {
+
+                        content: '\e9dc';
+
+                        width: 2.5rem;
+                        height: 3rem;
+                        margin: 0 0 0 0;
+                        padding: 1rem;
+
+                        font-family: @codicons;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }

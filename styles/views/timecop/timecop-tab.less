@@ -1,0 +1,86 @@
+// settings.tab
+
+    // settings
+    @settings-highlight : @ui-text-orange;
+
+// view.tab
+
+    // container
+    .tab-bar {
+
+        // element
+        .tab {
+
+            // data attribute
+            &[data-type='TimecopView'] {
+
+                order: -80 !important;
+
+                // title
+                .title {
+
+                    // icon
+                    &:before {
+
+                        // pie chart
+                        content: '\eb82';
+
+                        // pie chart
+                        content: '\eb70';
+
+                        background-color: transparent;
+
+                    }
+
+                }
+
+                // hover state
+                &:hover {
+
+                    // highlight
+                    &:before {
+
+                        background-color: fade( @ui-text-yellow, 95% );
+
+                    }
+
+                }
+
+                // highlight
+                &:before {
+
+                    background-color: fade( @ui-text-yellow, 0% );
+
+                }
+
+                // active state
+                &.active {
+
+                    background-color: darken( @app-canvas, 1.5% );
+
+                    // highlight
+                    &:before {
+
+                        background-color: fade( @ui-text-yellow, 95% );
+
+                    }
+
+                    // title
+                    .title {
+
+                        // icon
+                        &:before {
+
+                            color: fade( @ui-text-yellow, 95% );
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }

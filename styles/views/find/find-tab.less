@@ -1,0 +1,192 @@
+// find.tab
+
+    // settings
+    @tab_icon_font : @codicons;
+
+// container
+.tab-bar {
+
+    // element
+    .tab {
+
+        // data attribute
+        &[data-type='ResultsPaneView'] {
+
+            order: -70;
+
+            // replace title text
+            &:after {
+
+                // content: 'search results';
+                content: 'results';
+
+                position: absolute;
+
+                top: 1rem;
+                bottom: 1rem;
+                left: 2.75rem;
+
+                z-index: 10;
+
+                display: inline-flex;
+
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+
+                height: 1rem;
+                padding: 1px 0 0 0;
+
+                overflow: visible;
+
+                font-weight: 700;
+
+                line-height: 0.75rem;
+
+                text-transform: @txtup;
+
+                background-color: transparent;
+
+            }
+
+            // title
+            .title {
+
+                height: 1rem;
+                padding: 1px 0 0 2.75rem !important;
+
+                overflow: visible;
+
+                line-height: 0.75rem;
+
+                color: transparent;
+
+                // icons
+                &:before,
+                &:after {
+
+                    position: absolute;
+
+                }
+
+                // search icon
+                &:before {
+
+                    // search
+                    content: '\eb37';
+
+                    // search
+                    content: '\eb33';
+
+                    top: 0.25rem;
+                    left: 1.25rem;
+
+                    z-index: 1;
+
+                    width: 1rem;
+                    height: 1rem;
+
+                    font-weight: bold !important;
+
+                    opacity: 0.000;
+
+                    transform: scale3d( 0.5, 0.5, 0.5 );
+
+                }
+
+                // folder icon
+                &:after {
+
+                    content: '\e9de';
+
+                    top: 0;
+                    bottom: 0;
+                    left: 1rem;
+
+                    z-index: 0;
+
+                    color: fade( @text-color, 45% );
+
+                }
+
+            }
+
+            // hover state
+            &:hover {
+
+                // accent line
+                &:before {
+
+                    background-color: fade( @ui-text-blue, 95% );
+
+                }
+
+                // icon states
+                .title {
+
+                    &:before {
+
+                        opacity: 1.000;
+
+                    }
+
+                    &:after {
+
+                        color: fade( @ui-text-blue, 60% );
+                        // color: @ui-text-blue;
+
+                    }
+
+                }
+
+            }
+
+            // highlight
+            &:before {
+
+                background-color: fade( @ui-text-blue, 0% );
+
+            }
+
+            // active state
+            &.active {
+
+                background-color: @find-pane-tab-color;
+
+                // accent line
+                &:before {
+
+                    background-color: fade( @ui-text-blue, 95% );
+
+                }
+
+                // icon states
+                .title {
+
+                    &:before {
+
+
+
+                        color: @text-color-selected;
+
+                        opacity: 1.000;
+
+                    }
+
+                    &:after {
+
+                        content: '\e9dd';
+
+                        color: fade( @ui-text-blue, 95% );
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

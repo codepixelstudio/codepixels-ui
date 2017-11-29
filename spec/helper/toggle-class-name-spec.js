@@ -2,27 +2,27 @@
 
 import toggleClassName from '../../lib/helper/toggle-class-name';
 
-describe( 'guttersize toggle helper', () => {
+describe( 'pane size toggle helper', () => {
 
-    const guttertab = document.getElementsByClassName( 'tab-bar' );
+    const panesizer = document.getElementsByClassName( 'workspace' );
 
-    it( 'should add a className to the guttertab element', () => {
+    it( 'should add a className to the panesizer element', () => {
 
-        expect( guttertab.classList.contains( 'testClass' ) ).toBe( false );
+        expect( panesizer.classList.contains( 'testClass' ) ).toBe( false );
 
         toggleClassName( 'testClass', true );
 
-        expect( guttertab.classList.contains( 'testClass' ) ).toBe( true );
+        expect( panesizer.classList.contains( 'testClass' ) ).toBe( true );
 
     });
 
-    it('should remove a className from the guttertab element', () => {
+    it('should remove a className from the panesizer element', () => {
 
-        expect( guttertab.classList.contains( 'testClass' ) ).toBe( true );
+        expect( panesizer.classList.contains( 'testClass' ) ).toBe( true );
 
         toggleClassName( 'testClass', false );
 
-        expect( guttertab.classList.contains( 'testClass' ) ).toBe( false );
+        expect( panesizer.classList.contains( 'testClass' ) ).toBe( false );
 
     });
 

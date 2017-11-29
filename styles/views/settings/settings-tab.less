@@ -1,0 +1,84 @@
+// settings.tab
+
+    // settings
+    @settings-highlight : @ui-text-orange;
+
+// view.tab
+
+    // container
+    .tab-bar {
+
+        // element
+        .tab {
+
+            // data attribute
+            &[data-type='SettingsView'] {
+
+                order: -100;
+
+                // title
+                .title {
+
+                    // icon
+                    &:before {
+
+                        // gear
+                        content: '\eb62';
+
+                        // switch
+                        content: '\ec4c';
+
+                    }
+
+                }
+
+                // hover state
+                &:hover {
+
+                    // highlight
+                    &:before {
+
+                        background-color: fade( @ui-text-orange, 95% );
+
+                    }
+
+                }
+
+                // highlight
+                &:before {
+
+                    background-color: fade( @ui-text-orange, 0% );
+
+                }
+
+                // active state
+                &.active {
+
+                    background-color: lighten( @app-canvas, 2% );
+
+                    // highlight
+                    &:before {
+
+                        background-color: fade( @ui-text-orange, 95% );
+
+                    }
+
+                    // title
+                    .title {
+
+                        // icon
+                        &:before {
+
+                            color: fade( @ui-text-orange, 95% );
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }

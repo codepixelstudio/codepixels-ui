@@ -4,7 +4,54 @@
     @input-element-border-radius : 0px;
 
 // styles
+
+    // container
+    .select-container {
+
+        position: relative;
+
+        // icon
+        &:before {
+
+            content: '\ee3b';
+
+            position: absolute;
+
+            top: 0.5rem;
+            right: 0.25rem;
+            bottom: 0.5rem;
+
+            z-index: 20;
+
+            .flex( flex, @col, @cent, @cent );
+
+            width: 1rem;
+            height: 1rem;
+
+            font-family: @codicons;
+            font-size: 0.75rem;
+
+            color: fade( @text-color-selected, 50% );
+
+        }
+
+        // button
+        button {
+
+            position: relative;
+
+            z-index: 20;
+
+        }
+
+    }
+
+    // element
     .form-control {
+
+        position: relative;
+
+        z-index: 10;
 
         height: 2rem;
         padding: 0 1rem 0 0.75rem;
@@ -36,6 +83,65 @@
             font-weight: normal;
 
             color: white;
+
+        }
+
+    }
+
+    // checkbox
+    .input-checkbox {
+
+        .fill( @app-canvas-75, 50% );
+
+        // checked state
+        &:checked {
+
+            .fill( @app-canvas-75, 70% );
+
+            // icon
+            &:after {
+
+                color: fade( @ui-text-brite, 70% );
+
+                background-color: transparent !important;
+
+                transform: none;
+
+                transition: @all220;
+
+            }
+
+        }
+
+        // icon
+        &:before {
+
+            display: none;
+
+        }
+
+        // icon
+        &:after {
+
+            content: '\f03a';
+
+            .position( absolute, 0, 0, 0, 0, 10 );
+
+            .flex( flex, @col, @cent, @cent );
+
+            width: 1rem;
+            height: 1rem;
+            margin: 0;
+
+            .type( @octicons, 0.75rem, normal );
+
+            color: fade( @ui-text-brite, 0% );
+
+            background-color: transparent !important;
+
+            transform: none;
+
+            transition: @all220;
 
         }
 

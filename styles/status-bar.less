@@ -142,7 +142,7 @@
 
                         transform: scale3d( 1, 1, 1 ) rotate( 0deg );
 
-                        transition: all 640ms @oquin 120ms;
+                        transition: all 280ms @oquin 0ms;
 
                     }
 
@@ -618,7 +618,7 @@
 
             border-left: @global-status-bar-border;
 
-            // background-color: darken( @app-canvas, 2% );
+            // background-color: darken( @app-canvas, 1% );
 
             .inline-block {
 
@@ -695,6 +695,8 @@
         // github button
         .github-StatusBarTileController {
 
+            .flex( @iflex, row, @fend, @strch );
+
             order: 5;
 
             padding: 0;
@@ -705,15 +707,14 @@
                 .github-PushPull,
                 .github-ChangedFilesCount {
 
-                    opacity: 1.000;
-
-                    transition: @all220;
+                    // opacity: 1.000;
+                    //
+                    // transition: @all220;
 
                 }
 
             }
 
-            .github-branch,
             .github-PushPull,
             .github-ChangedFilesCount {
 
@@ -738,24 +739,99 @@
             .github-branch {
 
                 min-width: 6rem;
+                padding: 0 1rem 0 1rem;
+
+                border-left: @global-status-bar-border;
+
+                &:hover {
+
+                    .icon {
+
+                        color: @ui-text-blue;
+
+                    }
+
+                    .icon,
+                    .branch-label {
+
+                        // color: @lite;
+
+                    }
+
+                    .branch-label {
+
+                        color: @lite;
+
+                        &:before {
+
+                            color: fade( @lite, 60% );
+                            color: @ui-text-blue;
+
+                        }
+
+                    }
+
+                }
 
                 .icon {
 
                     margin: 0 0.5rem 0 0;
 
+                    color: fade( @lite, 50% );
+
+                    transition: @all220;
+
                 }
 
                 .branch-label {
 
-                    display: inline-flex;
+                    .flex( @iflex, @col, @cent, @fstart );
 
                     flex-grow: 1;
+
+                    height: 1.375rem;
+                    padding: 0 0 0.125rem 0;
+
+                    .type( @industry, 0.5625rem, 700 );
+
+                    line-height: 0.375rem;
+
+                    text-transform: @txtup;
+
+                    color: fade( @lite, 30% );
+
+                    transition: @all220;
+
+                    &:before {
+
+                        content: 'branch';
+
+                        .flex( @iflex, row, @fstart, @cent );
+
+                        height: 0.6875rem;
+                        // padding: 0 0 0.125rem 0;
+
+                        .type( @industry, 0.4375rem, 900 );
+
+                        line-height: 0.375rem;
+
+                        letter-spacing: 0.095em;
+
+                        text-transform: @txtup;
+
+                        color: fade( @lite, 30% );
+
+                        transition: @all220;
+
+                    }
 
                 }
 
             }
 
             .github-PushPull {
+
+                display: none;
 
                 // width: ~'calc(4rem + 1px)';
                 width: 3rem;
@@ -869,24 +945,41 @@
 
             .github-ChangedFilesCount {
 
-                display: inline-flex;
+                position: relative;
 
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
+                .flex( @iflex, @col, @cent, @fstart );
 
-                // min-width: 6rem;
-                width: 3rem;
-                padding: 0 1rem 0 1rem;
+                order: 10;
 
-                font-family: @decimano;
-                font-size: 0.6875rem;
+                min-width: 6.25rem;
+                padding: 0.8125rem 0.875rem 0.8125rem 2.5rem;
 
-                line-height: 0.5rem;
+                .type( @industry, 0.5625rem, 700 );
+
+                line-height: 0.375rem;
+
+                text-transform: @txtup;
+
+                color: fade( @lite, 30% );
+
+                &:hover {
+
+                    &:before,
+                    &:after {
+
+                        color: @ui-text-brite;
+
+                    }
+
+                }
 
                 &:before {
 
-                    top: -1px;
+                    position: absolute;
+
+                    top: 1rem;
+                    bottom: 1rem;
+                    left: 1rem;
 
                     display: inline-flex;
 
@@ -897,6 +990,35 @@
                     width: 1rem;
                     min-width: 1rem;
                     margin: 0 1rem 0 0;
+
+                    color: fade( @lite, 50% );
+
+                    transition: @all220;
+
+                }
+
+                &:after {
+
+                    content: 'modified';
+
+                    .flex( @iflex, row, @fstart, @cent );
+
+                    order: -1;
+
+                    height: 0.6875rem;
+                    // padding: 0 0 0.125rem 0;
+
+                    .type( @industry, 0.4375rem, 900 );
+
+                    line-height: 0.375rem;
+
+                    letter-spacing: 0.095em;
+
+                    text-transform: @txtup;
+
+                    color: fade( @lite, 30% );
+
+                    transition: @all220;
 
                 }
 

@@ -2,6 +2,7 @@
 
     // settings
     @gutter-space : 1rem;
+    @cursor-line : hsla( 200, 100%, 94%, 1.000 );
     @gutter-base : darken( @app-canvas, 3.75% );
 
 // styles
@@ -134,13 +135,15 @@
                 justify-content: flex-end;
                 align-items: flex-end;
 
+                height: 1rem;
+                padding-top: 0.0625rem;
                 padding-left: @gutter-space*1.5;
 
                 font-family: 'Centima Mono';
                 font-size: 0.625rem;
                 font-weight: 700;
 
-                line-height: 1rem;
+                line-height: 0.875rem;
 
                 color: fade( @code-text-color, 20% );
 
@@ -244,7 +247,7 @@
 
                     color: fade( @ui-text-brite, 90% );
 
-                    background-color: fade( @code-line-color, 3.5% );
+                    background-color: fade( @cursor-line, 2.5% );
 
                     &.foldable {
 
@@ -501,6 +504,7 @@
 
                     width: 1.25rem;
                     height: 1.125rem;
+                    height: 1rem;
                     padding: 0.0625rem 0 0.0625rem 0.25rem;
 
                     &:before {

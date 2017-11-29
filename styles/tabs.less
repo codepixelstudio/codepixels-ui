@@ -5,6 +5,66 @@
 
 // styles
 
+    // widescreen class
+    .widescreen {
+
+        // tab bar
+        .tab-bar {
+
+            &:nth-child( 3 ),
+            &:nth-child( 6 ) {
+
+                width: @pane-tab-widescreen-end;
+                max-width: @pane-tab-widescreen-end;
+
+            }
+
+            // tab
+            .tab {
+
+                width: @pane-tab-widescreen;
+                max-width: @pane-tab-widescreen;
+
+                &:nth-child( 3 ),
+                &:nth-child( 6 ) {
+
+                    width: @pane-tab-widescreen-end;
+                    max-width: @pane-tab-widescreen-end;
+
+                }
+
+            }
+
+        }
+
+    }
+
+    // standard class
+    .standard {
+
+        // tab bar
+        .tab-bar {
+
+            // tab
+            .tab {
+
+                width: @pane-tab-standard;
+                max-width: @pane-tab-standard;
+
+                &:nth-child( 3 ),
+                &:nth-child( 6 ) {
+
+                    width: @pane-tab-standard;
+                    max-width: @pane-tab-standard;
+
+                }
+
+            }
+
+        }
+
+    }
+
     // tab bar
     .tab-bar {
 
@@ -12,57 +72,12 @@
 
         transition: all 360ms @ocirc 0ms;
 
-        // listener class
-        &.default {
-
-            background-color: fade( @ui-text-brite, 20% ) !important;
-
-            transition: all 360ms @ocirc 0ms;
-
-        }
-
-        // listener class
-        &.small {
-
-            background-color: fade( @ui-text-orange, 20% ) !important;
-
-            transition: all 360ms @ocirc 0ms;
-
-        }
-
-        // listener class
-        &.medium {
-
-            background-color: fade( @ui-text-blue, 20% ) !important;
-
-            transition: all 360ms @ocirc 0ms;
-
-        }
-
-        // listener class
-        &.large {
-
-            background-color: fade( @ui-text-pink, 20% ) !important;
-
-            transition: all 360ms @ocirc 0ms;
-
-        }
-
-        // listener class
-        &.x-large {
-
-            background-color: fade( @ui-text-yellow, 20% ) !important;
-
-            transition: all 360ms @ocirc 0ms;
-
-        }
-
         // tab
         .tab {
 
             position: relative;
 
-            z-index: 20;
+            z-index: 2;
 
             color: @text-color;
 
@@ -72,28 +87,23 @@
             justify-content: space-between;
             align-items: center;
 
-            // flex-grow: 0;
-
-            width: @pane-tab-ui-link;
-            max-width: @pane-tab-ui-link;
-            // min-width: 10rem;
             height: @ui-status-bar-height;
             padding: 0 0.75rem 0 0;
 
             line-height: @ui-status-bar-height;
 
-            @{type}-family: @indu-font;
-            @{type}-size: 0.5625rem;
-            @{type}-weight: 600;
+            .type( @industry, 0.5625rem, 600 );
 
-            letter-spacing: 0.035em;
+            letter-spacing: 0.045em;
 
             color: fade( @text-color, 45% );
 
             background-color: transparent;
+            background-color: @tab-base;
 
             transition: all 180ms linear 0ms;
 
+            // highlight
             &:before {
 
                 content: '';
@@ -114,15 +124,14 @@
 
             }
 
+            // hover state
             &:hover {
 
                 color: @text-color-selected;
 
-                // background-color: fade( @syntax-background-color, 50% );
-                // background-color: fade( @text-color, 2.5% );
-
                 opacity: 1.000;
 
+                // highlight
                 &:before {
 
                     background-color: fade( @ui-text-brite, 45% );
@@ -131,24 +140,23 @@
 
             }
 
+            // active state
             &.active {
-
-                // flex-grow: 1;
 
                 @{type}-weight: 600;
 
                 color: @text-color-selected;
 
-                // background-color: darken( @app-canvas, 5% );
-
                 opacity: 1.000;
 
+                // title
                 .title {
 
                     padding: 0 0 0 1rem;
 
                 }
 
+                // highlight
                 &:before {
 
                     background-color: fade( @ui-text-brite, 95% );
@@ -182,11 +190,13 @@
 
                     font-weight: 700;
 
-                    line-height: 0.375rem;
+                    line-height: 0.5rem;
 
                     text-transform: @txtup;
 
-                    &:before {
+                    // commons
+                    &:before,
+                    &:after {
 
                         display: flex;
 
@@ -219,6 +229,8 @@
             // welcome
             &[data-type='WelcomeView'] {
 
+                order: -1;
+
                 &.active {
 
                     background-color: @app-canvas;
@@ -230,6 +242,8 @@
             // guide
             &[data-type='GuideView'] {
 
+                order: -2;
+
                 &.active {
 
                     background-color: lighten( @app-canvas, 2% );
@@ -240,6 +254,8 @@
 
             // about
             &[data-type='AboutView'] {
+
+                order: -90 !important;
 
                 .title {
 
@@ -312,205 +328,17 @@
 
             }
 
-            // timecop
-            &[data-type='TimecopView'] {
-
-                .title {
-
-                    &:before {
-
-                        // pie chart
-                        content: '\eb82';
-
-                        // pie chart
-                        content: '\eb70';
-
-                        background-color: transparent;
-
-                    }
-
-                }
-
-                &:hover {
-
-                    &:before {
-
-                        background-color: fade( @ui-text-yellow, 95% );
-
-                    }
-
-                }
-
-                &:before {
-
-                    background-color: fade( @ui-text-yellow, 0% );
-
-                }
-
-                &.active {
-
-                    background-color: darken( @app-canvas, 1.5% );
-
-                    &:before {
-
-                        background-color: fade( @ui-text-yellow, 95% );
-
-                    }
-
-                    .title {
-
-                        &:before {
-
-                            color: fade( @ui-text-yellow, 95% );
-
-                        }
-
-                    }
-
-                }
-
-            }
-
             // styleguide
             &[data-type='StyleguideView'] {
+
+                order: -50 !important;
 
                 .title {
 
                     &:before {
 
                         // triangle
-                        content: '\e90d';
-
-                        background-color: transparent;
-
-                    }
-
-                }
-
-                &:hover {
-
-                    &:before {
-
-                        background-color: fade( @ui-text-blue, 95% );
-
-                    }
-
-                }
-
-                &:before {
-
-                    background-color: fade( @ui-text-blue, 0% );
-
-                }
-
-                &.active {
-
-                    background-color: lighten( @app-canvas, 1% );
-
-                    &:before {
-
-                        background-color: fade( @ui-text-blue, 95% );
-
-                    }
-
-                    .title {
-
-                        &:before {
-
-                            color: fade( @ui-text-blue, 95% );
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-            // settings
-            &[data-type='SettingsView'] {
-
-                .title {
-
-                    &:before {
-
-                        // pie chart
-                        content: '\eb82';
-
-                        // stack text
-                        content: '\eb5a';
-
-                        // gear
-                        content: '\eb62';
-
-                        // switch
-                        content: '\ec4c';
-
-                        // null
-                        // content: '';
-
-                    }
-
-                }
-
-                &:hover {
-
-                    &:before {
-
-                        background-color: fade( @ui-text-orange, 95% );
-
-                    }
-
-                }
-
-                &:before {
-
-                    background-color: fade( @ui-text-orange, 0% );
-
-                }
-
-                &.active {
-
-                    background-color: lighten( @app-canvas, 2% );
-
-                    &:before {
-
-                        background-color: fade( @ui-text-orange, 95% );
-
-                    }
-
-                    .title {
-
-                        &:before {
-
-                            color: fade( @ui-text-orange, 95% );
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-            // find + replace
-            &[data-type='ResultsPaneView'] {
-
-                .title {
-
-                    &:before {
-
-                        // search
-                        content: '\eb37';
-
-                        // search
-                        content: '\eb33';
-
-                        // folder search
-                        content: '\e9d1';
-
-                        // stack text
-                        content: '\ed44';
+                        content: '\e92c';
 
                         background-color: transparent;
 
@@ -536,7 +364,7 @@
 
                 &.active {
 
-                    background-color: darken( @app-canvas, 1.5% );
+                    background-color: lighten( @app-canvas, 1% );
 
                     &:before {
 
@@ -558,90 +386,260 @@
 
             }
 
+            // editor tab class
             &.texteditor {
 
+                // active state
                 &.active {
 
                     color: @text-color-selected;
 
                     background-color: @syntax-background-color;
 
+                    // close button
+                    .close-icon {
+
+                        .fill( @syntax-background-color, 100% );
+
+                    }
+
                 }
 
             }
 
-            &.modified:not(:hover) .close-icon {
+            // close button
+            .close-icon {
 
-                position: absolute;
+                .position( relative, 0, 0, 0, 0, 1 );
 
-                top: 15px;
-                right: 12px;
-                bottom: 14px;
-
-                display: inline-flex;
-
-                min-width: 18px;
-                // width: 6px;
-                min-height: 18px;
-                // height: 6px;
+                width: 1.125rem;
+                height: 1.125rem;
                 margin: 0;
                 padding: 0;
 
-                border: none;
+                .fill( @tab-base, 100% );
 
-                line-height: 8px;
+                transform: rotateY( 0deg );
+                transform-origin: center center;
 
-                &:before {
+                transition:
 
+                    background-color 180ms linear 0ms,
+                           transform 640ms @oquin 240ms,
+                              border 180ms linear 0ms
 
+                ;
+
+                -webkit-backface-visibility: hidden;
+
+                // icon -> commons
+                &:before,
+                &:after {
+
+                    transform-origin: center center;
 
                 }
 
+                // close file icon
+                &:before {
+
+                    content: '\f081';
+
+                    .position( absolute, 0, 0, 0, 0, 20 );
+
+                    .flex( flex, @col, @cent, @cent );
+
+                    width: 1.125rem;
+                    height: 1.125rem;
+
+                    border: 1px solid transparent;
+
+                    color: fade( @text-color-selected, 35% );
+
+                    opacity: 1.000;
+
+                    transform: rotateY( 0deg );
+
+                    transition:
+
+                        background-color 180ms linear 0ms,
+                               transform 640ms @oquin 240ms,
+                                 opacity 640ms @oquin 240ms,
+                                  border 180ms linear 0ms,
+                                   color 180ms linear 0ms
+
+                    ;
+
+                }
+
+                // dirty file icon
                 &:after {
 
                     content: '';
 
-                    min-width: 10px;
-                    height: 10px;
-                    margin: 4px 5px 6px 5px;
+                    .position( absolute, 0.3125rem, 0.3125rem, 0.3125rem, 0.3125rem, 20 );
 
-                    border: 2px solid fade( @ui-text-orange, 85% );
+                    width: 0.5rem;
+                    height: 0.5rem;
+
+                    border: 1px solid fade( @ui-text-green, 85% );
                     border-radius: 12px;
 
-                    // opacity: 0.000;
+                    .fill( @ui-text-green, 30% );
+
+                    opacity: 0.000;
+
+                    transform: rotateY( -180deg );
+
+                    transition:
+
+                        background-color 120ms @ocirc 0ms,
+                               transform 640ms @oquin 240ms,
+                                 opacity 640ms @oquin 360ms,
+                                  border 120ms @ocirc 0ms
+
+                    ;
+
+                    -webkit-backface-visibility: hidden;
 
                 }
 
             }
 
-            .title {
+            // modified -> hover state
+            &.modified {
 
-                display: inline-flex;
+                // hover state
+                &:hover {
 
-                flex-direction: row;
-                justify-content: flex-start;
-                align-items: center;
+                    // button
+                    .close-icon {
 
-                width: auto;
-                padding: 0 0 0 1rem;
+                        // icon.close
+                        &:before {
+
+                            border: 1px solid @text-color-error;
+
+                            color: @text-color-selected;
+
+                            opacity: 1.000;
+
+                            transition:
+
+                                background-color 180ms linear 0ms,
+                                       transform 640ms @oquin 0ms,
+                                         opacity 640ms @oquin 0ms,
+                                          border 180ms linear 0ms,
+                                           color 180ms linear 0ms
+
+                            ;
+
+                            .btn-color( fade( @text-color-error, 70% ) );
+
+                        }
+
+                        // dirty file icon
+                        &:after {
+
+                            transform: rotateY( -180deg );
+
+                            transition: all 640ms @oquin 0ms;
+
+                        }
+
+                    }
+
+                }
 
             }
 
-            &.modified:hover,
-            &:not(.modified) {
+            // modified state -> :not hover
+            &.modified:not(:hover) {
 
+                // close button
                 .close-icon {
 
-                    position: static;
+                    .position( relative, 0, 0, 0, 0, 1 );
 
-                    display: inline-flex;
+                    width: 1.125rem;
+                    height: 1.125rem;
 
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
+                    border: none;
+                    border-radius: 0px;
 
+                    transform: rotateY( -180deg );
+
+                    transition:
+
+                        background-color 180ms linear 0ms,
+                               transform 640ms @oquin 240ms,
+                                  border 180ms linear 0ms
+
+                    ;
+
+                    -webkit-backface-visibility: hidden;
+
+                    // close file icon
+                    &:before {
+
+                        display: flex !important;
+
+                        content: '\f081';
+
+                        opacity: 0.000;
+
+                        transform: rotateY( 180deg );
+
+                        transition:
+
+                            background-color 180ms linear 0ms,
+                                   transform 640ms @oquin 240ms,
+                                     opacity 640ms @oquin 240ms,
+                                      border 180ms linear 0ms,
+                                       color 180ms linear 0ms
+
+                        ;
+
+                        -webkit-backface-visibility: hidden;
+
+                    }
+
+                    // dirty file icon
+                    &:after {
+
+                        border: 1px solid fade( @ui-text-blue, 85% );
+
+                        .fill( @ui-text-blue, 30% );
+
+                        opacity: 1.000;
+
+                        transform: rotateY( 0deg );
+
+                        transition:
+
+                            background-color 160ms @ocirc 0ms,
+                                   transform 640ms @oquin 240ms,
+                                     opacity 640ms @oquin 360ms,
+                                      border 160ms @ocirc 0ms
+
+                        ;
+
+                    }
+
+                }
+
+            }
+
+            // default state
+            &:not(.modified) {
+
+                // close button
+                .close-icon {
+
+                    // hover state
                     &:hover {
 
+                        // icon.close
                         &:before {
 
                             border: 1px solid @text-color-error;
@@ -654,40 +652,11 @@
 
                     }
 
-                    &:before {
-
-                        content: '\f081';
-
-                        display: inline-flex;
-
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-
-                        width: ~'calc(1rem + 2px)';
-                        min-width: ~'calc(1rem + 2px)';
-                        height: ~'calc(1rem + 3px)';
-                        min-height: ~'calc(1rem + 3px)';
-                        padding: 1px 0 0 0;
-
-                        border: 1px solid transparent;
-
-                        color: fade( @text-color-selected, 35% );
-
-                        transition: all 180ms linear 0ms;
-
-                    }
-
                 }
 
             }
 
-            &.active .close-icon:hover {
-
-                color: @text-color;
-
-            }
-
+            // draggable state
             &.is-dragging {
 
                 background: darken(@tab-background-color, 5%);
@@ -696,11 +665,22 @@
 
                 opacity: 0.515;
 
-                & .close-icon {
+                // close button
+                .close-icon {
 
                     visibility: hidden;
 
                 }
+
+            }
+
+            // title
+            .title {
+
+                .flex( @iflex, @row, @fstart, @cent );
+
+                width: auto;
+                padding: 0 0 0 1rem;
 
             }
 

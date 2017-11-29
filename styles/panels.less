@@ -3,6 +3,137 @@
     // settings
     @panel-ui-base : 16rem;
 
+// styles
+
+    // widescreen class
+    .widescreen {
+
+        // workspace element
+        atom-workspace {
+
+            // first axis instance
+            atom-workspace-axis {
+
+                // second axis instance
+                atom-workspace-axis {
+
+                    // container
+                    atom-pane-container {
+
+
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        // container
+        atom-pane-container {
+
+            // single pane
+            atom-pane {
+
+                // class
+                &.pane {
+
+                    min-width: 32rem;
+
+                    transition: all 120ms @oquin 0ms;
+
+                }
+
+            }
+
+            // top-level axis instance
+            atom-pane-axis {
+
+                // nested axis instance
+                atom-pane-axis {
+
+                    min-width: 32rem;
+
+                }
+
+            }
+
+        }
+
+    }
+
+    // standard (1920) + standalone (1440) class
+    .standard,
+    .standalone {
+
+        // workspace element
+        atom-workspace {
+
+            // first axis instance
+            atom-workspace-axis {
+
+                // second axis instance
+                atom-workspace-axis {
+
+                    // container
+                    atom-pane-container {
+
+
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        // container
+        atom-pane-container {
+
+            // single pane
+            atom-pane {
+
+                // class
+                &.pane {
+
+                    min-width: 30rem;
+
+                    transition: all 120ms @oquin 0ms;
+
+                }
+
+            }
+
+            // top-level axis instance
+            atom-pane-axis {
+
+                // nested axis instance
+                atom-pane-axis {
+
+                    min-width: 30rem;
+
+                }
+
+            }
+
+        }
+
+    }
+
+    // element
+    atom-pane {
+
+        // class
+        &.pane {
+
+            transition: all 120ms @oquin 0ms;
+
+        }
+
+    }
+
     // top-level panel/pane container
     atom-panel-container {
 
@@ -12,39 +143,6 @@
             position: relative;
 
             z-index: 10;
-
-        }
-
-    }
-
-    // base pane style
-    atom-pane {
-
-        flex-grow: auto !important;
-
-        &.pane {
-
-            min-width: 30rem;
-
-        }
-
-    }
-
-    .panel-heading {
-
-        border-bottom: none;
-
-        background-color: @panel-heading-background-color;
-
-    }
-
-    .inset-panel {
-
-        background-color: @inset-panel-background-color;
-
-        .panel-heading {
-
-            background-color: lighten(@inset-panel-background-color, 4%);
 
         }
 

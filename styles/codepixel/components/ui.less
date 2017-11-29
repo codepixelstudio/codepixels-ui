@@ -1,0 +1,694 @@
+// codepixel.ui
+
+    // settings
+    @codepixel_ui : @app-canvas;
+
+// styles
+
+    // element hook
+    codepixel-interface {
+
+        order: 10;
+
+        max-width: none !important;
+
+        .fill( @codepixel_ui, 0% );
+
+        // hover state
+        &:hover {
+
+            background-color: transparent !important;
+
+        }
+
+        // element class
+        .ui-element {
+
+            .flex( @iflex, row, @cent, @cent );
+
+            min-width: 3rem;
+            height: 3rem;
+            margin: 0;
+            padding: 0.0625rem 1rem 0 1rem;
+
+            .type( @industry, 0.5625rem, 700 );
+
+            line-height: 0.625rem;
+
+            text-transform: @txtup;
+
+            color: fade( @lite, 30% );
+
+            .fill( @app-canvas, 0% );
+
+            transition: @all220;
+
+            // hover state
+            &:hover {
+
+                color: @ui-text-brite;
+
+                .fill( @app-canvas, 100% );
+
+                // icon
+                &:before {
+
+                    color: @lite;
+
+                }
+
+            }
+
+            // icon
+            &:before {
+
+                content: '';
+
+                width: 1rem;
+                height: 1rem;
+                margin: 0 0.625rem 0 0;
+
+                .type( @codicons, 1rem, normal );
+
+                color: fade( @lite, 50% );
+
+                transition: @all220;
+
+            }
+
+            // button class
+            &.ui-button {
+
+                // icon
+                &:before {
+
+                    .flex( flex, @col, @cent, @cent );
+
+                    margin: 0;
+
+                }
+
+            }
+
+            // executioner
+            &.execution {
+
+                position: relative;
+
+                display: flex;
+
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+
+                width: 3rem;
+                height: 3rem;
+                margin: 0;
+                padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+
+                border-right: @global-status-bar-border;
+
+                background-color: transparent;
+
+                transition: all 220ms linear 0ms;
+
+                // hover state
+                &:hover {
+
+                    background-color: lighten( @toolbar-ui-color, 4% );
+
+                    &:before {
+
+                        opacity: 0.000;
+
+                        transform: scale3d( 0.5, 0.5, 0.5 );
+
+                        transition: all 360ms @oquin 0ms;
+
+                    }
+
+                    &:after {
+
+                        opacity: 1.000;
+
+                        transform: scale3d( 1, 1, 1 ) rotate( 0deg );
+
+                        transition: all 280ms @oquin 0ms;
+
+                    }
+
+                }
+
+                // fuck off
+                &:before,
+                &:after {
+
+                    content: '';
+
+                    position: absolute;
+
+                    top: 0.5rem;
+                    right: 0.5rem;
+                    bottom: 0.5rem;
+                    left: 0.5rem;
+
+                    width: 2rem;
+                    height: 2rem;
+
+                    background-repeat: no-repeat;
+                    background-position: 0 0;
+
+                    transform-origin: center center;
+
+                }
+
+                &:before {
+
+                    background-image: url('atom://code-pixel-studio-ui/assets/img/brand/codepixel.studio.svg');
+
+                    // background-size: 1rem 1rem;
+                    // background-position: 0.375rem 0.375rem;
+
+                    font-family: @codicons;
+
+                    color: fade( @text-color-selected, 50% );
+
+                    opacity: 1.000;
+
+                    transform: scale3d( 1, 1, 1 );
+
+                    transition: all 360ms @oquin 0ms;
+
+                }
+
+                &:after {
+
+                    background-image: url('atom://code-pixel-studio-ui/assets/svg/ui/developer.arrows.color.svg');
+
+                    opacity: 0.000;
+
+                    transform: scale3d( 0.75, 0.75, 0.75 ) rotate( 180deg );
+                    transform-origin: center center;
+
+                    transition: all 480ms @oquin 0ms;
+
+                }
+
+            }
+
+            // reload
+            &.reload {
+
+                position: relative;
+
+                display: flex;
+
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+
+                width: 3rem;
+                height: 3rem;
+                margin: 0;
+                padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+
+                border-right: @global-status-bar-border;
+
+                background-color: transparent;
+
+                transition: all 220ms linear 0ms;
+
+                display: none;
+
+                &:hover {
+
+                    background-color: lighten( @toolbar-ui-color, 4% );
+
+                    &:before {
+
+                        color: fade( @text-color-selected, 100% );
+
+                        transition: all 360ms @oquin 0ms;
+
+                    }
+
+                    &:after {
+
+                        opacity: 1.000;
+
+                        filter: saturate( 1.0 ) brightness( 1.0 );
+
+                        transform: scale3d( 1, 1, 1 ) rotate( 0deg );
+
+                        transition: all 280ms @oquin 0ms;
+
+                    }
+
+                }
+
+                &:before,
+                &:after {
+
+                    content: '';
+
+                    position: absolute;
+
+                    top: 0.5rem;
+                    right: 0.5rem;
+                    bottom: 0.5rem;
+                    left: 0.5rem;
+
+                    width: 2rem;
+                    height: 2rem;
+
+                    background-repeat: no-repeat;
+                    background-position: 0 0;
+
+                    transform-origin: center center;
+
+                }
+
+                &:before {
+
+                    content: '\ec67';
+
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+
+                    width: 3rem;
+                    height: 3rem;
+                    margin: 0;
+                    padding: 1rem;
+
+                    font-family: @codicons;
+
+                    color: fade( @text-color-selected, 50% );
+
+                    transition: all 360ms @oquin 0ms;
+
+                }
+
+                &:after {
+
+                    background-image: url('atom://code-pixel-studio-ui/assets/svg/ui/developer.arrows.color.svg');
+
+                    opacity: 0.265;
+
+                    filter: saturate( 0.0 ) brightness( 1.5 );
+
+                    transform: scale3d( 0.75, 0.75, 0.75 ) rotate( 180deg );
+                    transform-origin: center center;
+
+                    // transition: all 520ms @oquin 0ms;
+                    transition: all 480ms @oquin 0ms;
+
+                }
+
+            }
+
+            // viewport
+            &.viewport {
+
+                .flex( @iflex, row, @cent, @cent );
+
+                display: none;
+
+                // icon
+                &:before {
+
+                    content: '\ea74';
+
+                    padding: 0.1875rem 0 0 0;
+
+                }
+
+                // container
+                .data {
+
+                    .flex( @iflex, @col, @cent, @cent );
+
+                }
+
+                // value
+                .value {
+
+                    .flex( @iflex, row, @fstart, @cent );
+
+                    // label
+                    .label {
+
+                        position: relative;
+
+                        .flex( @iflex, @col, @cent, @cent );
+
+                        width: 0.625rem;
+                        height: 0.625rem;
+
+                        .type( @industry, 0.5625rem, 900 );
+
+                        line-height: 0.5rem;
+
+                        // X value
+                        &.X {
+
+                            // icon
+                            &:before {
+
+                                // content: '\ee01';
+
+                            }
+
+                        }
+
+                        // Y value
+                        &.Y {
+
+                            // icon
+                            &:before {
+
+                                // content: '\ee02';
+
+                            }
+
+                        }
+
+                        // icon
+                        &:before {
+
+                            // content: '';
+
+                            .position( absolute, 0, 0, 0, 0, 10 );
+
+                            .flex( @iflex, @col, @cent, @cent );
+
+                            width: 0.625rem;
+                            height: 0.625rem;
+
+                            .type( @codicons, 0.625rem, normal );
+
+                            color: fade( @lite, 50% );
+
+                        }
+
+                    }
+
+                    // separator
+                    em {
+
+                        .flex( @iflex, @col, @cent, @cent );
+
+                        width: 0.375rem;
+                        height: 0.625rem;
+                        padding: 0 0 0.0625 0;
+
+                        .type( @decimano, 0.625rem, 900 );
+
+                        font-style: normal;
+
+                    }
+
+                    // value
+                    .value {
+
+                        .flex( @iflex, row, @fstart, @cent );
+
+                        width: 1.5rem;
+                        height: 0.625rem;
+                        padding: 0.125rem 0 0 0;
+
+                        .type( @decimano, 0.625rem, 700 );
+
+                    }
+
+                }
+
+            }
+
+            // project
+            &.project {
+
+                .flex( @iflex, row, @cent, @cent );
+
+                display: none;
+
+                // icon
+                &:before {
+
+                    content: '\e9dd';
+
+                    padding: 0.125rem 0 0 0;
+
+                }
+
+            }
+
+            // repository
+            &.repository,
+            &.executioner,
+            &.fullscreen {
+
+                .flex( @iflex, row, @cent, @cent );
+
+                // icon
+                &:before {
+
+                    content: '\ef46';
+
+                    padding: 0.125rem 0 0 0;
+
+                }
+
+                // container
+                .data {
+
+                    .flex( @iflex, @col, @cent, @fstart );
+
+                    .line {
+
+                        .flex( @iflex, row, @fstart, @cent );
+
+                        height: 0.6875rem;
+                        padding: 0 0 0.125rem 0;
+
+                        line-height: 0.375rem;
+
+                        transition: @all220;
+
+                    }
+
+                    .label {
+
+                        align-items: flex-end;
+
+                        .type( @industry, 0.4375rem, 900 );
+
+                        letter-spacing: 0.095em;
+
+                    }
+
+                }
+
+            }
+
+            // repository
+            &.repository {
+
+                min-width: 8rem;
+                padding-right: 0.875rem;
+
+                // hover state
+                &:hover {
+
+                    // icon
+                    &:before {
+
+                        color: @ui-text-orange;
+
+                    }
+
+                    // text
+                    .data {
+
+                        // common
+                        .label,
+                        .name {
+
+                            transition: @all220;
+
+                        }
+
+                        // label
+                        .label {
+
+                            color: fade( @lite, 60% );
+                            color: @ui-text-orange;
+
+                        }
+
+                        // name
+                        .name {
+
+                            color: fade( @lite, 100% );
+
+                        }
+
+                    }
+
+                }
+
+                // text
+                .data {
+
+                    // common
+                    .label,
+                    .name {
+
+                        color: fade( @lite, 30% );
+
+                        transition: @all220;
+
+                    }
+
+                }
+
+            }
+
+            // executioner
+            &.executioner {
+
+                // min-width: 7.625rem;
+                min-width: 9.375rem;
+
+                color: fade( @lite, 30% );
+
+                // hover state
+                &:hover {
+
+                    // icon
+                    &:before {
+
+                        opacity: 1.000;
+
+                        filter: saturate( 1.0 ) brightness( 1.0 );
+
+                        transition: @all220;
+
+                    }
+
+                    // text
+                    .data {
+
+                        // label
+                        .label {
+
+                            color: fade( @gold, 100% );
+
+                        }
+
+                        // name
+                        .name {
+
+                            color: fade( @lite, 100% );
+
+                        }
+
+                    }
+
+                }
+
+                // container
+                .data {
+
+                    min-width: 4rem;
+
+                }
+
+                // icon
+                &:before {
+
+                    // qr code
+                    content: '\e9f8';
+
+                    content: '';
+
+                    background-image: url('atom://code-pixel-studio-ui/assets/svg/brand/pixels.svg');
+                    background-size: 16px 16px;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+
+                    opacity: 0.365;
+
+                    filter: saturate( 0.0 ) brightness( 1.5 );
+
+                    transition: @all220;
+
+                }
+
+            }
+
+            // fullscreen
+            &.fullscreen {
+
+                display: none;
+
+                // class tests
+                &.is-fullscreen {
+
+                    // icon
+                    &:before {
+
+                        color: @ui-text-brite;
+
+                    }
+
+                }
+
+                // class tests
+                &.is-standalone {
+
+                    // icon
+                    &:before {
+
+                        color: @ui-text-blue;
+
+                    }
+
+                }
+
+                // class tests
+                &.is-undefined {
+
+                    // icon
+                    &:before {
+
+                        color: @ui-text-orange;
+
+                    }
+
+                }
+
+                // hover state
+                &:hover {
+
+                    // .fill( @ui-text-brite, 30% );
+
+                }
+
+                // icon
+                &:before {
+
+                    content: '\f066';
+
+                    padding: 0 0 0.1875rem 0;
+
+                    font-family: @octicons;
+
+                }
+
+            }
+
+        }
+
+    }

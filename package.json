@@ -14,31 +14,35 @@
 
     "license": "MIT",
 
-    "main": "./lib/main",
-
     "engines": {
 
         "atom": ">=1.0.0 <2.0.0"
 
     },
 
-    "consumedServices": {
+    "configSchema": {
 
-        "status-bar": {
+        "panes": {
 
-            "versions": {
+            "order": 1,
 
-                "^1.0.0": "consumeStatusBar"
+            "type": "object",
 
-            }
+            "title": "UI pane size class",
 
-        },
+            "properties": {
 
-        "project-manager": {
+                "widescreenUI": {
 
-            "versions": {
+                    "title": "ball so hard",
 
-                "^1.0.0": "consumeProjectManager"
+                    "description": "go fuck yourself",
+
+                    "type": "boolean",
+
+                    "default": false
+
+                }
 
             }
 

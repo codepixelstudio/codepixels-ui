@@ -2,7 +2,8 @@
 
     // settings
         @tooltip-ui-color   : lighten( @app-canvas, 1.5% );
-        @tooltip-ui-shadow  : 0 0 8px fade( @app-canvas-nite, 75% );
+        @tooltip-ui-color   : darken( @app-canvas, 2.5% );
+        @tooltip-ui-shadow  : 0 0 16px fade( @app-canvas-nite, 100% );
 
     // styles
         .tooltip {
@@ -20,8 +21,10 @@
                 align-items: center;
 
                 max-width: none;
-                min-height: 2rem;
-                padding: 0 0.75rem 0 0.75rem;
+                min-height: 3rem;
+                padding: 0 1rem 0 1rem;
+
+                // border: 1px solid @ui-text-brite;
 
                 @{type}-size: 9px;
                 @{type}-weight: 700;
@@ -40,7 +43,9 @@
 
                 white-space: nowrap;
 
-                // box-shadow: @tooltip-ui-shadow;
+                opacity: 1.000;
+
+                box-shadow: @tooltip-ui-shadow;
 
             }
 

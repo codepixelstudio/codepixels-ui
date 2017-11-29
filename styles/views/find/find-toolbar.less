@@ -1,0 +1,461 @@
+// stylesheet :: find + replace pane
+
+    // settings
+    @find-toolbar-base-color : @find-pane-tab-color;
+    @find-blue-build : darken( @ui-text-blue, 45% );
+
+    @button-dark : darken( @app-canvas, 6% );
+    @button-dark : darken( @app-canvas, 0% );
+    @button-lite : darken( @app-canvas, 4% );
+    @button-lite : lighten( @app-canvas, 2% );
+    @button-hover : darken( @app-canvas, 5% );
+    @button-disabled : darken( @app-canvas, 3% );
+
+// styles
+
+    // class hook
+    .preview-pane {
+
+        // header
+        .preview-header {
+
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            height: 3rem;
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+
+            border: none;
+
+            background-color: transparent;
+
+            background-color: @find-toolbar-base-color;
+
+        }
+
+        // count
+        .preview-count {
+
+            display: inline-flex;
+
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+
+            flex-grow: 0;
+
+            height: 3rem;
+            margin: 0 0 0 0;
+            padding: 0 0 0 1rem;
+
+            // border-left: 1px solid @ui-text-brite;
+
+            font-size: 0.625rem;
+            font-weight: 600;
+
+            line-height: 0.625rem;
+
+            letter-spacing: 0.045em;
+
+            // results string match
+            .highlight-info {
+
+                display: inline-flex;
+
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                height: 1.25rem;
+                margin: 0 0 0 0.375rem;
+                padding: 0 0.375rem 0 0.375rem;
+
+                font-family: @code-font !important;
+                font-size: 0.625rem;
+                font-weight: 600;
+
+                line-height: 1.125rem;
+
+                text-transform: none;
+
+                color: @match-highlight-color;
+
+                background-color: fade( @ui-text-brite, 10% );
+
+            }
+
+        }
+
+        // controls
+        .preview-controls {
+
+            // flex-grow: 1;
+
+            // toolbar buttons
+            .btn-toolbar {
+
+                display: flex;
+
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                // button groups
+                .btn-group {
+
+                    display: inline-flex;
+
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: stretch;
+
+                    flex-grow: 0;
+
+                    margin: 0 0 0 0;
+
+                    // common
+                    .btn {
+
+                        border: none;
+
+                    }
+
+                    // lines before + lines after
+                    &:nth-child( 1 ),
+                    &:nth-child( 2 ) {
+
+                        // common
+                        .btn {
+
+                            position: relative;
+
+                            display: inline-flex;
+
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+
+                            width: 3rem;
+                            height: 3rem;
+                            margin: 0;
+                            padding: 0;
+
+                            // subtract + add
+                            &:first-child,
+                            &:last-child {
+
+                                color: fade( white, 0% );
+
+                                // hover state
+                                &:hover {
+
+                                    background-color: @button-hover;
+
+                                    // common
+                                    &:before {
+
+                                        color: @text-color-selected;
+
+                                    }
+
+                                }
+
+                                // disabled -> hover
+                                &.disabled {
+
+                                    // hover state
+                                    &:hover {
+
+                                        background-color: @button-disabled;
+
+                                        // icon
+                                        &:before {
+
+                                            color: fade( @text-color, 30% );
+
+                                        }
+
+                                    }
+
+                                }
+
+                                // icon
+                                &:before {
+
+                                    position: absolute;
+
+                                    top: 0;
+                                    right: 0;
+                                    bottom: 0;
+                                    left: 0;
+
+                                    z-index: 20;
+
+                                    display: inline-flex;
+
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: center;
+
+                                    flex-grow: 1;
+
+                                    width: 3rem;
+                                    height: 3rem;
+                                    margin: 0;
+                                    padding: 0;
+
+                                    font-family: @codicons;
+                                    font-size: 1rem;
+                                    font-weight: normal;
+
+                                    color: fade( @text-color, 40% );
+
+                                    transition: @all220;
+
+                                }
+
+                            }
+
+                            // subtract
+                            &:first-child {
+
+                                // hover state
+                                &:hover {
+
+                                    // background-color: fade( @ui-text-orange, 20% );
+
+                                    // icon
+                                    &:before {
+
+                                        color: @ui-text-orange;
+
+                                    }
+
+                                }
+
+                                // icon
+                                &:before {
+
+                                    content: '\ed5e';
+
+                                }
+
+                            }
+
+                            // lines
+                            &:nth-child( 2 ) {
+
+                                background-color: transparent;
+
+                                opacity: 0.565;
+
+                                transition: @all220;
+
+                                &:hover {
+
+                                    opacity: 1.000;
+
+                                    background-color: darken( @app-canvas, 3% );
+
+                                }
+
+                                svg {
+
+                                    display: none;
+
+                                }
+
+                            }
+
+                            // add
+                            &:last-child {
+
+                                // hover state
+                                &:hover {
+
+                                    // background-color: fade( @ui-text-green, 20% );
+
+                                    // icon
+                                    &:before {
+
+                                        color: @ui-text-green;
+
+                                    }
+
+                                }
+
+                                // icon
+                                &:before {
+
+                                    font-family: @octicons;
+
+                                    // codicons
+                                    content: '\f104';
+
+                                    // octicons
+                                    content: '\f05d';
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    // lines before
+                    &:nth-child( 1 ) {
+
+                        // button class
+                        .btn {
+
+                            // lines
+                            &:nth-child( 2 ) {
+
+                                background-image: url('atom://code-pixel-studio-ui/assets/svg/ui/find.lines.after.svg');
+
+                            }
+
+                        }
+
+                    }
+
+                    // lines after
+                    &:nth-child( 2 ) {
+
+                        // button class
+                        .btn {
+
+                            // lines
+                            &:nth-child( 2 ) {
+
+                                background-image: url('atom://code-pixel-studio-ui/assets/svg/ui/find.lines.before.svg');
+
+                            }
+
+                        }
+
+                    }
+
+                    // collapse controls
+                    &:nth-child( 3 ) {
+
+                        // button class
+                        .btn {
+
+                            display: inline-flex;
+
+                            flex-direction: row;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            height: 3rem;
+                            margin: 0 0 0 0;
+                            padding: 0 0.75rem 0 0.5rem;
+
+                            font-size: 0.5625rem;
+                            font-weight: 700;
+
+                            letter-spacing: 0.035em;
+
+                            color: fade( @text-color-selected, 50% );
+
+                            background-color: transparent;
+
+                            // collapse button
+                            &:first-child {
+
+                                min-width: 6.75rem;
+
+                                // collapse icon
+                                &:before {
+
+                                    content: '\ee3e';
+
+                                }
+
+                            }
+
+                            // expand button
+                            &:last-child {
+
+                                min-width: 6rem;
+                                padding-right: 0.6875rem;
+
+                                // expand icon
+                                &:before {
+
+                                    content: '\ee3b';
+
+                                }
+
+                            }
+
+                            // hover state
+                            &:hover {
+
+                                color: @text-color-selected;
+
+                                background-color: @button-hover;
+
+                                // collapse button
+                                &:first-child {
+
+                                    &:before {
+
+                                        color: @ui-text-brite;
+
+                                    }
+
+                                }
+
+                                // expand button
+                                &:last-child {
+
+                                    &:before {
+
+                                        color: @ui-text-blue;
+
+                                    }
+
+                                }
+
+                            }
+
+                            // icons
+                            &:before {
+
+                                display: inline-flex;
+
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+
+                                width: 1rem;
+                                height: 1rem;
+                                margin: 0 0.25rem 1px 0;
+                                padding: 0 0 0 0;
+
+                                font-family: @codicons;
+                                font-size: 1rem;
+                                font-weight: normal;
+
+                                color: fade( @text-color, 30% );
+
+                                transition: @all220;
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }

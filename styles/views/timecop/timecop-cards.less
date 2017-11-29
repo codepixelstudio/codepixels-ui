@@ -1,0 +1,450 @@
+// timecop.main
+
+    // settings
+    @timecop-base-color : darken( @app-canvas, 0% );
+
+// view.main
+
+    // element
+    atom-pane {
+
+        // parent class
+        .item-views {
+
+            // global class
+            .pane-item {
+
+                // view class
+                &.timecop {
+
+                    // container
+                    .timecop-panel {
+
+                        // heading icons
+                        .panels {
+
+                            // top row
+                            &:first-child {
+
+                                // panel
+                                .tool-panel {
+
+                                    // startup
+                                    &:first-child {
+
+                                        // heading
+                                        .panel-heading {
+
+                                            // icon
+                                            &:before {
+
+                                                content: '\eaa4';
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                    // compile
+                                    &:last-child {
+
+                                        // heading
+                                        .panel-heading {
+
+                                            // icon
+                                            &:before {
+
+                                                content: '\eecd';
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+
+                            // bottom row
+                            &:last-child {
+
+                                // panel
+                                .tool-panel {
+
+                                    // package.loading
+                                    &:first-child {
+
+                                        // heading
+                                        .panel-heading {
+
+                                            // icon
+                                            &:before {
+
+                                                content: '\eaa2';
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                    // package.activation
+                                    &:nth-child( 2 ) {
+
+                                        // heading
+                                        .panel-heading {
+
+                                            // icon
+                                            &:before {
+
+                                                content: '\eaa1';
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                    // theme.loading
+                                    &:nth-child( 3 ) {
+
+                                        // heading
+                                        .panel-heading {
+
+                                            // icon
+                                            &:before {
+
+                                                content: '\eaa0';
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                    // theme.activation
+                                    &:last-child {
+
+                                        // heading
+                                        .panel-heading {
+
+                                            // icon
+                                            &:before {
+
+                                                content: '\eaa1';
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                        // card container
+                        .tool-panel {
+
+                            padding: 1rem 1rem 1rem 1rem;
+                            // padding: 0 1rem 0 0;
+
+                            .fill( @app-canvas, 0% );
+
+                            transition: @all220;
+
+                            // hover state
+                            &:hover {
+
+                                .fill( @lite, 5% );
+
+                                // heading
+                                .panel-heading {
+
+                                    // icon
+                                    &:before {
+
+                                        color: @lite;
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                        // card
+                        .inset-panel {
+
+                            padding: 0;
+
+                            // .fill( lighten( @app-canvas, 0% ), 100% );
+
+                            .fill( @lite, 0% );
+
+                        }
+
+                        // heading
+                        .panel-heading {
+
+                            .flex( flex, row, @fstart, @cent );
+
+                            height: 2rem;
+                            padding: 0 1rem 0 1rem;
+
+                            .type( @industry, 0.6875rem, 600 );
+
+                            letter-spacing: 0.065em;
+
+                            text-transform: @txtup;
+
+                            color: @ui-text-yellow;
+
+                            // .fill( @timecop-base-color, 100% );
+                            .fill( @ui-text-yellow, 0% );
+
+                            // icon
+                            &:before {
+
+                                content: '';
+
+                                .flex( @iflex, @col, @cent, @cent );
+
+                                width: 1rem;
+                                height: 1rem;
+                                margin: 0 0.5rem 0 0;
+
+                                .type( @codicons, 1rem, normal );
+
+                                color: fade( @lite, 60% );
+
+                                transition: @all220;
+
+                            }
+
+                        }
+
+                        // body
+                        .panel-body {
+
+                            padding: 0.5rem 1rem 1rem 1rem;
+
+                            // highights
+                            span {
+
+                                // border-right: 1px solid transparent;
+                                border-bottom: 1px solid transparent;
+
+                                // info
+                                &.highlight-info {
+
+                                    border-right-color: @ui-text-blue;
+                                    border-bottom-color: fade( @ui-text-blue, 90% );
+
+                                }
+
+                                // warning
+                                &.highlight-warning {
+
+                                    border-right-color: @ui-text-yellow;
+                                    border-bottom-color: fade( @ui-text-yellow, 90% );
+
+                                }
+
+                                // error
+                                &.highlight-error {
+
+                                    border-right-color: @ui-text-orange;
+                                    border-bottom-color: fade( @ui-text-orange, 90% );
+
+                                }
+
+                            }
+
+                            // common
+                            .timing {
+
+                                .flex( flex, row, @stween, @cent );
+
+                                height: 2rem;
+                                margin: 0 0 0.5rem 0;
+                                padding: 0;
+
+                                transition: all 220ms linear 0ms;
+
+                                // hover state
+                                &:hover {
+
+                                    // .fill( @app-canvas, 100% );
+
+                                    // element
+                                    span {
+
+                                        &:first-child {
+
+                                            // color: fade( @lite, 100% );
+
+                                        }
+
+                                    }
+
+                                }
+
+                                // last entry
+                                &:last-child {
+
+                                    margin-bottom: 0;
+
+                                }
+
+                                // element
+                                span {
+
+                                    // metric
+                                    &:first-child {
+
+                                        .flex( @iflex, row, @fstart, @cent );
+
+                                        flex-grow: 1;
+
+                                        height: 2rem;
+                                        margin: 0;
+                                        padding: 0 0 0 0;
+
+                                        border-bottom: 1px solid fade( @lite, 10% );
+
+
+                                        .type( @industry, 0.625rem, 600 );
+
+                                        letter-spacing: 0.045em;
+
+                                        text-transform: lowercase;
+
+                                        color: fade( @lite, 100% );
+
+                                        transition: @all220;
+
+                                    }
+
+                                    // calc
+                                    &:last-child {
+
+                                        .flex( @iflex, row, @cent, @cent );
+
+                                        height: 2rem;
+                                        padding: 0.125rem 0.5rem 0 0.5rem;
+
+                                        .type( @decimano, 0.75rem, 500 );
+
+                                        letter-spacing: normal;
+
+                                        color: fade( @lite, 100% );
+
+                                        transition: @all220;
+
+                                    }
+
+                                }
+
+                            }
+
+                            // metric info
+                            .text-info {
+
+                                .flex( @iflex, row, @cent, @cent );
+
+                                .type( @industry, 0.625rem, 600 );
+
+                                letter-spacing: 0.045em;
+
+                                // color: fade( @ui-text-yellow, 100% );
+                                color: fade( @lite, 50% );
+
+                                transition: @all220;
+
+                            }
+
+                            // row
+                            .list-item {
+
+                                margin: 0 0 0.5rem 0;
+
+                                // last entry
+                                &:last-child {
+
+                                    margin-bottom: 0;
+
+                                }
+
+                                // link
+                                .package {
+
+                                    .flex( @iflex, row, @fstart, @cent );
+
+                                    flex-grow: 1;
+
+                                    margin: 0;
+                                    padding: 0;
+
+                                    border-bottom: 1px solid fade( @lite, 10% );
+
+                                    .type( @industry, 0.625rem, 600 );
+
+                                    letter-spacing: 0.045em;
+
+                                    text-transform: lowercase;
+
+                                    color: fade( @lite, 100% );
+
+                                    transition: @all220;
+
+                                }
+
+                                // line
+                                .timecop-line {
+
+                                    display: none;
+
+                                }
+
+                                // element
+                                span {
+
+                                    // calc
+                                    &:last-child {
+
+                                        .flex( @iflex, row, @cent, @cent );
+
+                                        height: 2rem;
+                                        padding: 0.125rem 0.5rem 0 0.5rem;
+
+                                        .type( @decimano, 0.75rem, 500 );
+
+                                        letter-spacing: normal;
+
+                                        color: fade( @lite, 100% );
+
+                                        transition: @all220;
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }

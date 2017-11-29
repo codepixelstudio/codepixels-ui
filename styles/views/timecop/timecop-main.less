@@ -1,0 +1,65 @@
+// timecop.main
+
+    // settings
+    @settings-base-color : lighten( @app-canvas, 2% );
+
+// view.main
+
+    // element
+    atom-pane {
+
+        // parent class
+        .item-views {
+
+            // global class
+            .pane-item {
+
+                // view class
+                &.timecop {
+
+                    .fill( red, 0% );
+
+                    background-image: linear-gradient(
+
+                        180deg,
+                        transparent 5%,
+                        fade( @ui-text-yellow, 15% ) 100%
+
+                    );
+
+                    // container
+                    .timecop-panel {
+
+                        padding: 1rem 1rem 1rem 1rem;
+                        // padding: 0;
+
+                        .fill( @app-canvas, 0% );
+
+                        // panel row class
+                        .panels {
+
+                            // top row
+                            &:first-child {
+
+                                // padding: 1rem 0 1rem 1rem;
+
+                            }
+
+                            // bottom row
+                            &:last-child {
+
+                                // padding: 0 0 1rem 1rem;
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }

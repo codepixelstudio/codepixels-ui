@@ -1,0 +1,574 @@
+// stylesheet :: find + replace pane
+
+    // settings
+    @find-pane-base-color : lighten( @app-canvas, 0% );
+    @find-pane-tab-color : darken( @app-canvas, 0% );
+
+    // path tabs
+    @results-item-collapse : transparent;
+    @results-item-is-hover : darken( @app-canvas, 4.5% );
+    @results-item-selected : darken( @app-canvas, 2% );
+    @results-item-expanded : darken( @app-canvas, 3% );
+
+    // matches
+    @match-highlight-base : darken( #255065, 10% );
+    @match-highlight-color : @ui-text-brite;
+
+// styles
+
+    // class hook
+    .preview-pane {
+
+        // results view
+        .results-view {
+
+            // list tree
+            .list-tree {
+
+                padding: 0 0 0 0;
+
+                // collapsible/nested item
+                .list-nested-item {
+
+                    min-height: 2rem;
+
+                    background-color: transparent;
+
+                    transition: @all220;
+
+                    // background
+                    &:before {
+
+                        content: '';
+
+                        position: absolute;
+
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+
+                        z-index: 0;
+
+                        height: 2rem;
+
+                        background-color: @results-item-collapse;
+
+                        transition: @all220;
+
+                    }
+
+                    // collapsed state
+                    &.collapsed {
+
+                        // collapsed -> hover
+                        &:hover {
+
+                            &:before {
+
+                                background-color: @results-item-is-hover;
+
+                            }
+
+                        }
+
+                        // collapsed -> selected
+                        &.selected {
+
+                            // background
+                            &:before {
+
+                                background-color: @results-item-selected;
+
+                            }
+
+                            // collapsed -> selected -> hover
+                            &:hover {
+
+                                &:before {
+
+                                    background-color: @results-item-is-hover;
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    // expanded
+                    &:not(.collapsed) {
+
+                        // background
+                        &:before {
+
+                            background-color: @results-item-expanded;
+
+                        }
+
+                    }
+
+                    // selected state
+                    &.selected {
+
+                        //
+
+                    }
+
+                }
+
+                // path
+                .path {
+
+                    height: 2rem;
+                    margin: 0 0 0 0;
+                    padding: 0;
+
+                    // hover + selected state
+                    &:hover,
+                    &.selected {
+
+                        // path details
+                        .path-details {
+
+                            // icon
+                            .icon {
+
+                                //
+
+                            }
+
+                            // path name
+                            .path-name {
+
+                                color: @text-color-selected;
+
+                            }
+
+                            // matches
+                            .path-match-number {
+
+                                color: fade( @text-color-selected, 65% );
+
+                            }
+
+                        }
+
+                    }
+
+                    // collapsed state
+                    &.collapsed {
+
+                        // collapsed -> hover
+                        &:hover {
+
+                            // path details
+                            .path-details {
+
+                                // arrow
+                                &:before {
+
+                                    color: @ui-text-brite;
+
+                                    transition: @all220;
+
+                                }
+
+                                // path match
+                                .path-match-number {
+
+                                    color: @ui-text-blue;
+
+                                }
+
+                            }
+
+                        }
+
+                        // path details
+                        .path-details {
+
+                            // arrow
+                            &:before {
+
+                                color: fade( @text-color-selected, 30% );
+
+                                transition: @all220;
+
+                            }
+
+                        }
+
+                    }
+
+                    // expanded
+                    &:not(.collapsed) {
+
+                        // path details
+                        .path-details {
+
+                            // hover
+                            &:hover {
+
+                                // arrow
+                                &:before {
+
+                                    color: @ui-text-orange;
+
+                                    transition: @all220;
+
+                                }
+
+                            }
+
+                            // arrow
+                            &:before {
+
+                                color: @ui-text-blue;
+
+                                transition: @all220;
+
+                            }
+
+                        }
+
+                    }
+
+                    // path details
+                    .path-details {
+
+                        position: relative;
+
+                        z-index: 100;
+
+                        display: flex;
+
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+
+                        padding: 0 1rem 0 1rem;
+
+                        // arrow
+                        &:before {
+
+                            width: 1rem;
+
+                            color: @ui-text-brite;
+
+                            transition: @all220;
+
+                        }
+
+                        // common
+                        span {
+
+                            transition: @all220;
+
+                        }
+
+                        // icon
+                        .icon {
+
+                            display: inline-flex;
+
+                            flex-direction: row;
+                            justify-content: flex-start;
+                            align-items: center;
+
+                            height: 2rem;
+                            width: 1rem;
+                            margin: 0 0.5rem 0 0;
+                            padding: 0 0 2px 0;
+
+                            &:before {
+
+                                width: 1rem;
+                                height: 1rem;
+                                margin: 0 0 0 0;
+
+                            }
+
+                        }
+
+                        // text
+                        .path-name,
+                        .path-match-number {
+
+                            display: inline-flex;
+
+                            flex-direction: row;
+                            justify-content: flex-start;
+                            align-items: center;
+
+                            height: 2rem;
+
+                            font-size: 0.6875rem;
+                            font-weight: 600;
+
+                            line-height: 0.75rem;
+
+                            letter-spacing: 0.025em;
+
+                        }
+
+                        // path name
+                        .path-name {
+
+                            color: fade( @text-color-selected, 70% );
+
+                        }
+
+                        // path match
+                        .path-match-number {
+
+                            padding: 1px 0 0 0.5rem;
+
+                            font-size: 0.625rem;
+
+                            color: fade( @text-color-selected, 40% );
+
+                        }
+
+                    }
+
+                    // matches list
+                    .matches {
+
+                        // result item
+                        .search-result {
+
+                            margin: 0 0 0 0;
+                            padding: 0 0 0 0;
+
+                            box-shadow: none;
+
+                            // nested list
+                            .list-tree {
+
+                                background-color: @syntax-background-color;
+
+                                // line
+                                .list-item {
+
+                                    display: flex;
+
+                                    flex-direction: row;
+                                    justify-content: flex-start;
+                                    align-items: center;
+
+                                    height: 1.125rem;
+                                    margin: 0 0 0 0;
+
+                                    // match line
+                                    &.match-line {
+
+                                        // hover state
+                                        &:hover {
+
+                                            cursor: alias;
+
+                                            // background
+                                            &:before {
+
+                                                .fill( @cursor-line, 3% );
+
+                                            }
+
+                                            // line number
+                                            .line-number {
+
+                                                color: @ui-text-blue;
+
+                                                // match layer
+                                                &:after {
+
+                                                    .fill( @cursor-line, 5% );
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                        // background
+                                        &:before {
+
+                                            content: '';
+
+                                            position: absolute;
+
+                                            left: 0;
+                                            right: 0;
+
+                                            height: 1.125rem;
+
+                                            .fill( @ui-text-blue, 0% );
+
+                                            transition: @all220;
+
+                                        }
+
+                                        // line number
+                                        .line-number {
+
+                                            color: @ui-text-brite;
+
+                                            transition: @all220;
+
+                                            // match layer
+                                            &:after {
+
+                                                .fill( @cursor-line, 2.5% );
+
+                                                transition: @all220;
+
+                                            }
+
+                                        }
+
+                                        // code preview
+                                        .preview {
+
+                                            color: @code-text-color;
+
+                                        }
+
+                                    }
+
+                                    // line number
+                                    .line-number {
+
+                                        position: relative;
+
+                                        z-index: 10;
+
+                                        display: inline-flex;
+
+                                        flex-direction: row;
+                                        justify-content: flex-end;
+                                        align-items: center;
+
+                                        width: 4rem;
+                                        height: 1.125rem;
+                                        margin: 0 0.5rem 0 0;
+                                        padding: 0 0.75rem 0 0;
+
+                                        font-family: @decimano;
+                                        font-size: 0.625rem;
+                                        font-weight: 700;
+
+                                        color: fade( @code-text-color, 20% );
+
+                                        background-color: transparent;
+
+                                        // background
+                                        &:before,
+                                        &:after {
+
+                                            content: '';
+
+                                            position: absolute;
+
+                                            top: 0;
+                                            right: 0;
+                                            bottom: 0;
+                                            left: 0;
+
+                                        }
+
+                                        // base layer
+                                        &:before {
+
+                                            z-index: -2;
+
+                                            background-color: @syntax-gutter-background-color;
+
+                                        }
+
+                                        // match layer
+                                        &:after {
+
+                                            z-index: -1;
+
+                                            background-color: transparent;
+
+                                        }
+
+                                    }
+
+                                    // code preview
+                                    .preview {
+
+                                        font-family: @code-font !important;
+                                        font-size: 0.625rem;
+                                        font-weight: 600;
+
+                                        line-height: 1.125rem;
+
+                                        color: fade( @code-text-color, 50% );
+
+                                    }
+
+                                    // code match
+                                    .highlight-info {
+
+                                        display: inline-flex;
+
+                                        flex-direction: row;
+                                        justify-content: center;
+                                        align-items: center;
+
+                                        height: 1.125rem;
+                                        padding: 0 0.25rem 0 0.25rem;
+
+                                        border: none;
+
+                                        color: @match-highlight-color;
+
+                                        background-color: fade( @ui-text-brite, 10% );
+
+                                        box-shadow: none;
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    // element hook -> background
+    atom-pane {
+
+        // parent hook
+        .item-views {
+
+            // general hook
+            .pane-item {
+
+                // unique class
+                &.preview-pane {
+
+                    padding: 0 0 0 0;
+
+                    background-color: @find-pane-base-color;
+
+                }
+
+            }
+
+        }
+
+    }

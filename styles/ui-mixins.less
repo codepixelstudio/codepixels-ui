@@ -1,0 +1,67 @@
+// ui.mixins
+
+    // settings
+    @global_size : 1rem;
+
+// styles
+
+    // position
+
+        // declaration
+        .position( @position, @top, @right, @bottom, @left, @stack ) {
+
+            position: @position;
+
+            top: @top;
+            right: @right;
+            bottom: @bottom;
+            left: @left;
+
+            z-index: @stack;
+
+        }
+
+    // fonts
+
+        // declaration
+        .type( @font, @size, @bold ) {
+
+            font-family: @font;
+            font-size: @size;
+            font-weight: @bold;
+
+        }
+
+    // background
+
+        // declaration
+        .fill( @dye, @haze ) {
+
+            background-color: fade( @dye, @haze );
+
+        }
+
+    // flexbox
+
+        // shorthand
+        @iflex  : inline-flex;
+        @col    : column;
+        @row    : row;
+        @fstart : flex-start;
+        @fend   : flex-end;
+        @stween : space-between;
+        @round  : space-around;
+        @cent   : center;
+        @basel  : baseline;
+        @strch  : stretch;
+
+        // declaration
+        .flex( @inline, @direction, @justify, @align ) {
+
+            display: @inline;
+
+            flex-direction: @direction;
+            justify-content: @justify;
+            align-items: @align;
+
+        }
